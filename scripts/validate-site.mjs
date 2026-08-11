@@ -74,6 +74,9 @@ if ((index.match(/data-chapter-frame/g) ?? []).length !== 5) failures.push("Miss
 if (!script.includes("chapterObserver")) failures.push("Missing chapter transition observer");
 if (!styles.includes("chapter-register")) failures.push("Missing editorial chapter register system");
 if (!styles.includes("@keyframes radar-sweep")) failures.push("Missing cockpit radar sweep treatment");
+if (`${index}\n${translationsSource}`.includes("NING.FDE")) failures.push("Overstated FDE wordmark found");
+if (!translationsSource.includes('class="hero-focus">field friction</strong>')) failures.push("Missing deliberate English hero hierarchy");
+if (!styles.includes(".hero h1 .hero-focus")) failures.push("Missing hero title hierarchy styles");
 if (!index.includes('class="radar-rig reveal"')) failures.push("Missing integrated cockpit radar rig");
 for (const symbol of ["reticle", "waveform", "bearing", "nodes", "calibration", "radar-frame", "umbilical"]) {
   if (!telemetry.includes(`id="${symbol}"`)) failures.push(`Missing telemetry symbol: ${symbol}`);
