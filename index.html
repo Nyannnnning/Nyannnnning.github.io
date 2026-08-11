@@ -23,10 +23,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260811-4" />
+    <link rel="stylesheet" href="styles.css?v=20260811-5" />
     <script>document.documentElement.classList.remove('no-js');</script>
     <script src="translations.js" defer></script>
-    <script src="script.js?v=20260811-2" defer></script>
+    <script src="script.js?v=20260811-5" defer></script>
     <script src="hero-shader.js?v=20260811-3" defer></script>
   </head>
   <body>
@@ -116,7 +116,7 @@
           <p data-i18n="workIntro">三個不同場景，共用同一種工作方式：先釐清問題，再串起工程、營運與決策者，直到成果可以被驗證。</p>
         </div>
 
-        <article class="case-study case-visual reveal" data-reflective>
+        <article class="case-study case-visual reveal" data-reflective data-case-flow>
           <div class="case-number">01</div>
           <div class="case-copy">
             <div class="case-labels"><span data-i18n="case1Label1">視覺情報</span><span data-i18n="case1Label2">營運分析</span><span>2026</span></div>
@@ -129,15 +129,15 @@
             </dl>
           </div>
           <div class="case-visualization" aria-label="競品情報處理流程" data-i18n-aria="case1Aria">
-            <div class="pipeline-line"></div>
-            <div class="pipeline-step"><span>01</span><b data-i18n="capture">採集</b><small>Playwright</small></div>
-            <div class="pipeline-step"><span>02</span><b data-i18n="interpret">辨識</b><small data-i18n="visionTools">文字 · 圖像 · 視覺模型</small></div>
-            <div class="pipeline-step"><span>03</span><b data-i18n="review">覆核</b><small data-i18n="humanReview">人工檢核</small></div>
-            <div class="pipeline-step"><span>04</span><b data-i18n="deliver">交付</b><small data-i18n="evidenceReport">報表 · 證據</small></div>
+            <div class="pipeline-line flow-line"></div>
+            <div class="pipeline-step flow-sequence" style="--flow-delay: .18s"><span>01</span><b data-i18n="capture">採集</b><small>Playwright</small></div>
+            <div class="pipeline-step flow-sequence" style="--flow-delay: .36s"><span>02</span><b data-i18n="interpret">辨識</b><small data-i18n="visionTools">文字 · 圖像 · 視覺模型</small></div>
+            <div class="pipeline-step flow-sequence" style="--flow-delay: .54s"><span>03</span><b data-i18n="review">覆核</b><small data-i18n="humanReview">人工檢核</small></div>
+            <div class="pipeline-step flow-sequence" style="--flow-delay: .72s"><span>04</span><b data-i18n="deliver">交付</b><small data-i18n="evidenceReport">報表 · 證據</small></div>
           </div>
         </article>
 
-        <article class="case-study case-exposure reveal" data-reflective>
+        <article class="case-study case-exposure reveal" data-reflective data-case-flow>
           <div class="case-number">02</div>
           <div class="case-copy">
             <div class="case-labels"><span data-i18n="case2Label1">應用程式自動化</span><span data-i18n="case2Label2">交付可靠性</span><span>2026</span></div>
@@ -151,11 +151,11 @@
           </div>
           <div class="audit-console" aria-label="稽查系統狀態示意" data-i18n-aria="case2Aria">
             <div class="console-top"><span data-i18n="auditTime">稽核 / 03:00</span><span class="status-live" data-i18n="healthy">● 正常</span></div>
-            <div class="console-row"><span data-i18n="appSession">應用程式工作階段</span><b data-i18n="recovered">已復原</b><i>00:42</i></div>
-            <div class="console-row"><span data-i18n="visualRead">視覺辨識</span><b data-i18n="verified">已驗證</b><i>01:18</i></div>
-            <div class="console-row"><span data-i18n="rankMerge">排名合併</span><b data-i18n="complete">已完成</b><i>01:44</i></div>
-            <div class="console-row"><span data-i18n="report">報告</span><b data-i18n="delivered">已送達</b><i>01:52</i></div>
-            <div class="console-chart" aria-hidden="true">
+            <div class="console-row flow-sequence" style="--flow-delay: .18s"><span data-i18n="appSession">應用程式工作階段</span><b data-i18n="recovered">已復原</b><i>00:42</i></div>
+            <div class="console-row flow-sequence" style="--flow-delay: .34s"><span data-i18n="visualRead">視覺辨識</span><b data-i18n="verified">已驗證</b><i>01:18</i></div>
+            <div class="console-row flow-sequence" style="--flow-delay: .5s"><span data-i18n="rankMerge">排名合併</span><b data-i18n="complete">已完成</b><i>01:44</i></div>
+            <div class="console-row flow-sequence" style="--flow-delay: .66s"><span data-i18n="report">報告</span><b data-i18n="delivered">已送達</b><i>01:52</i></div>
+            <div class="console-chart flow-sequence" style="--flow-delay: .82s" aria-hidden="true">
               <span style="--h: 36%; --d: .15s"></span><span style="--h: 53%; --d: .75s"></span><span style="--h: 47%; --d: 1.4s"></span>
               <span style="--h: 72%; --d: .4s"></span><span style="--h: 63%; --d: 1.05s"></span><span style="--h: 86%; --d: 1.75s"></span>
               <span style="--h: 78%; --d: .62s"></span><span style="--h: 94%; --d: 1.25s"></span><span style="--h: 88%; --d: 1.95s"></span>
@@ -163,7 +163,7 @@
           </div>
         </article>
 
-        <article class="case-study case-governance reveal" data-reflective>
+        <article class="case-study case-governance reveal" data-reflective data-case-flow>
           <div class="case-number">03</div>
           <div class="case-copy">
             <div class="case-labels"><span data-i18n="case3Label1">使用治理</span><span data-i18n="case3Label2">權限與成本</span><span>2026</span></div>
@@ -176,11 +176,46 @@
             </dl>
           </div>
           <div class="governance-map" aria-label="治理資料流" data-i18n-aria="case3Aria">
-            <div class="governance-source source-a"><span>A</span><b data-i18n="officialData">正式資料</b><small data-i18n="officialSource">正式來源</small></div>
-            <div class="governance-source source-b"><span>B</span><b data-i18n="agentData">代理資料</b><small data-i18n="operationalSource">營運來源</small></div>
-            <div class="governance-source source-c"><span>C</span><b>MCP</b><small data-i18n="shadowOnly">僅供影子比對</small></div>
-            <div class="governance-hub"><span data-i18n="accessControl">權限控制</span><strong data-i18n="portal">平台</strong><small data-i18n="portalDetail">成本 · 用量 · 身分</small></div>
-            <svg viewBox="0 0 400 260" role="presentation" aria-hidden="true"><path d="M98 60 C170 60 150 130 200 130" /><path d="M98 130 C145 130 150 130 200 130" /><path class="shadow-path" d="M98 202 C170 202 150 130 200 130" /></svg>
+            <div class="route-legend flow-sequence" style="--flow-delay: .06s" aria-hidden="true">
+              <span><i class="legend-authoritative"></i><span data-i18n="authoritativeRoute">正式寫入</span></span>
+              <span><i class="legend-shadow"></i><span data-i18n="shadowRoute">影子比對</span></span>
+            </div>
+
+            <div class="governance-source source-a flow-sequence" style="--flow-delay: .16s">
+              <span class="source-code">A</span><div><b data-i18n="officialData">正式資料</b><small data-i18n="officialSource">正式來源</small></div><i class="source-state"></i>
+            </div>
+            <div class="governance-source source-b flow-sequence" style="--flow-delay: .32s">
+              <span class="source-code">B</span><div><b data-i18n="agentData">代理資料</b><small data-i18n="operationalSource">營運來源</small></div><i class="source-state"></i>
+            </div>
+            <div class="governance-source source-c flow-sequence" style="--flow-delay: .48s">
+              <span class="source-code">C</span><div><b>MCP</b><small data-i18n="shadowOnly">僅供影子比對</small></div><i class="source-state"></i>
+            </div>
+
+            <div class="governance-gate flow-sequence" style="--flow-delay: .76s">
+              <span>01</span><b data-i18n="policyGate">規則閘門</b><small data-i18n="policyGateDetail">身分 · 權限 · 新鮮度</small>
+            </div>
+            <div class="governance-hub flow-sequence" style="--flow-delay: 1.02s">
+              <em>03 / 03</em><span data-i18n="accessControl">權限控制</span><strong data-i18n="portal">平台</strong><small data-i18n="portalDetail">成本 · 用量 · 身分</small>
+            </div>
+
+            <svg viewBox="0 0 560 590" role="presentation" aria-hidden="true">
+              <defs>
+                <linearGradient id="governance-route-metal" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#4d555b" /><stop offset=".5" stop-color="#aeb3b6" /><stop offset="1" stop-color="#343b40" />
+                </linearGradient>
+              </defs>
+              <path class="governance-route route-a" pathLength="1" d="M190 120 C248 120 226 295 258 295" />
+              <path class="governance-route route-b" pathLength="1" d="M190 295 C218 295 234 295 258 295" />
+              <path class="governance-route shadow-path" d="M190 470 C248 470 226 295 258 295" />
+              <path class="governance-route route-output" pathLength="1" d="M340 295 C362 295 383 295 402 295" />
+              <circle class="route-junction" cx="258" cy="295" r="4" />
+              <circle class="route-checkpoint" cx="382" cy="295" r="3" />
+            </svg>
+
+            <div class="route-audit flow-sequence" style="--flow-delay: 1.2s">
+              <span><i></i><b data-i18n="authoritativeHealthy">正式來源有效</b></span>
+              <span><i></i><b data-i18n="shadowProtected">影子資料不覆寫</b></span>
+            </div>
           </div>
         </article>
       </section>

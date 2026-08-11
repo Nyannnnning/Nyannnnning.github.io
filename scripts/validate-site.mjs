@@ -63,6 +63,10 @@ if (!heroShader.includes("webglcontextlost")) failures.push("Missing WebGL fallb
 if (!heroShader.includes("prefers-reduced-motion")) failures.push("Missing shader reduced-motion fallback");
 if (!styles.includes("--frost-silver")) failures.push("Missing translucent silver surface system");
 if (!styles.includes("--frost-shadow")) failures.push("Missing frosted surface depth system");
+if ((index.match(/data-case-flow/g) ?? []).length !== 3) failures.push("Missing case narrative hooks");
+if (!script.includes("caseFlowObserver")) failures.push("Missing case flow observer");
+if (!styles.includes("flow-materialize")) failures.push("Missing staged case flow animation");
+if (!styles.includes("governance-route")) failures.push("Missing governance routing visual system");
 if (`${index}\n${translationsSource}`.includes("追蹤 GitHub 整理進度")) failures.push("Stale GitHub CTA copy found");
 
 if (failures.length) {

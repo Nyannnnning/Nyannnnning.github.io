@@ -141,6 +141,19 @@ const revealObserver = new IntersectionObserver(
 
 document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
 
+const caseFlowObserver = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("case-active");
+      observer.unobserve(entry.target);
+    });
+  },
+  { threshold: 0.24, rootMargin: "0px 0px -8%" },
+);
+
+document.querySelectorAll("[data-case-flow]").forEach((element) => caseFlowObserver.observe(element));
+
 const navObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
