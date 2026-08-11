@@ -24,7 +24,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="image" href="assets/hero-silver-sentinel.webp" type="image/webp" fetchpriority="high" />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260811-7" />
+    <link rel="stylesheet" href="styles.css?v=20260811-8" />
     <script>document.documentElement.classList.remove('no-js');</script>
     <script src="translations.js?v=20260811-2" defer></script>
     <script src="script.js?v=20260811-6" defer></script>
@@ -82,21 +82,31 @@
           <figcaption><span data-i18n="portraitFigure">圖像 001</span><i></i><span data-i18n="portraitCaption">現場交付 · 人在迴路</span></figcaption>
         </figure>
 
-        <div class="system-orbit reveal" data-reflective aria-label="從現場問題到可驗證交付的流程示意" data-i18n-aria="orbitAria">
-          <div class="orbit-meta"><span data-i18n="orbitTitle">即時交付地圖</span><span>03 / 03</span></div>
-          <div class="orbit-canvas">
-            <span class="orbit-ring ring-one"></span><span class="orbit-ring ring-two"></span><span class="orbit-ring ring-three"></span>
-            <span class="orbit-node node-input" data-i18n-html="orbitInput">現場<br />問題</span>
-            <span class="orbit-node node-ai" data-i18n-html="orbitPrototype">原型<br />整合</span>
-            <span class="orbit-node node-human" data-i18n-html="orbitReview">團隊<br />覆核</span>
-            <span class="orbit-node node-output" data-i18n-html="orbitOutput">交付<br />就緒</span>
-            <span class="orbit-core"><b>N</b><small data-i18n="orbitCore">交付</small></span>
-            <span class="orbit-pulse pulse-one"></span><span class="orbit-pulse pulse-two"></span>
+        <div class="radar-rig reveal">
+          <svg class="radar-rig-frame" viewBox="0 0 320 324" aria-hidden="true"><use href="assets/telemetry.svg#radar-frame"></use></svg>
+          <svg class="radar-umbilical" viewBox="0 0 180 96" aria-hidden="true"><use href="assets/telemetry.svg#umbilical"></use></svg>
+          <span class="radar-fastener fastener-nw" aria-hidden="true"></span>
+          <span class="radar-fastener fastener-se" aria-hidden="true"></span>
+          <div class="radar-rig-readout" aria-hidden="true">
+            <svg viewBox="0 0 96 32"><use href="assets/telemetry.svg#waveform"></use></svg>
+            <span>25.04°N</span><i></i><span>121.56°E</span>
           </div>
-          <div class="orbit-log">
-            <span><i></i><span data-i18n="orbitLog1">證據已附上</span></span>
-            <span><i></i><span data-i18n="orbitLog2">風險已標記</span></span>
-            <span><i></i><span data-i18n="orbitLog3">責任有人承接</span></span>
+          <div class="system-orbit" data-reflective aria-label="從現場問題到可驗證交付的流程示意" data-i18n-aria="orbitAria">
+            <div class="orbit-meta"><span data-i18n="orbitTitle">即時交付地圖</span><span>03 / 03</span></div>
+            <div class="orbit-canvas">
+              <span class="orbit-ring ring-one"></span><span class="orbit-ring ring-two"></span><span class="orbit-ring ring-three"></span>
+              <span class="orbit-node node-input" data-i18n-html="orbitInput">現場<br />問題</span>
+              <span class="orbit-node node-ai" data-i18n-html="orbitPrototype">原型<br />整合</span>
+              <span class="orbit-node node-human" data-i18n-html="orbitReview">團隊<br />覆核</span>
+              <span class="orbit-node node-output" data-i18n-html="orbitOutput">交付<br />就緒</span>
+              <span class="orbit-core"><b>N</b><small data-i18n="orbitCore">交付</small></span>
+              <span class="orbit-pulse pulse-one"></span><span class="orbit-pulse pulse-two"></span>
+            </div>
+            <div class="orbit-log">
+              <span><i></i><span data-i18n="orbitLog1">證據已附上</span></span>
+              <span><i></i><span data-i18n="orbitLog2">風險已標記</span></span>
+              <span><i></i><span data-i18n="orbitLog3">責任有人承接</span></span>
+            </div>
           </div>
         </div>
       </section>
@@ -117,7 +127,7 @@
       </section>
 
       <section class="work-section section-shell" id="work" aria-labelledby="work-title" data-chapter-frame data-folio="01 — 2026">
-        <div class="chapter-register" aria-hidden="true"><span>01</span><i></i><b data-i18n="chapterWork">代表專案</b><small>NING / 2026</small></div>
+        <div class="chapter-register" aria-hidden="true"><span>01</span><svg class="telemetry-glyph" viewBox="0 0 64 64"><use href="assets/telemetry.svg#reticle"></use></svg><i></i><b data-i18n="chapterWork">代表專案</b><small>NING / 2026</small></div>
         <div class="section-heading reveal">
           <p class="section-index" data-i18n="workIndex">01 / 代表專案</p>
           <h2 id="work-title" data-i18n-html="workTitle">不只提出方向，<br /><em>也把交付往前推。</em></h2>
@@ -229,7 +239,7 @@
       </section>
 
       <section class="system-section chapter-inverse" id="system" aria-labelledby="system-title" data-chapter-frame data-folio="02 — 2026">
-        <div class="chapter-register" aria-hidden="true"><span>02</span><i></i><b data-i18n="chapterMethod">工作方式</b><small>NING / 2026</small></div>
+        <div class="chapter-register" aria-hidden="true"><span>02</span><svg class="telemetry-glyph telemetry-waveform" viewBox="0 0 96 32"><use href="assets/telemetry.svg#waveform"></use></svg><i></i><b data-i18n="chapterMethod">工作方式</b><small>NING / 2026</small></div>
         <div class="section-shell system-inner">
           <div class="section-heading light reveal">
             <p class="section-index" data-i18n="methodIndex">02 / 工作方式</p>
@@ -258,7 +268,7 @@
       </section>
 
       <section class="trajectory-section section-shell" id="trajectory" aria-labelledby="trajectory-title" data-chapter-frame data-folio="03 — 2026">
-        <div class="chapter-register" aria-hidden="true"><span>03</span><i></i><b data-i18n="chapterTrajectory">成長軌跡</b><small>NING / 2026</small></div>
+        <div class="chapter-register" aria-hidden="true"><span>03</span><svg class="telemetry-glyph" viewBox="0 0 64 64"><use href="assets/telemetry.svg#bearing"></use></svg><i></i><b data-i18n="chapterTrajectory">成長軌跡</b><small>NING / 2026</small></div>
         <div class="section-heading reveal">
           <p class="section-index" data-i18n="trajectoryIndex">03 / 成長軌跡</p>
           <h2 id="trajectory-title" data-i18n-html="trajectoryTitle">從協調交付，<br /><em>到能親手補位。</em></h2>
@@ -272,7 +282,7 @@
       </section>
 
       <section class="experiments-section section-shell" aria-labelledby="experiments-title" data-chapter-frame data-folio="04 — 2026">
-        <div class="chapter-register" aria-hidden="true"><span>04</span><i></i><b data-i18n="chapterExperiments">實作探索</b><small>NING / 2026</small></div>
+        <div class="chapter-register" aria-hidden="true"><span>04</span><svg class="telemetry-glyph telemetry-nodes" viewBox="0 0 96 48"><use href="assets/telemetry.svg#nodes"></use></svg><i></i><b data-i18n="chapterExperiments">實作探索</b><small>NING / 2026</small></div>
         <div class="section-heading compact reveal"><p class="section-index" data-i18n="experimentsIndex">04 / 實作探索</p><h2 id="experiments-title" data-i18n-html="experimentsTitle">跨越不同領域，<br /><em>維持同一種判斷。</em></h2></div>
         <div class="experiment-grid">
           <article class="experiment-card reveal" data-reflective><span data-i18n="exp1Label">機器學習 / 可解釋性</span><h3 data-i18n="exp1Title">生存幾何</h3><p data-i18n="exp1Desc">把乘客視為完整實體，而不是試算表中的單列資料；透過特徵壓力、原型與規則探索解釋預測。</p><a href="https://github.com/Nyannnnning/Kaggle-Titanic-Playground" data-i18n="viewRepo">查看公開程式庫 ↗</a></article>
@@ -284,7 +294,7 @@
 
       <section class="github-section" id="github" aria-labelledby="github-title" data-chapter-frame data-folio="05 — 2026">
         <div class="github-noise" aria-hidden="true"></div>
-        <div class="chapter-register" aria-hidden="true"><span>05</span><i></i><b data-i18n="chapterGithub">進一步了解</b><small>NING / 2026</small></div>
+        <div class="chapter-register" aria-hidden="true"><span>05</span><svg class="telemetry-glyph" viewBox="0 0 64 64"><use href="assets/telemetry.svg#calibration"></use></svg><i></i><b data-i18n="chapterGithub">進一步了解</b><small>NING / 2026</small></div>
         <div class="section-shell github-inner reveal">
           <p class="section-index" data-i18n="githubIndex">05 / 進一步了解</p>
           <h2 id="github-title" data-i18n-html="githubTitle">想看我怎麼做，<br /><em>到 GitHub 看公開實作。</em></h2>

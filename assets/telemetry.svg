@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="reticle" viewBox="0 0 64 64">
+    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="32" cy="32" r="14" opacity=".72"/>
+      <path d="M32 4v12M32 48v12M4 32h12M48 32h12"/>
+      <path d="M17 17l5 5M42 42l5 5M47 17l-5 5M22 42l-5 5" opacity=".38"/>
+      <circle cx="32" cy="32" r="2.5" fill="currentColor" stroke="none"/>
+    </g>
+  </symbol>
+
+  <symbol id="waveform" viewBox="0 0 96 32">
+    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 16h13l4-7 7 16 7-23 8 27 7-13h10l5-8 8 16 6-8h18"/>
+      <path d="M2 28h92" opacity=".22"/>
+      <path d="M10 25v6M31 25v6M52 25v6M73 25v6" opacity=".36"/>
+    </g>
+  </symbol>
+
+  <symbol id="bearing" viewBox="0 0 64 64">
+    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 44A27 27 0 0 1 56 44"/>
+      <path d="M13 35l-5-2M18 25l-4-4M28 19l-1-6M39 20l2-6M48 27l5-4M52 37l6-1" opacity=".48"/>
+      <path d="M32 45V19l7 12-7 14Z"/>
+      <circle cx="32" cy="45" r="3" fill="currentColor" stroke="none"/>
+      <path d="M16 50h32" opacity=".28"/>
+    </g>
+  </symbol>
+
+  <symbol id="nodes" viewBox="0 0 96 48">
+    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M11 24h19l9-13h18l10 13h18" opacity=".74"/>
+      <path d="M39 11v26h18V11" opacity=".3"/>
+      <circle cx="10" cy="24" r="4"/>
+      <circle cx="39" cy="11" r="4" fill="currentColor"/>
+      <circle cx="57" cy="37" r="4"/>
+      <circle cx="86" cy="24" r="4" fill="currentColor"/>
+    </g>
+  </symbol>
+
+  <symbol id="calibration" viewBox="0 0 64 64">
+    <g fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter">
+      <path d="M5 20V5h15M44 5h15v15M59 44v15H44M20 59H5V44"/>
+      <path d="M16 32h32M32 16v32" opacity=".24"/>
+      <path d="M24 29v6M29 24h6M40 29v6M29 40h6" opacity=".7"/>
+      <circle cx="32" cy="32" r="11" opacity=".4"/>
+    </g>
+  </symbol>
+
+  <symbol id="radar-frame" viewBox="0 0 320 324">
+    <g fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="round">
+      <path d="M18 72V25c0-4 3-7 7-7h48M247 18h48c4 0 7 3 7 7v47M302 252v47c0 4-3 7-7 7h-48M73 306H25c-4 0-7-3-7-7v-47"/>
+      <path d="M8 101h20M8 121h12M8 203h12M8 223h20M292 101h20M300 121h12M300 203h12M292 223h20" opacity=".48"/>
+      <path d="M52 8v20M72 8v12M248 8v12M268 8v20M52 296v20M72 304v12M248 304v12M268 296v20" opacity=".48"/>
+      <circle cx="18" cy="18" r="3" fill="currentColor" stroke="none"/>
+      <circle cx="302" cy="306" r="3" fill="currentColor" stroke="none"/>
+      <path d="M28 82v160M292 82v160" opacity=".18" stroke-dasharray="2 7"/>
+    </g>
+  </symbol>
+
+  <symbol id="umbilical" viewBox="0 0 180 96">
+    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 75C38 75 44 18 89 18s45 54 87 54"/>
+      <path d="M4 82c39 0 47-56 86-56 40 0 46 53 86 53" opacity=".28"/>
+      <path d="M15 68l-8 7 8 7M164 65l12 7-11 8" opacity=".62"/>
+      <circle cx="89" cy="18" r="4" fill="currentColor" stroke="none"/>
+      <circle cx="177" cy="72" r="2.5" fill="currentColor" stroke="none"/>
+      <path d="M50 48h18M111 45h18" opacity=".38" stroke-dasharray="2 4"/>
+    </g>
+  </symbol>
+</svg>

@@ -6,6 +6,7 @@ const index = await readFile(new URL("index.html", root), "utf8");
 const styles = await readFile(new URL("styles.css", root), "utf8");
 const script = await readFile(new URL("script.js", root), "utf8");
 const heroShader = await readFile(new URL("hero-shader.js", root), "utf8");
+const telemetry = await readFile(new URL("assets/telemetry.svg", root), "utf8");
 const translationsSource = await readFile(new URL("translations.js", root), "utf8");
 
 const failures = [];
@@ -73,6 +74,11 @@ if ((index.match(/data-chapter-frame/g) ?? []).length !== 5) failures.push("Miss
 if (!script.includes("chapterObserver")) failures.push("Missing chapter transition observer");
 if (!styles.includes("chapter-register")) failures.push("Missing editorial chapter register system");
 if (!styles.includes("@keyframes radar-sweep")) failures.push("Missing cockpit radar sweep treatment");
+if (!index.includes('class="radar-rig reveal"')) failures.push("Missing integrated cockpit radar rig");
+for (const symbol of ["reticle", "waveform", "bearing", "nodes", "calibration", "radar-frame", "umbilical"]) {
+  if (!telemetry.includes(`id="${symbol}"`)) failures.push(`Missing telemetry symbol: ${symbol}`);
+}
+if ((index.match(/class="telemetry-glyph/g) ?? []).length !== 5) failures.push("Missing chapter telemetry glyph system");
 if (!styles.includes("border-radius: 18px 18px 28px 18px")) failures.push("Missing rounded case module treatment");
 if (`${index}\n${translationsSource}`.includes("追蹤 GitHub 整理進度")) failures.push("Stale GitHub CTA copy found");
 
