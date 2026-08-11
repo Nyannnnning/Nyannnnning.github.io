@@ -22,11 +22,12 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="assets/hero-silver-sentinel.webp" type="image/webp" fetchpriority="high" />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260811-5" />
+    <link rel="stylesheet" href="styles.css?v=20260811-6" />
     <script>document.documentElement.classList.remove('no-js');</script>
     <script src="translations.js" defer></script>
-    <script src="script.js?v=20260811-5" defer></script>
+    <script src="script.js?v=20260811-6" defer></script>
     <script src="hero-shader.js?v=20260811-3" defer></script>
   </head>
   <body>
@@ -75,6 +76,12 @@
           </div>
         </div>
 
+        <figure class="hero-portrait" data-hero-portrait role="img" aria-label="銀色太空裝甲人物，象徵在複雜現場中推進交付" data-i18n-aria="heroPortraitAria">
+          <span class="portrait-orbit" aria-hidden="true"></span>
+          <img src="assets/hero-silver-sentinel.webp" width="962" height="1522" alt="" fetchpriority="high" decoding="async" />
+          <figcaption><span data-i18n="portraitFigure">圖像 001</span><i></i><span data-i18n="portraitCaption">現場交付 · 人在迴路</span></figcaption>
+        </figure>
+
         <div class="system-orbit reveal" data-reflective aria-label="從現場問題到可驗證交付的流程示意" data-i18n-aria="orbitAria">
           <div class="orbit-meta"><span data-i18n="orbitTitle">即時交付地圖</span><span>03 / 03</span></div>
           <div class="orbit-canvas">
@@ -109,11 +116,12 @@
         </div>
       </section>
 
-      <section class="work-section section-shell" id="work" aria-labelledby="work-title">
+      <section class="work-section section-shell" id="work" aria-labelledby="work-title" data-chapter-frame data-folio="01 — 2026">
+        <div class="chapter-register" aria-hidden="true"><span>01</span><i></i><b data-i18n="chapterWork">代表專案</b><small>NING / 2026</small></div>
         <div class="section-heading reveal">
           <p class="section-index" data-i18n="workIndex">01 / 代表專案</p>
           <h2 id="work-title" data-i18n-html="workTitle">不只提出方向，<br /><em>也把交付往前推。</em></h2>
-          <p data-i18n="workIntro">三個不同場景，共用同一種工作方式：先釐清問題，再串起工程、營運與決策者，直到成果可以被驗證。</p>
+          <p class="editorial-intro" data-i18n="workIntro">三個不同場景，共用同一種工作方式：先釐清問題，再串起工程、營運與決策者，直到成果可以被驗證。</p>
         </div>
 
         <article class="case-study case-visual reveal" data-reflective data-case-flow>
@@ -220,12 +228,13 @@
         </article>
       </section>
 
-      <section class="system-section" id="system" aria-labelledby="system-title">
+      <section class="system-section chapter-inverse" id="system" aria-labelledby="system-title" data-chapter-frame data-folio="02 — 2026">
+        <div class="chapter-register" aria-hidden="true"><span>02</span><i></i><b data-i18n="chapterMethod">工作方式</b><small>NING / 2026</small></div>
         <div class="section-shell system-inner">
           <div class="section-heading light reveal">
             <p class="section-index" data-i18n="methodIndex">02 / 工作方式</p>
             <h2 id="system-title" data-i18n-html="methodTitle">從模糊需求，<br /><em>走到可驗證交付。</em></h2>
-            <p data-i18n="methodIntro">我的定位不是包辦所有工程，而是讓問題、決策、實作與交付保持連續；在團隊缺口出現時，我也能直接完成部分技術補位。</p>
+            <p class="editorial-intro" data-i18n="methodIntro">我的定位不是包辦所有工程，而是讓問題、決策、實作與交付保持連續；在團隊缺口出現時，我也能直接完成部分技術補位。</p>
           </div>
           <div class="decision-stack reveal">
             <div class="stack-row stack-input"><span>01</span><b data-i18n="step1">現場問題</b><p data-i18n="step1Desc">使用情境 · 資料限制 · 人工作業 · 真實風險</p></div>
@@ -248,7 +257,8 @@
         </div>
       </section>
 
-      <section class="trajectory-section section-shell" id="trajectory" aria-labelledby="trajectory-title">
+      <section class="trajectory-section section-shell" id="trajectory" aria-labelledby="trajectory-title" data-chapter-frame data-folio="03 — 2026">
+        <div class="chapter-register" aria-hidden="true"><span>03</span><i></i><b data-i18n="chapterTrajectory">成長軌跡</b><small>NING / 2026</small></div>
         <div class="section-heading reveal">
           <p class="section-index" data-i18n="trajectoryIndex">03 / 成長軌跡</p>
           <h2 id="trajectory-title" data-i18n-html="trajectoryTitle">從協調交付，<br /><em>到能親手補位。</em></h2>
@@ -261,7 +271,8 @@
         </ol>
       </section>
 
-      <section class="experiments-section section-shell" aria-labelledby="experiments-title">
+      <section class="experiments-section section-shell" aria-labelledby="experiments-title" data-chapter-frame data-folio="04 — 2026">
+        <div class="chapter-register" aria-hidden="true"><span>04</span><i></i><b data-i18n="chapterExperiments">實作探索</b><small>NING / 2026</small></div>
         <div class="section-heading compact reveal"><p class="section-index" data-i18n="experimentsIndex">04 / 實作探索</p><h2 id="experiments-title" data-i18n-html="experimentsTitle">跨越不同領域，<br /><em>維持同一種判斷。</em></h2></div>
         <div class="experiment-grid">
           <article class="experiment-card reveal" data-reflective><span data-i18n="exp1Label">機器學習 / 可解釋性</span><h3 data-i18n="exp1Title">生存幾何</h3><p data-i18n="exp1Desc">把乘客視為完整實體，而不是試算表中的單列資料；透過特徵壓力、原型與規則探索解釋預測。</p><a href="https://github.com/Nyannnnning/Kaggle-Titanic-Playground" data-i18n="viewRepo">查看公開程式庫 ↗</a></article>
@@ -271,13 +282,14 @@
         </div>
       </section>
 
-      <section class="github-section" id="github" aria-labelledby="github-title">
+      <section class="github-section" id="github" aria-labelledby="github-title" data-chapter-frame data-folio="05 — 2026">
         <div class="github-noise" aria-hidden="true"></div>
+        <div class="chapter-register" aria-hidden="true"><span>05</span><i></i><b data-i18n="chapterGithub">進一步了解</b><small>NING / 2026</small></div>
         <div class="section-shell github-inner reveal">
           <p class="section-index" data-i18n="githubIndex">05 / 進一步了解</p>
           <h2 id="github-title" data-i18n-html="githubTitle">想看我怎麼做，<br /><em>到 GitHub 看公開實作。</em></h2>
           <div class="github-copy">
-            <p data-i18n="githubDesc">網站整理的是我的工作方式與代表案例；GitHub 則放目前能公開的程式庫、實驗與版本紀錄。你可以直接查看我如何拆解問題、驗證假設，以及哪些嘗試最後沒有被採用。</p>
+            <p class="editorial-intro" data-i18n="githubDesc">網站整理的是我的工作方式與代表案例；GitHub 則放目前能公開的程式庫、實驗與版本紀錄。你可以直接查看我如何拆解問題、驗證假設，以及哪些嘗試最後沒有被採用。</p>
             <a class="button button-light" href="https://github.com/Nyannnnning"><span data-i18n="followGithub">前往 GitHub</span><span aria-hidden="true">↗</span></a>
           </div>
           <div class="github-ledger" data-reflective aria-label="GitHub 公開實作摘要" data-i18n-aria="githubAria">

@@ -6,6 +6,8 @@ const menu = document.querySelector("[data-menu]");
 const modeToggle = document.querySelector("[data-mode-toggle]");
 const languageButtons = [...document.querySelectorAll("[data-language]")];
 const translations = window.NING_TRANSLATIONS ?? {};
+const heroPortrait = document.querySelector("[data-hero-portrait]");
+const heroPortraitImage = heroPortrait?.querySelector("img");
 const navLinks = [...document.querySelectorAll('.site-nav a[href^="#"]')];
 const sections = navLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
@@ -58,6 +60,13 @@ applyLanguage(requestedLanguage || savedLanguage, false);
 languageButtons.forEach((button) => {
   button.addEventListener("click", () => applyLanguage(button.dataset.language));
 });
+
+const revealPortrait = () => requestAnimationFrame(() => heroPortrait?.classList.add("portrait-ready"));
+if (heroPortraitImage?.complete) revealPortrait();
+else {
+  heroPortraitImage?.addEventListener("load", revealPortrait, { once: true });
+  heroPortraitImage?.addEventListener("error", revealPortrait, { once: true });
+}
 
 const setHeaderState = () => header?.classList.toggle("scrolled", window.scrollY > 24);
 setHeaderState();
@@ -153,6 +162,19 @@ const caseFlowObserver = new IntersectionObserver(
 );
 
 document.querySelectorAll("[data-case-flow]").forEach((element) => caseFlowObserver.observe(element));
+
+const chapterObserver = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("chapter-active");
+      observer.unobserve(entry.target);
+    });
+  },
+  { threshold: 0.08, rootMargin: "0px 0px -18%" },
+);
+
+document.querySelectorAll("[data-chapter-frame]").forEach((element) => chapterObserver.observe(element));
 
 const navObserver = new IntersectionObserver(
   (entries) => {

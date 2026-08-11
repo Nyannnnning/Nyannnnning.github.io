@@ -21,7 +21,7 @@ for (const reference of index.matchAll(/(?:href|src)="([^"]+)"/g)) {
   if (target.startsWith("#") && !index.includes(`id="${target.slice(1)}"`)) {
     failures.push(`Broken internal link: ${target}`);
   }
-  if (/^(styles\.css|script\.js|hero-shader\.js|translations\.js|favicon\.svg)$/.test(localTarget) && !existsSync(new URL(localTarget, root))) {
+  if ((/^(styles\.css|script\.js|hero-shader\.js|translations\.js|favicon\.svg)$/.test(localTarget) || localTarget.startsWith("assets/")) && !existsSync(new URL(localTarget, root))) {
     failures.push(`Missing local asset: ${target}`);
   }
 }
@@ -67,6 +67,11 @@ if ((index.match(/data-case-flow/g) ?? []).length !== 3) failures.push("Missing 
 if (!script.includes("caseFlowObserver")) failures.push("Missing case flow observer");
 if (!styles.includes("flow-materialize")) failures.push("Missing staged case flow animation");
 if (!styles.includes("governance-route")) failures.push("Missing governance routing visual system");
+if (!index.includes("data-hero-portrait")) failures.push("Missing hero portrait layer");
+if (!styles.includes("portrait-sheen")) failures.push("Missing masked portrait material pass");
+if ((index.match(/data-chapter-frame/g) ?? []).length !== 5) failures.push("Missing editorial chapter frames");
+if (!script.includes("chapterObserver")) failures.push("Missing chapter transition observer");
+if (!styles.includes("chapter-register")) failures.push("Missing editorial chapter register system");
 if (`${index}\n${translationsSource}`.includes("追蹤 GitHub 整理進度")) failures.push("Stale GitHub CTA copy found");
 
 if (failures.length) {
