@@ -45,11 +45,14 @@ for (const key of translationKeys) {
   if (matches.length < 2) failures.push(`Translation key is missing from one or more languages: ${key}`);
 }
 
+if (!styles.includes("@media (max-width: 1180px)")) failures.push("Missing compact-desktop breakpoint");
+if (!styles.includes("@media (max-width: 900px)")) failures.push("Missing tablet breakpoint");
 if (!styles.includes("@media (max-width: 720px)")) failures.push("Missing mobile breakpoint");
 if (!styles.includes("prefers-reduced-motion")) failures.push("Missing reduced-motion support");
 if (!script.includes("IntersectionObserver")) failures.push("Missing progressive reveal behavior");
 if (!script.includes("applyLanguage")) failures.push("Missing language switching behavior");
 if (!styles.includes("terminal-flicker")) failures.push("Missing terminal phosphor animation");
+if (`${index}\n${translationsSource}`.includes("追蹤 GitHub 整理進度")) failures.push("Stale GitHub CTA copy found");
 
 if (failures.length) {
   console.error(failures.join("\n"));
