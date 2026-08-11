@@ -72,6 +72,8 @@ if (!styles.includes("portrait-sheen")) failures.push("Missing masked portrait m
 if ((index.match(/data-chapter-frame/g) ?? []).length !== 5) failures.push("Missing editorial chapter frames");
 if (!script.includes("chapterObserver")) failures.push("Missing chapter transition observer");
 if (!styles.includes("chapter-register")) failures.push("Missing editorial chapter register system");
+if (!styles.includes("@keyframes radar-sweep")) failures.push("Missing cockpit radar sweep treatment");
+if (!styles.includes("border-radius: 18px 18px 28px 18px")) failures.push("Missing rounded case module treatment");
 if (`${index}\n${translationsSource}`.includes("追蹤 GitHub 整理進度")) failures.push("Stale GitHub CTA copy found");
 
 if (failures.length) {
