@@ -23,10 +23,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260811-2" />
     <script>document.documentElement.classList.remove('no-js');</script>
     <script src="translations.js" defer></script>
-    <script src="script.js" defer></script>
+    <script src="script.js?v=20260811-2" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main" data-i18n="skip">跳到主要內容</a>
@@ -73,7 +73,7 @@
           </div>
         </div>
 
-        <div class="system-orbit reveal" aria-label="從現場問題到可驗證交付的流程示意" data-i18n-aria="orbitAria">
+        <div class="system-orbit reveal" data-reflective aria-label="從現場問題到可驗證交付的流程示意" data-i18n-aria="orbitAria">
           <div class="orbit-meta"><span data-i18n="orbitTitle">即時交付地圖</span><span>03 / 03</span></div>
           <div class="orbit-canvas">
             <span class="orbit-ring ring-one"></span><span class="orbit-ring ring-two"></span><span class="orbit-ring ring-three"></span>
@@ -114,7 +114,7 @@
           <p data-i18n="workIntro">三個不同場景，共用同一種工作方式：先釐清問題，再串起工程、營運與決策者，直到成果可以被驗證。</p>
         </div>
 
-        <article class="case-study case-visual reveal">
+        <article class="case-study case-visual reveal" data-reflective>
           <div class="case-number">01</div>
           <div class="case-copy">
             <div class="case-labels"><span data-i18n="case1Label1">視覺情報</span><span data-i18n="case1Label2">營運分析</span><span>2026</span></div>
@@ -135,7 +135,7 @@
           </div>
         </article>
 
-        <article class="case-study case-exposure reveal">
+        <article class="case-study case-exposure reveal" data-reflective>
           <div class="case-number">02</div>
           <div class="case-copy">
             <div class="case-labels"><span data-i18n="case2Label1">應用程式自動化</span><span data-i18n="case2Label2">交付可靠性</span><span>2026</span></div>
@@ -161,7 +161,7 @@
           </div>
         </article>
 
-        <article class="case-study case-governance reveal">
+        <article class="case-study case-governance reveal" data-reflective>
           <div class="case-number">03</div>
           <div class="case-copy">
             <div class="case-labels"><span data-i18n="case3Label1">使用治理</span><span data-i18n="case3Label2">權限與成本</span><span>2026</span></div>
@@ -227,10 +227,10 @@
       <section class="experiments-section section-shell" aria-labelledby="experiments-title">
         <div class="section-heading compact reveal"><p class="section-index" data-i18n="experimentsIndex">04 / 實作探索</p><h2 id="experiments-title" data-i18n-html="experimentsTitle">跨越不同領域，<br /><em>維持同一種判斷。</em></h2></div>
         <div class="experiment-grid">
-          <article class="experiment-card reveal"><span data-i18n="exp1Label">機器學習 / 可解釋性</span><h3 data-i18n="exp1Title">生存幾何</h3><p data-i18n="exp1Desc">把乘客視為完整實體，而不是試算表中的單列資料；透過特徵壓力、原型與規則探索解釋預測。</p><a href="https://github.com/Nyannnnning/Kaggle-Titanic-Playground" data-i18n="viewRepo">查看公開程式庫 ↗</a></article>
-          <article class="experiment-card reveal"><span data-i18n="exp2Label">遊戲 / 模擬</span><h3 data-i18n="exp2Title">碧虎老虎機原型</h3><p data-i18n="exp2Desc">以 PixiJS 製作老虎機原型，並透過百萬局模擬驗證遊戲數學。</p></article>
-          <article class="experiment-card reveal"><span data-i18n="exp3Label">工作紀錄 / 自動化</span><h3 data-i18n="exp3Title">代理工作紀錄</h3><p data-i18n="exp3Desc">從多個程式代理收集完成事件，去重、摘要、推播並保留可回查的工作證據。</p></article>
-          <article class="experiment-card reveal"><span data-i18n="exp4Label">網站 / 產品交付</span><h3 data-i18n="exp4Title">企業網站交付</h3><p data-i18n="exp4Desc">使用 Next.js、內容結構與可攜式預覽，把規格文件轉成可交付的品牌網站。</p></article>
+          <article class="experiment-card reveal" data-reflective><span data-i18n="exp1Label">機器學習 / 可解釋性</span><h3 data-i18n="exp1Title">生存幾何</h3><p data-i18n="exp1Desc">把乘客視為完整實體，而不是試算表中的單列資料；透過特徵壓力、原型與規則探索解釋預測。</p><a href="https://github.com/Nyannnnning/Kaggle-Titanic-Playground" data-i18n="viewRepo">查看公開程式庫 ↗</a></article>
+          <article class="experiment-card reveal" data-reflective><span data-i18n="exp2Label">遊戲 / 模擬</span><h3 data-i18n="exp2Title">碧虎老虎機原型</h3><p data-i18n="exp2Desc">以 PixiJS 製作老虎機原型，並透過百萬局模擬驗證遊戲數學。</p></article>
+          <article class="experiment-card reveal" data-reflective><span data-i18n="exp3Label">工作紀錄 / 自動化</span><h3 data-i18n="exp3Title">代理工作紀錄</h3><p data-i18n="exp3Desc">從多個程式代理收集完成事件，去重、摘要、推播並保留可回查的工作證據。</p></article>
+          <article class="experiment-card reveal" data-reflective><span data-i18n="exp4Label">網站 / 產品交付</span><h3 data-i18n="exp4Title">企業網站交付</h3><p data-i18n="exp4Desc">使用 Next.js、內容結構與可攜式預覽，把規格文件轉成可交付的品牌網站。</p></article>
         </div>
       </section>
 
@@ -243,7 +243,7 @@
             <p data-i18n="githubDesc">網站整理的是我的工作方式與代表案例；GitHub 則放目前能公開的程式庫、實驗與版本紀錄。你可以直接查看我如何拆解問題、驗證假設，以及哪些嘗試最後沒有被採用。</p>
             <a class="button button-light" href="https://github.com/Nyannnnning"><span data-i18n="followGithub">前往 GitHub</span><span aria-hidden="true">↗</span></a>
           </div>
-          <div class="github-ledger" aria-label="GitHub 公開實作摘要" data-i18n-aria="githubAria">
+          <div class="github-ledger" data-reflective aria-label="GitHub 公開實作摘要" data-i18n-aria="githubAria">
             <div><span>01</span><b data-i18n="curate">專案</b><small data-i18n="curateDesc">程式與操作文件</small></div>
             <div><span>02</span><b data-i18n="verifyAction">實驗</b><small data-i18n="verifyDesc">假設、結果與迭代</small></div>
             <div><span>03</span><b data-i18n="explain">版本</b><small data-i18n="explainDesc">變更、取捨與學習</small></div>

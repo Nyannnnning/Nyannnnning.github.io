@@ -82,6 +82,52 @@ modeToggle?.addEventListener("click", () => {
   modeToggle.setAttribute("aria-pressed", String(!enabled));
 });
 
+const reflectiveSurfaces = [...document.querySelectorAll("[data-reflective]")];
+const precisePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+const syncReflectionCapability = () => {
+  const enabled = precisePointer.matches && !reducedMotion.matches;
+  reflectiveSurfaces.forEach((surface) => {
+    surface.classList.toggle("reflection-enabled", enabled);
+    if (!enabled) surface.style.setProperty("--reflect-opacity", "0");
+  });
+};
+
+reflectiveSurfaces.forEach((surface) => {
+  let animationFrame = 0;
+  let pointerX = 0;
+  let pointerY = 0;
+
+  const renderReflection = () => {
+    animationFrame = 0;
+    const rect = surface.getBoundingClientRect();
+    surface.style.setProperty("--reflect-x", `${pointerX - rect.left}px`);
+    surface.style.setProperty("--reflect-y", `${pointerY - rect.top}px`);
+  };
+
+  const queueReflection = (event) => {
+    if (!surface.classList.contains("reflection-enabled")) return;
+    pointerX = event.clientX;
+    pointerY = event.clientY;
+    if (!animationFrame) animationFrame = requestAnimationFrame(renderReflection);
+  };
+
+  surface.addEventListener("pointerenter", (event) => {
+    if (!surface.classList.contains("reflection-enabled")) return;
+    surface.style.setProperty("--reflect-opacity", "1");
+    queueReflection(event);
+  });
+  surface.addEventListener("pointermove", queueReflection, { passive: true });
+  surface.addEventListener("pointerleave", () => {
+    surface.style.setProperty("--reflect-opacity", "0");
+  });
+});
+
+precisePointer.addEventListener("change", syncReflectionCapability);
+reducedMotion.addEventListener("change", syncReflectionCapability);
+syncReflectionCapability();
+
 const revealObserver = new IntersectionObserver(
   (entries, observer) => {
     entries.forEach((entry) => {

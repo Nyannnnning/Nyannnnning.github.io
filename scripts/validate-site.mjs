@@ -14,12 +14,13 @@ for (const id of requiredIds) {
   if (!index.includes(`id="${id}"`)) failures.push(`Missing required id: ${id}`);
 }
 
-for (const href of index.matchAll(/href="([^"]+)"/g)) {
-  const target = href[1];
+for (const reference of index.matchAll(/(?:href|src)="([^"]+)"/g)) {
+  const target = reference[1];
+  const localTarget = target.split(/[?#]/, 1)[0];
   if (target.startsWith("#") && !index.includes(`id="${target.slice(1)}"`)) {
     failures.push(`Broken internal link: ${target}`);
   }
-  if (/^(styles\.css|script\.js|translations\.js|favicon\.svg)$/.test(target) && !existsSync(new URL(target, root))) {
+  if (/^(styles\.css|script\.js|translations\.js|favicon\.svg)$/.test(localTarget) && !existsSync(new URL(localTarget, root))) {
     failures.push(`Missing local asset: ${target}`);
   }
 }
@@ -51,7 +52,10 @@ if (!styles.includes("@media (max-width: 720px)")) failures.push("Missing mobile
 if (!styles.includes("prefers-reduced-motion")) failures.push("Missing reduced-motion support");
 if (!script.includes("IntersectionObserver")) failures.push("Missing progressive reveal behavior");
 if (!script.includes("applyLanguage")) failures.push("Missing language switching behavior");
+if ((index.match(/data-reflective/g) ?? []).length < 9) failures.push("Missing reflective interaction surfaces");
+if (!script.includes("requestAnimationFrame(renderReflection)")) failures.push("Missing frame-synced reflection behavior");
 if (!styles.includes("terminal-flicker")) failures.push("Missing terminal phosphor animation");
+if (!styles.includes("instrument-scan")) failures.push("Missing instrument reflection scan");
 if (`${index}\n${translationsSource}`.includes("追蹤 GitHub 整理進度")) failures.push("Stale GitHub CTA copy found");
 
 if (failures.length) {
