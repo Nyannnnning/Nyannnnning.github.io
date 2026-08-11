@@ -5,6 +5,7 @@ const root = new URL("../", import.meta.url);
 const index = await readFile(new URL("index.html", root), "utf8");
 const styles = await readFile(new URL("styles.css", root), "utf8");
 const script = await readFile(new URL("script.js", root), "utf8");
+const heroShader = await readFile(new URL("hero-shader.js", root), "utf8");
 const translationsSource = await readFile(new URL("translations.js", root), "utf8");
 
 const failures = [];
@@ -20,7 +21,7 @@ for (const reference of index.matchAll(/(?:href|src)="([^"]+)"/g)) {
   if (target.startsWith("#") && !index.includes(`id="${target.slice(1)}"`)) {
     failures.push(`Broken internal link: ${target}`);
   }
-  if (/^(styles\.css|script\.js|translations\.js|favicon\.svg)$/.test(localTarget) && !existsSync(new URL(localTarget, root))) {
+  if (/^(styles\.css|script\.js|hero-shader\.js|translations\.js|favicon\.svg)$/.test(localTarget) && !existsSync(new URL(localTarget, root))) {
     failures.push(`Missing local asset: ${target}`);
   }
 }
@@ -56,6 +57,10 @@ if ((index.match(/data-reflective/g) ?? []).length < 9) failures.push("Missing r
 if (!script.includes("requestAnimationFrame(renderReflection)")) failures.push("Missing frame-synced reflection behavior");
 if (!styles.includes("terminal-flicker")) failures.push("Missing terminal phosphor animation");
 if (!styles.includes("instrument-scan")) failures.push("Missing instrument reflection scan");
+if (!index.includes("data-hero-shader")) failures.push("Missing hero shader canvas");
+if (!heroShader.includes('getContext("webgl"')) failures.push("Missing native WebGL hero shader");
+if (!heroShader.includes("webglcontextlost")) failures.push("Missing WebGL fallback handling");
+if (!heroShader.includes("prefers-reduced-motion")) failures.push("Missing shader reduced-motion fallback");
 if (`${index}\n${translationsSource}`.includes("追蹤 GitHub 整理進度")) failures.push("Stale GitHub CTA copy found");
 
 if (failures.length) {
