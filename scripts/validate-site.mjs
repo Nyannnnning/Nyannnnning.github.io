@@ -61,6 +61,8 @@ if (!index.includes("data-hero-shader")) failures.push("Missing hero shader canv
 if (!heroShader.includes('getContext("webgl"')) failures.push("Missing native WebGL hero shader");
 if (!heroShader.includes("webglcontextlost")) failures.push("Missing WebGL fallback handling");
 if (!heroShader.includes("prefers-reduced-motion")) failures.push("Missing shader reduced-motion fallback");
+if (!styles.includes("--frost-silver")) failures.push("Missing translucent silver surface system");
+if (!styles.includes("--frost-shadow")) failures.push("Missing frosted surface depth system");
 if (`${index}\n${translationsSource}`.includes("追蹤 GitHub 整理進度")) failures.push("Stale GitHub CTA copy found");
 
 if (failures.length) {
