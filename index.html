@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="zh-Hant" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ning — 具備部分工程實作能力的 FDE 團隊 PM，專注於把複雜現場推進成可驗證的交付。" />
+    <meta name="theme-color" content="#f4f6f8" />
+    <meta property="og:title" content="Ning — FDE 團隊 PM" />
+    <meta property="og:description" content="從問題定義、跨職能協作到原型與交付驗證，讓複雜專案真正往前走。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nyannnnning.github.io/" />
+    <meta property="og:image" content="https://nyannnnning.github.io/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Ning — FDE 團隊 PM，從現場問題到可驗證交付。" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ning — FDE 團隊 PM" />
+    <meta name="twitter:description" content="從問題定義、跨職能協作到原型與交付驗證，讓複雜專案真正往前走。" />
+    <meta name="twitter:image" content="https://nyannnnning.github.io/og-image.png" />
+    <title>Ning — FDE 團隊 PM</title>
+    <link rel="canonical" href="https://nyannnnning.github.io/" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script>document.documentElement.classList.remove('no-js');</script>
+    <script src="translations.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-i18n="skip">跳到主要內容</a>
+
+    <header class="site-header" data-header>
+      <a class="wordmark" href="#top" aria-label="Ning 首頁" data-i18n-aria="homeAria">
+        <span class="wordmark-mark" aria-hidden="true">N/</span>
+        <span>NING.FDE</span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="主要導覽" data-menu data-i18n-aria="navAria">
+        <a href="#work" data-i18n="navWork">代表專案</a>
+        <a href="#system" data-i18n="navMethod">工作方式</a>
+        <a href="#trajectory" data-i18n="navTrajectory">成長軌跡</a>
+        <a href="#github">GitHub</a>
+      </nav>
+
+      <div class="language-switch" role="group" aria-label="語言選擇" data-i18n-aria="languageAria">
+        <button type="button" data-language="zh" aria-pressed="true">中文</button>
+        <button type="button" data-language="en" aria-pressed="false">EN</button>
+      </div>
+
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button>
+        <span class="sr-only" data-i18n="menuOpen">開啟導覽選單</span>
+        <span></span><span></span>
+      </button>
+
+      <button class="mode-button" type="button" aria-pressed="false" data-mode-toggle>
+        <span class="mode-dot" aria-hidden="true"></span>
+        <span data-i18n="mode">金屬模式</span>
+      </button>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span data-i18n="eyebrow">專案筆記 / 2026</span><span data-i18n="location">台北 · UTC+8</span></p>
+          <h1 id="hero-title" data-i18n-html="heroTitle">把現場阻力<br />推進成<br /><em>可驗證的交付。</em></h1>
+          <p class="hero-intro" data-i18n="heroIntro">我是 Ning，一名 FDE 團隊 PM，也能在需要時承接部分工程實作。我的核心工作是釐清現場問題、整合產品與工程、推動決策，並把方案送到可驗證的交付狀態。</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#work"><span data-i18n="explore">查看代表專案</span><span aria-hidden="true">↘</span></a>
+            <a class="button button-ghost" href="https://github.com/Nyannnnning"><span data-i18n="githubProfile">前往 GitHub</span><span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+
+        <div class="system-orbit reveal" aria-label="從現場問題到可驗證交付的流程示意" data-i18n-aria="orbitAria">
+          <div class="orbit-meta"><span data-i18n="orbitTitle">即時交付地圖</span><span>03 / 03</span></div>
+          <div class="orbit-canvas">
+            <span class="orbit-ring ring-one"></span><span class="orbit-ring ring-two"></span><span class="orbit-ring ring-three"></span>
+            <span class="orbit-node node-input" data-i18n-html="orbitInput">現場<br />問題</span>
+            <span class="orbit-node node-ai" data-i18n-html="orbitPrototype">原型<br />整合</span>
+            <span class="orbit-node node-human" data-i18n-html="orbitReview">團隊<br />覆核</span>
+            <span class="orbit-node node-output" data-i18n-html="orbitOutput">交付<br />就緒</span>
+            <span class="orbit-core"><b>N</b><small data-i18n="orbitCore">交付</small></span>
+            <span class="orbit-pulse pulse-one"></span><span class="orbit-pulse pulse-two"></span>
+          </div>
+          <div class="orbit-log">
+            <span><i></i><span data-i18n="orbitLog1">證據已附上</span></span>
+            <span><i></i><span data-i18n="orbitLog2">風險已標記</span></span>
+            <span><i></i><span data-i18n="orbitLog3">責任有人承接</span></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="proof-strip" aria-label="成果摘要" data-i18n-aria="proofAria">
+        <div class="proof-item reveal"><strong data-count="96">96</strong><span data-i18n-html="proof1">次協作工作階段<br />完成回顧</span></div>
+        <div class="proof-item reveal"><strong data-count="3">3</strong><span data-i18n-html="proof2">項代表專案<br />持續運作</span></div>
+        <div class="proof-item reveal"><strong data-count="220" data-suffix="+">220+</strong><span data-i18n-html="proof3">筆核心提交紀錄<br />跨越多條產品線</span></div>
+        <div class="proof-item reveal"><strong data-count="4">4</strong><span data-i18n-html="proof4">個市場<br />納入情報流程</span></div>
+      </section>
+
+      <section class="principles" aria-label="工作原則" data-i18n-aria="principlesAria">
+        <div class="marquee-track">
+          <span data-i18n="principle1">先定義問題</span><i>✦</i><span data-i18n="principle2">再選擇工具</span><i>✦</i>
+          <span data-i18n="principle3">關鍵節點人工覆核</span><i>✦</i><span data-i18n="principle4">用證據推動決策</span><i>✦</i>
+          <span data-i18n="principle1">先定義問題</span><i>✦</i><span data-i18n="principle2">再選擇工具</span><i>✦</i>
+        </div>
+      </section>
+
+      <section class="work-section section-shell" id="work" aria-labelledby="work-title">
+        <div class="section-heading reveal">
+          <p class="section-index" data-i18n="workIndex">01 / 代表專案</p>
+          <h2 id="work-title" data-i18n-html="workTitle">不只提出方向，<br /><em>也把交付往前推。</em></h2>
+          <p data-i18n="workIntro">三個不同場景，共用同一種工作方式：先釐清問題，再串起工程、營運與決策者，直到成果可以被驗證。</p>
+        </div>
+
+        <article class="case-study case-visual reveal">
+          <div class="case-number">01</div>
+          <div class="case-copy">
+            <div class="case-labels"><span data-i18n="case1Label1">視覺情報</span><span data-i18n="case1Label2">營運分析</span><span>2026</span></div>
+            <h3 data-i18n-html="case1Title">競品情報<br />代理系統</h3>
+            <p data-i18n="case1Desc">把圖片、橫幅、識別標誌與遊戲格位中的市場訊號，轉成可回查的競品情報。我的角色涵蓋需求拆解、流程整合、例外處理與交付驗證。</p>
+            <dl class="case-facts">
+              <div><dt data-i18n="scope">範圍</dt><dd data-i18n="case1Fact1">超過 200 個監測站點</dd></div>
+              <div><dt data-i18n="workflow">流程</dt><dd data-i18n="case1Fact2">瀏覽器 → 視覺辨識 → 覆核 → 報表</dd></div>
+              <div><dt data-i18n="myRole">我的角色</dt><dd data-i18n="case1Fact3">需求、例外與交付整合</dd></div>
+            </dl>
+          </div>
+          <div class="case-visualization" aria-label="競品情報處理流程" data-i18n-aria="case1Aria">
+            <div class="pipeline-line"></div>
+            <div class="pipeline-step"><span>01</span><b data-i18n="capture">採集</b><small>Playwright</small></div>
+            <div class="pipeline-step"><span>02</span><b data-i18n="interpret">辨識</b><small data-i18n="visionTools">文字 · 圖像 · 視覺模型</small></div>
+            <div class="pipeline-step"><span>03</span><b data-i18n="review">覆核</b><small data-i18n="humanReview">人工檢核</small></div>
+            <div class="pipeline-step"><span>04</span><b data-i18n="deliver">交付</b><small data-i18n="evidenceReport">報表 · 證據</small></div>
+          </div>
+        </article>
+
+        <article class="case-study case-exposure reveal">
+          <div class="case-number">02</div>
+          <div class="case-copy">
+            <div class="case-labels"><span data-i18n="case2Label1">應用程式自動化</span><span data-i18n="case2Label2">交付可靠性</span><span>2026</span></div>
+            <h3 data-i18n-html="case2Title">曝光排名<br />稽核引擎</h3>
+            <p data-i18n="case2Desc">讓手機應用程式與網站的遊戲曝光排名可以每日重複稽查。我協調採集、辨識與歸戶規則，也在需要時直接補上自動化與復原流程。</p>
+            <dl class="case-facts">
+              <div><dt data-i18n="runtime">執行環境</dt><dd>BlueStacks · ADB · Playwright</dd></div>
+              <div><dt data-i18n="reliability">可靠性</dt><dd data-i18n="case2Fact2">重試 · 復原 · 告警</dd></div>
+              <div><dt data-i18n="output">輸出</dt><dd data-i18n="case2Fact3">排名 · 證據 · 趨勢</dd></div>
+            </dl>
+          </div>
+          <div class="audit-console" aria-label="稽查系統狀態示意" data-i18n-aria="case2Aria">
+            <div class="console-top"><span data-i18n="auditTime">稽核 / 03:00</span><span class="status-live" data-i18n="healthy">● 正常</span></div>
+            <div class="console-row"><span data-i18n="appSession">應用程式工作階段</span><b data-i18n="recovered">已復原</b><i>00:42</i></div>
+            <div class="console-row"><span data-i18n="visualRead">視覺辨識</span><b data-i18n="verified">已驗證</b><i>01:18</i></div>
+            <div class="console-row"><span data-i18n="rankMerge">排名合併</span><b data-i18n="complete">已完成</b><i>01:44</i></div>
+            <div class="console-row"><span data-i18n="report">報告</span><b data-i18n="delivered">已送達</b><i>01:52</i></div>
+            <div class="console-chart" aria-hidden="true">
+              <span style="--h: 36%; --d: .15s"></span><span style="--h: 53%; --d: .75s"></span><span style="--h: 47%; --d: 1.4s"></span>
+              <span style="--h: 72%; --d: .4s"></span><span style="--h: 63%; --d: 1.05s"></span><span style="--h: 86%; --d: 1.75s"></span>
+              <span style="--h: 78%; --d: .62s"></span><span style="--h: 94%; --d: 1.25s"></span><span style="--h: 88%; --d: 1.95s"></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="case-study case-governance reveal">
+          <div class="case-number">03</div>
+          <div class="case-copy">
+            <div class="case-labels"><span data-i18n="case3Label1">使用治理</span><span data-i18n="case3Label2">權限與成本</span><span>2026</span></div>
+            <h3 data-i18n-html="case3Title">部門人工智慧<br />治理平台</h3>
+            <p data-i18n="case3Desc">把個人工具、自建代理、組織名冊與成本放進同一個管理視野。我負責把管理需求轉成可執行規則，協調正式資料源、權限邊界與資料新鮮度。</p>
+            <dl class="case-facts">
+              <div><dt data-i18n="sources">來源</dt><dd data-i18n="case3Fact1">單一登入 · 代理分析資料</dd></div>
+              <div><dt data-i18n="control">控制</dt><dd data-i18n="case3Fact2">權限 · 身分 · 新鮮度</dd></div>
+              <div><dt data-i18n="transition">轉換</dt><dd data-i18n="case3Fact3">影子比對，不覆蓋正式來源</dd></div>
+            </dl>
+          </div>
+          <div class="governance-map" aria-label="治理資料流" data-i18n-aria="case3Aria">
+            <div class="governance-source source-a"><span>A</span><b data-i18n="officialData">正式資料</b><small data-i18n="officialSource">正式來源</small></div>
+            <div class="governance-source source-b"><span>B</span><b data-i18n="agentData">代理資料</b><small data-i18n="operationalSource">營運來源</small></div>
+            <div class="governance-source source-c"><span>C</span><b>MCP</b><small data-i18n="shadowOnly">僅供影子比對</small></div>
+            <div class="governance-hub"><span data-i18n="accessControl">權限控制</span><strong data-i18n="portal">平台</strong><small data-i18n="portalDetail">成本 · 用量 · 身分</small></div>
+            <svg viewBox="0 0 400 260" role="presentation" aria-hidden="true"><path d="M98 60 C170 60 150 130 200 130" /><path d="M98 130 C145 130 150 130 200 130" /><path class="shadow-path" d="M98 202 C170 202 150 130 200 130" /></svg>
+          </div>
+        </article>
+      </section>
+
+      <section class="system-section" id="system" aria-labelledby="system-title">
+        <div class="section-shell system-inner">
+          <div class="section-heading light reveal">
+            <p class="section-index" data-i18n="methodIndex">02 / 工作方式</p>
+            <h2 id="system-title" data-i18n-html="methodTitle">從模糊需求，<br /><em>走到可驗證交付。</em></h2>
+            <p data-i18n="methodIntro">我的定位不是包辦所有工程，而是讓問題、決策、實作與交付保持連續；在團隊缺口出現時，我也能直接完成部分技術補位。</p>
+          </div>
+          <div class="decision-stack reveal">
+            <div class="stack-row stack-input"><span>01</span><b data-i18n="step1">現場問題</b><p data-i18n="step1Desc">使用情境 · 資料限制 · 人工作業 · 真實風險</p></div>
+            <div class="stack-arrow" aria-hidden="true">↓</div>
+            <div class="stack-row"><span>02</span><b data-i18n="step2">問題定義</b><p data-i18n="step2Desc">範圍 · 成功條件 · 優先順序 · 責任邊界</p></div>
+            <div class="stack-arrow" aria-hidden="true">↓</div>
+            <div class="stack-row stack-ai"><span>03</span><b data-i18n="step3">原型與整合</b><p data-i18n="step3Desc">流程設計 · 技術驗證 · 資料串接 · 例外處理</p></div>
+            <div class="stack-arrow" aria-hidden="true">↓</div>
+            <div class="stack-row stack-human"><span>04</span><b data-i18n="step4">跨職能檢核</b><p data-i18n="step4Desc">工程 · 營運 · 使用者 · 決策者共同確認</p></div>
+            <div class="stack-arrow" aria-hidden="true">↓</div>
+            <div class="stack-row stack-output"><span>05</span><b data-i18n="step5">可驗證交付</b><p data-i18n="step5Desc">證據 · 可靠性 · 成本 · 後續行動</p></div>
+          </div>
+          <div class="capabilities reveal">
+            <p class="capability-title" data-i18n="toolsTitle">協作與實作工具</p>
+            <div class="capability-list">
+              <span>Playwright</span><span>Python</span><span>FastAPI</span><span>React</span><span>PixiJS</span><span>SQLite</span><span>DuckDB</span><span>OpenCV</span>
+              <span data-i18n="visionModels">視覺模型</span><span data-i18n="permissions">權限控制</span><span data-i18n="scheduler">Windows 排程器</span><span data-i18n="humanLoop">人工覆核</span><span data-i18n="evidenceDesign">證據設計</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="trajectory-section section-shell" id="trajectory" aria-labelledby="trajectory-title">
+        <div class="section-heading reveal">
+          <p class="section-index" data-i18n="trajectoryIndex">03 / 成長軌跡</p>
+          <h2 id="trajectory-title" data-i18n-html="trajectoryTitle">從協調交付，<br /><em>到能親手補位。</em></h2>
+        </div>
+        <ol class="timeline">
+          <li class="reveal"><time datetime="2026-03" data-i18n="monthMar">三月</time><div><span>01</span><h3 data-i18n="role1">環境排障</h3><p data-i18n="role1Desc">處理執行環境、閘道、登入、WSL 與訊息整合，先讓團隊工具穩定連線。</p></div></li>
+          <li class="reveal"><time datetime="2026-04" data-i18n="monthApr">四月</time><div><span>02</span><h3 data-i18n="role2">方案整合</h3><p data-i18n="role2Desc">把爬取、視覺辨識、覆核、儲存與報表串成可迭代的交付流程。</p></div></li>
+          <li class="reveal"><time datetime="2026-07" data-i18n="monthJul">七月</time><div><span>03</span><h3 data-i18n="role3">交付可靠性</h3><p data-i18n="role3Desc">導入復原、告警、排程驗證、網路隔離與預設阻斷行為。</p></div></li>
+          <li class="reveal"><time datetime="2026-08" data-i18n="monthAug">八月</time><div><span>04</span><h3 data-i18n="role4">治理與落地</h3><p data-i18n="role4Desc">把權限、身分、成本、資料新鮮度與正式來源納入管理視角。</p></div></li>
+        </ol>
+      </section>
+
+      <section class="experiments-section section-shell" aria-labelledby="experiments-title">
+        <div class="section-heading compact reveal"><p class="section-index" data-i18n="experimentsIndex">04 / 實作探索</p><h2 id="experiments-title" data-i18n-html="experimentsTitle">跨越不同領域，<br /><em>維持同一種判斷。</em></h2></div>
+        <div class="experiment-grid">
+          <article class="experiment-card reveal"><span data-i18n="exp1Label">機器學習 / 可解釋性</span><h3 data-i18n="exp1Title">生存幾何</h3><p data-i18n="exp1Desc">把乘客視為完整實體，而不是試算表中的單列資料；透過特徵壓力、原型與規則探索解釋預測。</p><a href="https://github.com/Nyannnnning/Kaggle-Titanic-Playground" data-i18n="viewRepo">查看公開程式庫 ↗</a></article>
+          <article class="experiment-card reveal"><span data-i18n="exp2Label">遊戲 / 模擬</span><h3 data-i18n="exp2Title">碧虎老虎機原型</h3><p data-i18n="exp2Desc">以 PixiJS 製作老虎機原型，並透過百萬局模擬驗證遊戲數學。</p></article>
+          <article class="experiment-card reveal"><span data-i18n="exp3Label">工作紀錄 / 自動化</span><h3 data-i18n="exp3Title">代理工作紀錄</h3><p data-i18n="exp3Desc">從多個程式代理收集完成事件，去重、摘要、推播並保留可回查的工作證據。</p></article>
+          <article class="experiment-card reveal"><span data-i18n="exp4Label">網站 / 產品交付</span><h3 data-i18n="exp4Title">企業網站交付</h3><p data-i18n="exp4Desc">使用 Next.js、內容結構與可攜式預覽，把規格文件轉成可交付的品牌網站。</p></article>
+        </div>
+      </section>
+
+      <section class="github-section" id="github" aria-labelledby="github-title">
+        <div class="github-noise" aria-hidden="true"></div>
+        <div class="section-shell github-inner reveal">
+          <p class="section-index" data-i18n="githubIndex">05 / 公開整理</p>
+          <h2 id="github-title" data-i18n-html="githubTitle">先把事情做成，<br /><em>再把證據整理公開。</em></h2>
+          <div class="github-copy">
+            <p data-i18n="githubDesc">過去的高價值工作多半留在私有環境。下一階段會把代表專案整理成可驗證的案例：清楚的主分支、自動檢查、版本紀錄、決策脈絡與實際證據。</p>
+            <a class="button button-light" href="https://github.com/Nyannnnning"><span data-i18n="followGithub">追蹤 GitHub 整理進度</span><span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="github-ledger" aria-label="GitHub 整理計畫" data-i18n-aria="githubAria">
+            <div><span>01</span><b data-i18n="curate">精選</b><small data-i18n="curateDesc">三項代表專案</small></div>
+            <div><span>02</span><b data-i18n="verifyAction">驗證</b><small data-i18n="verifyDesc">檢查、測試與版本紀錄</small></div>
+            <div><span>03</span><b data-i18n="explain">說明</b><small data-i18n="explainDesc">決策、取捨與影響</small></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div><span class="footer-mark">N/</span><p data-i18n-html="footerTagline">FDE 團隊產品協作，<br />建立在現場證據與可驗證交付之上。</p></div>
+      <div class="footer-links"><a href="#top" data-i18n="backTop">回到頂端 ↑</a><a href="https://github.com/Nyannnnning">GitHub ↗</a></div>
+      <p class="footer-meta"><span data-i18n="footerMeta">由人主導、與人工智慧協作完成</span> · <span data-year>2026</span></p>
+    </footer>
+  </body>
+</html>
