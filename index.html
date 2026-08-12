@@ -24,10 +24,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="image" href="assets/hero-silver-sentinel.webp" type="image/webp" fetchpriority="high" />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260811-10" />
+    <link rel="stylesheet" href="styles.css?v=20260812-1" />
     <script>document.documentElement.classList.remove('no-js');</script>
-    <script src="translations.js?v=20260811-3" defer></script>
-    <script src="script.js?v=20260811-6" defer></script>
+    <script src="translations.js?v=20260812-1" defer></script>
+    <script src="script.js?v=20260812-1" defer></script>
     <script src="hero-shader.js?v=20260811-3" defer></script>
   </head>
   <body>
@@ -63,6 +63,22 @@
     </header>
 
     <main id="main">
+      <aside class="telemetry-progress" aria-label="閱讀進度" data-i18n-aria="progressAria" data-telemetry-progress>
+        <div class="telemetry-progress-head" aria-hidden="true">
+          <svg viewBox="0 0 64 64"><use href="assets/telemetry.svg#reticle"></use></svg>
+          <span data-progress-status data-i18n="progressStatus">讀取中</span>
+        </div>
+        <nav class="telemetry-progress-nav" aria-label="章節進度" data-i18n-aria="progressNavAria">
+          <a href="#work" data-progress-link="work"><span>01</span><b data-i18n="chapterWork">代表專案</b></a>
+          <a href="#system" data-progress-link="system"><span>02</span><b data-i18n="chapterMethod">工作方式</b></a>
+          <a href="#trajectory" data-progress-link="trajectory"><span>03</span><b data-i18n="chapterTrajectory">成長軌跡</b></a>
+          <a href="#experiments" data-progress-link="experiments"><span>04</span><b data-i18n="chapterExperiments">實作探索</b></a>
+          <a href="#github" data-progress-link="github"><span>05</span><b data-i18n="chapterGithub">進一步了解</b></a>
+        </nav>
+        <div class="telemetry-progress-rail" aria-hidden="true"><i data-progress-fill></i></div>
+        <div class="telemetry-progress-readout" aria-hidden="true"><span data-progress-index>00 / 05</span><b data-progress-percent>00%</b></div>
+      </aside>
+
       <section class="hero" id="top" aria-labelledby="hero-title">
         <div class="hero-grid" aria-hidden="true"></div>
         <canvas class="hero-shader" data-hero-shader aria-hidden="true"></canvas>
@@ -281,7 +297,7 @@
         </ol>
       </section>
 
-      <section class="experiments-section section-shell" aria-labelledby="experiments-title" data-chapter-frame data-folio="04 — 2026">
+      <section class="experiments-section section-shell" id="experiments" aria-labelledby="experiments-title" data-chapter-frame data-folio="04 — 2026">
         <div class="chapter-register" aria-hidden="true"><span>04</span><svg class="telemetry-glyph telemetry-nodes" viewBox="0 0 96 48"><use href="assets/telemetry.svg#nodes"></use></svg><i></i><b data-i18n="chapterExperiments">實作探索</b><small>NING / 2026</small></div>
         <div class="section-heading compact reveal"><p class="section-index" data-i18n="experimentsIndex">04 / 實作探索</p><h2 id="experiments-title" data-i18n-html="experimentsTitle">跨越不同領域，<br /><em>維持同一種判斷。</em></h2></div>
         <div class="experiment-grid">

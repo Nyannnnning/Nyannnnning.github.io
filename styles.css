@@ -294,6 +294,129 @@ body[data-mode="signal"] .mode-dot { background: var(--amber-bright); box-shadow
 .language-switch button[aria-pressed="true"] { color: var(--paper); background: var(--ink); }
 .menu-button { display: none; }
 
+.telemetry-progress {
+  --page-progress: 0;
+  --chapter-bearing: 0deg;
+  --scroll-bearing: 0deg;
+  position: fixed;
+  z-index: 40;
+  top: 50%;
+  right: max(.72rem, var(--safe-right));
+  display: grid;
+  grid-template-columns: auto 3px;
+  gap: .65rem .55rem;
+  width: 156px;
+  padding: .72rem .65rem .68rem .72rem;
+  border: 1px solid rgba(74,81,86,.2);
+  border-radius: 12px 12px 19px 12px;
+  background: color-mix(in srgb, var(--paper) 78%, transparent);
+  box-shadow: inset 0 1px 0 rgba(255,255,252,.56), 0 14px 34px rgba(42,47,51,.09);
+  backdrop-filter: blur(15px) saturate(.58);
+  opacity: 0;
+  transform: translate(12px, -50%);
+  transition: opacity .35s ease, transform .5s cubic-bezier(.2,.72,.25,1), background .25s;
+  pointer-events: none;
+}
+.telemetry-progress.engaged { opacity: .86; transform: translate(0, -50%); pointer-events: auto; }
+.telemetry-progress:hover,
+.telemetry-progress:focus-within { opacity: 1; background: color-mix(in srgb, var(--paper) 91%, transparent); }
+.telemetry-progress-head {
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  min-width: 0;
+  padding-bottom: .48rem;
+  border-bottom: 1px solid rgba(70,77,82,.13);
+  color: var(--amber);
+}
+.telemetry-progress-head svg {
+  flex: 0 0 15px;
+  width: 15px;
+  height: 15px;
+  overflow: visible;
+  transform: rotate(calc(var(--chapter-bearing) + var(--scroll-bearing)));
+  transition: transform .75s cubic-bezier(.2,.72,.25,1);
+  filter: drop-shadow(0 0 6px rgba(240,139,69,.18));
+}
+.telemetry-progress-head span {
+  overflow: hidden;
+  color: var(--muted);
+  font: 500 .43rem/1 var(--mono);
+  letter-spacing: .06em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+.telemetry-progress-nav { grid-column: 1; display: grid; gap: .15rem; }
+.telemetry-progress-nav a {
+  position: relative;
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: .38rem;
+  align-items: center;
+  min-height: 22px;
+  padding: .2rem .28rem .2rem .1rem;
+  border-radius: 5px 5px 8px 5px;
+  color: color-mix(in srgb, var(--muted) 64%, transparent);
+  transition: color .22s ease, background .22s ease, transform .22s ease;
+}
+.telemetry-progress-nav a::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  width: 3px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: .28;
+}
+.telemetry-progress-nav a:hover { color: var(--ink); background: rgba(255,255,252,.34); transform: translateX(-2px); }
+.telemetry-progress-nav a.passed { color: color-mix(in srgb, var(--ink) 58%, transparent); }
+.telemetry-progress-nav a.active { color: var(--amber); background: rgba(240,139,69,.06); }
+.telemetry-progress-nav a.active::before { opacity: 1; box-shadow: 0 0 7px rgba(240,139,69,.5); animation: signal-idle 4.6s steps(1,end) infinite; }
+.telemetry-progress-nav span { font: 500 .41rem/1 var(--mono); }
+.telemetry-progress-nav b { overflow: hidden; font: 500 .43rem/1 var(--mono); letter-spacing: .03em; text-overflow: ellipsis; white-space: nowrap; }
+.telemetry-progress-rail {
+  grid-column: 2;
+  grid-row: 1 / 4;
+  position: relative;
+  overflow: hidden;
+  width: 3px;
+  min-height: 152px;
+  border-radius: 999px;
+  background: rgba(70,77,82,.13);
+}
+.telemetry-progress-rail::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(to bottom, transparent 0 12px, rgba(255,255,252,.72) 12px 13px, transparent 13px 25px);
+}
+.telemetry-progress-rail i {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border-radius: inherit;
+  background: linear-gradient(to bottom, #7b8489, var(--amber-bright));
+  box-shadow: 0 0 8px rgba(240,139,69,.28);
+  transform: scaleY(var(--page-progress));
+  transform-origin: top;
+  will-change: transform;
+}
+.telemetry-progress-readout {
+  grid-column: 1;
+  display: flex;
+  justify-content: space-between;
+  padding-top: .45rem;
+  border-top: 1px solid rgba(70,77,82,.13);
+  color: var(--muted);
+  font: 500 .41rem/1 var(--mono);
+}
+.telemetry-progress-readout b { color: var(--amber); font-weight: 500; }
+body[data-mode="signal"] .telemetry-progress { background: rgba(16,19,21,.78); border-color: rgba(229,234,238,.17); }
+body[data-mode="signal"] .telemetry-progress-nav a:hover { background: rgba(255,255,255,.05); }
+
 .hero {
   position: relative;
   min-height: 100svh;
@@ -1513,6 +1636,15 @@ body[data-language="zh"] .hero h1 .hero-outcome { font-size: clamp(3.8rem, 5.5vw
 }
 
 @media (max-width: 1180px) {
+  .telemetry-progress { right: max(.55rem, var(--safe-right)); width: 48px; padding: .55rem .46rem; grid-template-columns: 1fr 3px; gap: .45rem .35rem; }
+  .telemetry-progress-head { justify-content: center; }
+  .telemetry-progress-head span,
+  .telemetry-progress-nav b { display: none; }
+  .telemetry-progress-nav a { grid-template-columns: 1fr; justify-items: center; padding: .24rem 0; }
+  .telemetry-progress-nav a::before { left: -2px; }
+  .telemetry-progress-rail { min-height: 145px; }
+  .telemetry-progress-readout { justify-content: center; }
+  .telemetry-progress-readout span { display: none; }
   .site-header { grid-template-columns: 1fr auto auto auto; gap: 1rem; }
   .menu-button {
     display: grid;
@@ -1620,6 +1752,7 @@ body[data-language="zh"] .hero h1 .hero-outcome { font-size: clamp(3.8rem, 5.5vw
   .site-header { height: calc(64px + var(--safe-top)); grid-template-columns: minmax(0, 1fr) auto auto auto; gap: .55rem; }
   .wordmark > span:last-child { display: none; }
   .site-nav { inset: calc(64px + var(--safe-top)) 0 auto; }
+  .telemetry-progress { display: none; }
   .mode-button { width: 42px; height: 42px; padding: 0; justify-content: center; }
   .mode-button { font-size: 0; }
   .language-switch { padding: 2px; }
@@ -1734,6 +1867,8 @@ body[data-language="zh"] .hero h1 .hero-outcome { font-size: clamp(3.8rem, 5.5vw
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .js-ready .reveal { opacity: 1; transform: none; }
   .js-ready .hero-portrait { opacity: 1; transform: none; }
+  .telemetry-progress-head svg { transform: none; transition: none; }
+  .telemetry-progress-rail i { transition: none; }
   .js-ready [data-chapter-frame] .chapter-register > span,
   .js-ready [data-chapter-frame] .chapter-register > svg,
   .js-ready [data-chapter-frame] .chapter-register > b,

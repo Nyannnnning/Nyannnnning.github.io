@@ -9,6 +9,12 @@ const translations = window.NING_TRANSLATIONS ?? {};
 const heroPortrait = document.querySelector("[data-hero-portrait]");
 const heroPortraitImage = heroPortrait?.querySelector("img");
 const navLinks = [...document.querySelectorAll('.site-nav a[href^="#"]')];
+const telemetryProgress = document.querySelector("[data-telemetry-progress]");
+const progressLinks = [...document.querySelectorAll("[data-progress-link]")];
+const progressFill = document.querySelector("[data-progress-fill]");
+const progressIndex = document.querySelector("[data-progress-index]");
+const progressPercent = document.querySelector("[data-progress-percent]");
+const progressStatus = document.querySelector("[data-progress-status]");
 const sections = navLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
@@ -58,7 +64,11 @@ const requestedLanguage = new URLSearchParams(window.location.search).get("lang"
 applyLanguage(requestedLanguage || savedLanguage, false);
 
 languageButtons.forEach((button) => {
-  button.addEventListener("click", () => applyLanguage(button.dataset.language));
+  button.addEventListener("click", () => {
+    applyLanguage(button.dataset.language);
+    activeChapterId = "";
+    queueTelemetryProgress();
+  });
 });
 
 const revealPortrait = () => requestAnimationFrame(() => heroPortrait?.classList.add("portrait-ready"));
@@ -175,6 +185,52 @@ const chapterObserver = new IntersectionObserver(
 );
 
 document.querySelectorAll("[data-chapter-frame]").forEach((element) => chapterObserver.observe(element));
+
+const chapterSections = [...document.querySelectorAll("[data-chapter-frame]")];
+let activeChapterId = "";
+let telemetryFrame = 0;
+
+const setActiveChapter = (chapter) => {
+  if (!chapter || chapter.id === activeChapterId) return;
+  activeChapterId = chapter.id;
+  const chapterPosition = chapterSections.indexOf(chapter);
+  progressLinks.forEach((link, index) => {
+    const active = link.dataset.progressLink === activeChapterId;
+    link.classList.toggle("active", active);
+    link.classList.toggle("passed", index < chapterPosition);
+    if (active) link.setAttribute("aria-current", "location");
+    else link.removeAttribute("aria-current");
+  });
+  if (progressIndex) progressIndex.textContent = `${String(chapterPosition + 1).padStart(2, "0")} / ${String(chapterSections.length).padStart(2, "0")}`;
+  if (progressStatus) progressStatus.textContent = chapter.querySelector(".chapter-register b")?.textContent ?? "";
+  telemetryProgress?.style.setProperty("--chapter-bearing", `${chapterPosition * 54}deg`);
+};
+
+const renderTelemetryProgress = () => {
+  telemetryFrame = 0;
+  if (!telemetryProgress || !chapterSections.length) return;
+  const pageRange = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+  const pageProgress = Math.min(1, Math.max(0, window.scrollY / pageRange));
+  const viewportAnchor = window.scrollY + window.innerHeight * .42;
+  let activeChapter = chapterSections[0];
+  chapterSections.forEach((chapter) => {
+    if (chapter.offsetTop <= viewportAnchor) activeChapter = chapter;
+  });
+  setActiveChapter(activeChapter);
+  telemetryProgress.classList.toggle("engaged", window.scrollY > window.innerHeight * .58);
+  telemetryProgress.style.setProperty("--page-progress", pageProgress.toFixed(4));
+  telemetryProgress.style.setProperty("--scroll-bearing", `${Math.round(pageProgress * 132)}deg`);
+  if (progressFill) progressFill.style.transform = `scaleY(${pageProgress})`;
+  if (progressPercent) progressPercent.textContent = `${String(Math.round(pageProgress * 100)).padStart(2, "0")}%`;
+};
+
+const queueTelemetryProgress = () => {
+  if (!telemetryFrame) telemetryFrame = requestAnimationFrame(renderTelemetryProgress);
+};
+
+renderTelemetryProgress();
+window.addEventListener("scroll", queueTelemetryProgress, { passive: true });
+window.addEventListener("resize", queueTelemetryProgress, { passive: true });
 
 const navObserver = new IntersectionObserver(
   (entries) => {

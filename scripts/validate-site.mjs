@@ -56,6 +56,12 @@ if (!styles.includes("-webkit-text-size-adjust: 100%")) failures.push("Missing i
 if (!styles.includes("safe-area-inset-top")) failures.push("Missing iOS safe-area layout tokens");
 if (!styles.includes(".js-ready .radar-rig.reveal")) failures.push("Missing immediate mobile radar rendering");
 if ((index.match(/class="timeline-glyph"/g) ?? []).length !== 4) failures.push("Missing trajectory telemetry rails");
+if (!index.includes("data-telemetry-progress")) failures.push("Missing scroll-linked telemetry navigation");
+if ((index.match(/data-progress-link=/g) ?? []).length !== 5) failures.push("Missing telemetry chapter links");
+if (!index.includes('id="experiments"')) failures.push("Missing experiments chapter anchor");
+if (!script.includes("renderTelemetryProgress")) failures.push("Missing scroll-linked telemetry controller");
+if (!script.includes("requestAnimationFrame(renderTelemetryProgress)")) failures.push("Missing frame-synced telemetry progress");
+if (!styles.includes(".telemetry-progress-rail")) failures.push("Missing telemetry progress rail styling");
 if (!styles.includes("prefers-reduced-motion")) failures.push("Missing reduced-motion support");
 if (!script.includes("IntersectionObserver")) failures.push("Missing progressive reveal behavior");
 if (!script.includes("applyLanguage")) failures.push("Missing language switching behavior");
