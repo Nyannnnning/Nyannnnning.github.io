@@ -51,6 +51,11 @@ for (const key of translationKeys) {
 if (!styles.includes("@media (max-width: 1180px)")) failures.push("Missing compact-desktop breakpoint");
 if (!styles.includes("@media (max-width: 900px)")) failures.push("Missing tablet breakpoint");
 if (!styles.includes("@media (max-width: 720px)")) failures.push("Missing mobile breakpoint");
+if (!index.includes("viewport-fit=cover")) failures.push("Missing iOS safe-area viewport support");
+if (!styles.includes("-webkit-text-size-adjust: 100%")) failures.push("Missing iOS text autosizing guard");
+if (!styles.includes("safe-area-inset-top")) failures.push("Missing iOS safe-area layout tokens");
+if (!styles.includes(".js-ready .radar-rig.reveal")) failures.push("Missing immediate mobile radar rendering");
+if ((index.match(/class="timeline-glyph"/g) ?? []).length !== 4) failures.push("Missing trajectory telemetry rails");
 if (!styles.includes("prefers-reduced-motion")) failures.push("Missing reduced-motion support");
 if (!script.includes("IntersectionObserver")) failures.push("Missing progressive reveal behavior");
 if (!script.includes("applyLanguage")) failures.push("Missing language switching behavior");
