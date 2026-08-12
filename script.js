@@ -20,6 +20,18 @@ const sections = navLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
 
+const loadHeroShader = () => {
+  if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+  if (document.querySelector('script[data-lazy-shader]')) return;
+  const script = document.createElement("script");
+  script.src = "hero-shader.js?v=20260812-2";
+  script.dataset.lazyShader = "";
+  document.head.append(script);
+};
+
+if ("requestIdleCallback" in window) requestIdleCallback(loadHeroShader, { timeout: 1400 });
+else window.setTimeout(loadHeroShader, 700);
+
 const setMetaContent = (selector, value) => {
   const element = document.querySelector(selector);
   if (element && value) element.setAttribute("content", value);
@@ -112,41 +124,55 @@ const syncReflectionCapability = () => {
     surface.classList.toggle("reflection-enabled", enabled);
     if (!enabled) surface.style.setProperty("--reflect-opacity", "0");
   });
+  if (!enabled) activeReflectiveSurface = null;
 };
 
-reflectiveSurfaces.forEach((surface) => {
-  let animationFrame = 0;
-  let pointerX = 0;
-  let pointerY = 0;
+let activeReflectiveSurface = null;
+let reflectionFrame = 0;
+let reflectionPointerX = 0;
+let reflectionPointerY = 0;
 
-  const renderReflection = () => {
-    animationFrame = 0;
-    const rect = surface.getBoundingClientRect();
-    surface.style.setProperty("--reflect-x", `${pointerX - rect.left}px`);
-    surface.style.setProperty("--reflect-y", `${pointerY - rect.top}px`);
-  };
+const renderReflection = () => {
+  reflectionFrame = 0;
+  if (!activeReflectiveSurface) return;
+  const rect = activeReflectiveSurface.getBoundingClientRect();
+  activeReflectiveSurface.style.setProperty("--reflect-x", `${reflectionPointerX - rect.left}px`);
+  activeReflectiveSurface.style.setProperty("--reflect-y", `${reflectionPointerY - rect.top}px`);
+};
 
-  const queueReflection = (event) => {
-    if (!surface.classList.contains("reflection-enabled")) return;
-    pointerX = event.clientX;
-    pointerY = event.clientY;
-    if (!animationFrame) animationFrame = requestAnimationFrame(renderReflection);
-  };
+document.addEventListener("pointerover", (event) => {
+  const surface = event.target.closest?.("[data-reflective]");
+  if (!surface?.classList.contains("reflection-enabled")) return;
+  if (activeReflectiveSurface !== surface) activeReflectiveSurface?.style.setProperty("--reflect-opacity", "0");
+  activeReflectiveSurface = surface;
+  surface.style.setProperty("--reflect-opacity", "1");
+}, { passive: true });
 
-  surface.addEventListener("pointerenter", (event) => {
-    if (!surface.classList.contains("reflection-enabled")) return;
-    surface.style.setProperty("--reflect-opacity", "1");
-    queueReflection(event);
-  });
-  surface.addEventListener("pointermove", queueReflection, { passive: true });
-  surface.addEventListener("pointerleave", () => {
-    surface.style.setProperty("--reflect-opacity", "0");
-  });
-});
+document.addEventListener("pointermove", (event) => {
+  if (!activeReflectiveSurface) return;
+  reflectionPointerX = event.clientX;
+  reflectionPointerY = event.clientY;
+  if (!reflectionFrame) reflectionFrame = requestAnimationFrame(renderReflection);
+}, { passive: true });
+
+document.addEventListener("pointerout", (event) => {
+  if (!activeReflectiveSurface || event.relatedTarget?.closest?.("[data-reflective]") === activeReflectiveSurface) return;
+  activeReflectiveSurface.style.setProperty("--reflect-opacity", "0");
+  activeReflectiveSurface = null;
+}, { passive: true });
 
 precisePointer.addEventListener("change", syncReflectionCapability);
 reducedMotion.addEventListener("change", syncReflectionCapability);
 syncReflectionCapability();
+
+const motionZoneObserver = new IntersectionObserver(
+  (entries) => entries.forEach((entry) => entry.target.classList.toggle("motion-paused", !entry.isIntersecting)),
+  { rootMargin: "180px 0px" },
+);
+document.querySelectorAll(".motion-zone").forEach((zone) => {
+  if (!zone.classList.contains("hero")) zone.classList.add("motion-paused");
+  motionZoneObserver.observe(zone);
+});
 
 const revealObserver = new IntersectionObserver(
   (entries, observer) => {

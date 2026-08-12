@@ -84,12 +84,18 @@ if (!styles.includes("flow-materialize")) failures.push("Missing staged case flo
 if (!styles.includes("governance-route")) failures.push("Missing governance routing visual system");
 if (!index.includes("data-hero-portrait")) failures.push("Missing hero portrait layer");
 if (!styles.includes("portrait-sheen")) failures.push("Missing masked portrait material pass");
+if ((styles.match(/hero-silver-sentinel\.webp/g) ?? []).length > 0) failures.push("Hero image should not be decoded again as a CSS mask");
 if ((index.match(/data-chapter-frame/g) ?? []).length !== 5) failures.push("Missing editorial chapter frames");
 if (!script.includes("chapterObserver")) failures.push("Missing chapter transition observer");
 if (!styles.includes("chapter-register")) failures.push("Missing editorial chapter register system");
 if (!styles.includes("@keyframes radar-sweep")) failures.push("Missing cockpit radar sweep treatment");
 if (`${index}\n${translationsSource}`.includes("NING.FDE")) failures.push("Overstated FDE wordmark found");
 if (!translationsSource.includes('class="hero-focus">field friction</strong>')) failures.push("Missing deliberate English hero hierarchy");
+if ((index.match(/class="section-lead"/g) ?? []).length !== 5) failures.push("Missing section title lead hierarchy");
+if ((index.match(/class="section-focus"/g) ?? []).length !== 5) failures.push("Missing section title focus hierarchy");
+if (!script.includes("requestIdleCallback")) failures.push("Missing deferred hero shader loading");
+if (!script.includes("motionZoneObserver")) failures.push("Missing offscreen animation lifecycle");
+if (!styles.includes("contain: layout paint")) failures.push("Missing component rendering containment");
 if (!styles.includes(".hero h1 .hero-focus")) failures.push("Missing hero title hierarchy styles");
 if (!index.includes('class="radar-rig reveal"')) failures.push("Missing integrated cockpit radar rig");
 for (const symbol of ["reticle", "waveform", "bearing", "nodes", "calibration", "radar-frame", "umbilical"]) {

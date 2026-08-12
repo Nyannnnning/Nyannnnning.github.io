@@ -535,16 +535,21 @@ body[data-mode="signal"] .telemetry-progress-nav a:hover { background: rgba(255,
 .hero-portrait::after {
   content: "";
   position: absolute;
-  inset: 0;
+  top: 14%;
+  right: 8%;
+  bottom: 8%;
+  left: 19%;
   z-index: 2;
   pointer-events: none;
-  background: linear-gradient(112deg, transparent 34%, rgba(255,255,252,.02) 43%, rgba(255,255,252,.38) 49%, rgba(235,118,45,.08) 54%, transparent 63%);
-  background-size: 240% 100%;
+  overflow: hidden;
+  border-radius: 46% 48% 38% 44%;
+  background: linear-gradient(112deg, transparent 34%, rgba(255,255,252,.015) 43%, rgba(255,255,252,.22) 49%, rgba(235,118,45,.045) 54%, transparent 63%);
+  background-size: 250% 100%;
   background-position: 140% 0;
-  -webkit-mask: url("assets/hero-silver-sentinel.webp") center / contain no-repeat;
-  mask: url("assets/hero-silver-sentinel.webp") center / contain no-repeat;
+  -webkit-mask-image: radial-gradient(ellipse at 58% 46%, #000 0 42%, transparent 72%);
+  mask-image: radial-gradient(ellipse at 58% 46%, #000 0 42%, transparent 72%);
   mix-blend-mode: screen;
-  opacity: .54;
+  opacity: .4;
   animation: portrait-sheen 10.5s cubic-bezier(.32,.02,.15,1) infinite;
 }
 .hero-portrait figcaption {
@@ -622,7 +627,7 @@ body[data-language="zh"] .hero h1 .hero-transition {
 }
 body[data-language="zh"] .hero h1 .hero-focus { font-size: clamp(4.5rem, 7.4vw, 7.8rem); }
 body[data-language="zh"] .hero h1 .hero-outcome { font-size: clamp(3.8rem, 5.5vw, 6rem); }
-.hero h1 em, .section-heading h2 em, .github-inner h2 em {
+.hero h1 em {
   font-family: var(--serif);
   font-weight: 400;
   letter-spacing: -.035em;
@@ -1065,6 +1070,30 @@ body[data-language="zh"] .hero h1 .hero-outcome { font-size: clamp(3.8rem, 5.5vw
   animation: signal-idle 4.6s steps(1,end) infinite;
 }
 .section-heading h2, .github-inner h2 { font-size: clamp(3rem, 6.3vw, 7rem); }
+.section-heading h2 > *, .github-inner h2 > * { display: block; width: fit-content; max-width: 100%; }
+.section-heading h2 .section-lead, .github-inner h2 .section-lead {
+  margin: 0 0 .72rem .16em;
+  font: 500 clamp(.78rem, 1vw, 1.02rem)/1.15 var(--mono);
+  letter-spacing: .075em;
+  text-transform: uppercase;
+}
+.section-heading h2 .section-focus, .github-inner h2 .section-focus {
+  font: 400 clamp(3.3rem, 5.7vw, 6.5rem)/.88 var(--serif);
+  letter-spacing: -.04em;
+  text-wrap: balance;
+}
+body[data-language="zh"] .section-heading h2 .section-lead,
+body[data-language="zh"] .github-inner h2 .section-lead {
+  font-family: var(--sans);
+  font-weight: 650;
+  letter-spacing: .12em;
+}
+body[data-language="zh"] .section-heading h2 .section-focus,
+body[data-language="zh"] .github-inner h2 .section-focus {
+  font-family: var(--sans);
+  font-weight: 800;
+  letter-spacing: -.06em;
+}
 .section-heading > p:last-child { max-width: 38ch; margin: .5rem 0 0; color: var(--muted); font-size: .98rem; }
 .editorial-intro::first-letter {
   float: left;
@@ -1112,6 +1141,8 @@ body[data-language="zh"] .hero h1 .hero-outcome { font-size: clamp(3.8rem, 5.5vw
 .evidence-drawer {
   position: relative;
   z-index: 5;
+  min-width: 0;
+  max-width: 100%;
   grid-column: 2 / -1;
   border-top: 1px solid var(--frost-line-strong);
   background:
@@ -1127,6 +1158,7 @@ body[data-language="zh"] .hero h1 .hero-outcome { font-size: clamp(3.8rem, 5.5vw
   align-items: center;
   gap: 1rem;
   min-height: 78px;
+  min-width: 0;
   padding: .9rem clamp(1.2rem, 2.5vw, 2.4rem);
   cursor: pointer;
   list-style: none;
@@ -1147,6 +1179,7 @@ body[data-language="zh"] .hero h1 .hero-outcome { font-size: clamp(3.8rem, 5.5vw
 .evidence-drawer summary:focus-visible { outline: 2px solid var(--amber); outline-offset: -4px; }
 .evidence-summary-index { color: var(--amber); font: 600 .58rem var(--mono); letter-spacing: .12em; }
 .evidence-summary-copy { display: grid; gap: .16rem; }
+.evidence-summary-copy, .evidence-grid article, .evidence-grid article > p { min-width: 0; overflow-wrap: anywhere; }
 .evidence-summary-copy b { font: 650 .72rem var(--mono); letter-spacing: .06em; text-transform: uppercase; }
 .evidence-label-close { display: none; }
 .evidence-drawer[open] .evidence-label-open { display: none; }
@@ -1158,7 +1191,7 @@ body[data-language="zh"] .hero h1 .hero-outcome { font-size: clamp(3.8rem, 5.5vw
 .evidence-toggle::after { rotate: 90deg; }
 .evidence-drawer[open] .evidence-toggle::after { rotate: 0deg; opacity: 0; }
 .evidence-drawer-body { padding: 0 clamp(1.2rem, 2.5vw, 2.4rem) 1.5rem; animation: evidence-reveal .36s cubic-bezier(.2,.75,.25,1) both; }
-.evidence-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); overflow: hidden; border: 1px solid rgba(49,55,60,.24); border-radius: 13px 13px 21px 13px; background: rgba(247,248,246,.34); box-shadow: inset 0 1px 0 rgba(255,255,255,.68), 0 14px 34px rgba(35,40,44,.07); backdrop-filter: blur(12px) saturate(.62); }
+.evidence-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); min-width: 0; max-width: 100%; overflow: hidden; border: 1px solid rgba(49,55,60,.24); border-radius: 13px 13px 21px 13px; background: rgba(247,248,246,.34); box-shadow: inset 0 1px 0 rgba(255,255,255,.68), 0 14px 34px rgba(35,40,44,.07); backdrop-filter: blur(12px) saturate(.62); }
 .evidence-grid article { position: relative; min-height: 176px; padding: 1.15rem; border-right: 1px solid rgba(49,55,60,.18); }
 .evidence-grid article:last-child { border-right: 0; }
 .evidence-grid article > span { display: block; margin-bottom: 2.35rem; color: var(--amber); font: 600 .54rem var(--mono); }
@@ -1449,7 +1482,7 @@ body[data-language="zh"] .hero h1 .hero-outcome { font-size: clamp(3.8rem, 5.5vw
 .system-inner { position: relative; }
 .system-section .section-index { color: var(--amber-bright); }
 .section-heading.light > p:last-child { color: #c9cbc8; }
-.section-heading.light em { color: #d6d8d9; }
+.section-heading.light .section-focus { color: #d6d8d9; }
 .decision-stack { max-width: 940px; margin-left: auto; }
 .stack-row { display: grid; grid-template-columns: 55px 240px 1fr; align-items: center; gap: 1rem; padding: 1.4rem; border: 1px solid rgba(255,255,255,.22); border-radius: 13px 13px 20px 13px; box-shadow: inset 0 1px 0 rgba(255,255,255,.08); backdrop-filter: blur(12px); }
 .stack-row span, .stack-row b { font-family: var(--mono); }
@@ -1551,7 +1584,19 @@ body[data-language="zh"] .hero h1 .hero-outcome { font-size: clamp(3.8rem, 5.5vw
 .github-noise { position: absolute; inset: 0; opacity: .08; background-image: radial-gradient(var(--ink) .55px, transparent .55px); background-size: 7px 7px; }
 .github-inner { position: relative; z-index: 1; }
 .github-inner h2 { max-width: 14ch; margin: 2rem 0 3rem; }
-.github-inner h2 em { color: #555c61; text-shadow: none; }
+.github-inner h2 .section-focus { color: #555c61; text-shadow: none; }
+
+.case-study,
+.decision-stack,
+.timeline li,
+.experiment-card,
+.github-ledger { contain: layout paint; }
+
+.motion-zone.motion-paused *,
+.motion-zone.motion-paused *::before,
+.motion-zone.motion-paused *::after {
+  animation-play-state: paused !important;
+}
 .github-copy { display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: end; }
 .github-copy p { max-width: 58ch; margin: 0; font-weight: 600; }
 .button-light { background: var(--frost-silver-static); backdrop-filter: blur(14px) saturate(.55); }
@@ -1757,11 +1802,11 @@ body[data-language="zh"] .hero h1 .hero-outcome { font-size: clamp(3.8rem, 5.5vw
   .proof-item:nth-child(-n+2) { border-bottom: 1px solid var(--ink); }
   .section-heading { grid-template-columns: .35fr 1fr; }
   .section-heading > p:last-child { grid-column: 2; }
-  .case-study { grid-template-columns: 58px 1fr; }
-  .case-number { grid-row: 1 / 4; }
+  .case-study { grid-template-columns: 58px minmax(0, 1fr); }
+  .case-number { grid-row: 1 / 3; }
   .case-copy { border-right: 0; }
   .case-visualization, .audit-console, .governance-map { grid-column: 2; width: auto; min-height: 480px; }
-  .evidence-drawer { grid-column: 2; }
+  .evidence-drawer { grid-column: 1 / -1; }
   .evidence-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .evidence-grid article:nth-child(2) { border-right: 0; }
   .evidence-grid article:nth-child(-n+2) { border-bottom: 1px solid rgba(49,55,60,.18); }
@@ -1799,7 +1844,8 @@ body[data-language="zh"] .hero h1 .hero-outcome { font-size: clamp(3.8rem, 5.5vw
   [data-chapter-frame] > .section-shell { padding-top: 8rem; }
   .chapter-register { top: 78px; }
   .section-heading, .section-heading.compact, .trajectory-section .section-heading { display: block; }
-  .section-heading h2 { margin: 1.5rem 0; font-size: clamp(3.2rem, 10vw, 5.5rem); }
+  .section-heading h2 { margin: 1.5rem 0; }
+  .section-heading h2 .section-focus, .github-inner h2 .section-focus { font-size: clamp(3rem, 8.5vw, 5.2rem); }
   .section-heading > p:last-child { margin-top: 1.5rem; }
   .case-study { display: block; min-height: 0; }
   .case-number { grid-row: auto; writing-mode: initial; border-right: 0; border-bottom: 1px solid var(--ink); }
@@ -1892,9 +1938,11 @@ body[data-language="zh"] .hero h1 .hero-outcome { font-size: clamp(3.8rem, 5.5vw
   .chapter-register .telemetry-nodes { width: 20px; }
   .chapter-register > small { display: none; }
   .section-heading, .section-heading.compact, .trajectory-section .section-heading { display: block; }
-  .section-heading h2 { margin: 1.5rem 0; font-size: clamp(3rem, 14vw, 5rem); }
-  body[data-language="zh"] .trajectory-section .section-heading h2 { font-size: clamp(2.8rem, 12vw, 3.25rem); }
-  body[data-language="zh"] .trajectory-section .section-heading h2 em { white-space: nowrap; }
+  .section-heading h2 { margin: 1.5rem 0; }
+  .section-heading h2 .section-lead, .github-inner h2 .section-lead { margin-bottom: .5rem; font-size: .68rem; }
+  .section-heading h2 .section-focus, .github-inner h2 .section-focus { font-size: clamp(2.55rem, 11.4vw, 3.25rem); line-height: .93; }
+  body[data-language="en"] .section-heading h2 .section-focus,
+  body[data-language="en"] .github-inner h2 .section-focus { font-size: clamp(2.45rem, 10.8vw, 3.15rem); }
   .section-heading > p:last-child { margin-top: 1.5rem; }
   .case-study { display: block; min-height: 0; }
   .case-number { writing-mode: initial; border-right: 0; border-bottom: 1px solid var(--ink); }
@@ -1942,8 +1990,15 @@ body[data-language="zh"] .hero h1 .hero-outcome { font-size: clamp(3.8rem, 5.5vw
   .timeline li > div { display: block; padding: 1.5rem; }
   .timeline h3 { margin: .7rem 0; }
   .experiment-grid { grid-template-columns: 1fr; }
-  .github-inner h2 { font-size: clamp(3.2rem, 14vw, 5rem); }
+  .github-inner h2 { font-size: inherit; }
   .footer-links { justify-content: space-between; }
+}
+
+@media (min-width: 1181px) and (max-width: 1360px) {
+  .evidence-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .evidence-grid article:nth-child(2) { border-right: 0; }
+  .evidence-grid article:nth-child(-n+2) { border-bottom: 1px solid rgba(49,55,60,.18); }
+  .case-exposure .evidence-grid article:nth-child(-n+2) { border-bottom-color: rgba(255,255,255,.16); }
 }
 
 @media (prefers-reduced-motion: reduce) {

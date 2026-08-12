@@ -173,6 +173,8 @@
   let inView = true;
   let pointerTarget = { x: 0, y: 0 };
   let pointerCurrent = { x: 0, y: 0 };
+  let lastRenderedAt = 0;
+  const minFrameInterval = 1000 / 30;
   const startedAt = performance.now();
 
   const resize = () => {
@@ -210,7 +212,10 @@
       animationFrame = 0;
       return;
     }
-    render(now);
+    if (now - lastRenderedAt >= minFrameInterval) {
+      render(now);
+      lastRenderedAt = now;
+    }
     animationFrame = requestAnimationFrame(tick);
   };
 
