@@ -76,6 +76,9 @@ if (!heroShader.includes("prefers-reduced-motion")) failures.push("Missing shade
 if (!styles.includes("--frost-silver")) failures.push("Missing translucent silver surface system");
 if (!styles.includes("--frost-shadow")) failures.push("Missing frosted surface depth system");
 if ((index.match(/data-case-flow/g) ?? []).length !== 3) failures.push("Missing case narrative hooks");
+if ((index.match(/data-evidence-drawer/g) ?? []).length !== 3) failures.push("Missing case evidence drawers");
+if (!styles.includes(".evidence-grid")) failures.push("Missing case evidence visual system");
+if (!script.includes("evidenceDrawers")) failures.push("Missing evidence drawer telemetry sync");
 if (!script.includes("caseFlowObserver")) failures.push("Missing case flow observer");
 if (!styles.includes("flow-materialize")) failures.push("Missing staged case flow animation");
 if (!styles.includes("governance-route")) failures.push("Missing governance routing visual system");

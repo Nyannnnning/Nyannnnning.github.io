@@ -15,6 +15,7 @@ const progressFill = document.querySelector("[data-progress-fill]");
 const progressIndex = document.querySelector("[data-progress-index]");
 const progressPercent = document.querySelector("[data-progress-percent]");
 const progressStatus = document.querySelector("[data-progress-status]");
+const evidenceDrawers = [...document.querySelectorAll("[data-evidence-drawer]")];
 const sections = navLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
@@ -227,6 +228,13 @@ const renderTelemetryProgress = () => {
 const queueTelemetryProgress = () => {
   if (!telemetryFrame) telemetryFrame = requestAnimationFrame(renderTelemetryProgress);
 };
+
+evidenceDrawers.forEach((drawer) => {
+  drawer.addEventListener("toggle", () => {
+    queueTelemetryProgress();
+    window.setTimeout(queueTelemetryProgress, 420);
+  });
+});
 
 renderTelemetryProgress();
 window.addEventListener("scroll", queueTelemetryProgress, { passive: true });
