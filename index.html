@@ -26,12 +26,12 @@
     <link rel="preload" href="assets/fonts/noto-sans-tc-subset.woff2?v=8" as="font" type="font/woff2" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&text=Ning&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20261123-15" />
-    <link rel="stylesheet" href="labs.css?v=20261123-15" />
+    <link rel="stylesheet" href="styles.css?v=20261123-16" />
+    <link rel="stylesheet" href="labs.css?v=20261123-16" />
     <script>document.documentElement.classList.remove('no-js');</script>
-    <script src="translations.js?v=20261123-15" defer></script>
-    <script src="script.js?v=20261123-15" defer></script>
-    <script src="labs.js?v=20261123-15" defer></script>
+    <script src="translations.js?v=20261123-16" defer></script>
+    <script src="script.js?v=20261123-16" defer></script>
+    <script src="labs.js?v=20261123-16" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main" data-i18n="skip">跳到主要內容</a>
@@ -190,6 +190,7 @@
           </div>
 
           <figure class="ticket-ring" aria-labelledby="ticket-ring-caption">
+            <div class="ring-wrap">
             <svg viewBox="0 0 220 220" role="img" aria-labelledby="ticket-ring-caption">
               <circle class="ring-track" cx="110" cy="110" r="84" />
               <circle class="ring-seg seg-done" cx="110" cy="110" r="84" pathLength="183" stroke-dasharray="168 15" stroke-dashoffset="0" data-ring-seg="done" tabindex="0" />
@@ -199,6 +200,8 @@
               <g class="ring-ticks"><path d="M110 14v8M110 198v8M14 110h8M198 110h8" /></g>
             </svg>
             <div class="ring-center" aria-live="polite"><b data-ring-value>168</b><small data-ring-label data-i18n="ringDone">已交付</small></div>
+            </div>
+            
             <figcaption id="ticket-ring-caption">
               <span data-i18n="ringCaption">工單狀態 · 共 183 張</span>
               <ul class="ring-legend">

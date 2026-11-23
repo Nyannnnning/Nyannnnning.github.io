@@ -861,3 +861,8 @@ body[data-mode="signal"] .cicd-stages li span { background: #1b1f24; }
   .audio-chain li em { grid-column: 2; }
 }
 @media (prefers-reduced-motion: reduce) { .audio-chain li.pulse { animation: none; } }
+
+/* ticket ring: center the readout on the ring itself, not on the whole figure */
+.ring-wrap { position: relative; width: min(100%, 300px); aspect-ratio: 1; }
+.ring-wrap svg { width: 100%; height: 100%; }
+.ticket-ring .ring-center { position: absolute; top: 50%; left: 50%; margin: 0; translate: -50% -50%; }
