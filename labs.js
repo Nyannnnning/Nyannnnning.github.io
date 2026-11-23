@@ -279,6 +279,7 @@
     al: ["bnAlEyebrow", "bnAlHead", "bnAlSub", "bnAlCta"],
     gm: ["bnGmEyebrow", "bnGmHead", "bnGmSub", "bnGmCta"],
   };
+  const bnExtra = { gm: { ribbon: "bnGmRibbon", plat: "bnGmPlat" } };
   const lum = (r, g, b) => {
     const f = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); };
     return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b);
@@ -315,7 +316,7 @@
       const textL = lum(...parseRgb(getComputedStyle(head).color));
       const lums = [];
       // Include the copy scrim (if any) so the number reflects what readers actually see.
-      const scrim = { tp: [3, 36, 66, 0.5] }[banner.dataset.product];
+      const scrim = { tp: [3, 36, 66, 0.5], gm: [5, 8, 14, 0.62] }[banner.dataset.product];
       const mix = (v, k) => (scrim ? v * (1 - scrim[3]) + scrim[k] * scrim[3] : v);
       for (let i = 0; i < data.length; i += 4) lums.push(lum(mix(data[i], 0), mix(data[i + 1], 1), mix(data[i + 2], 2)));
       lums.sort((p, q) => Math.abs(p - textL) - Math.abs(q - textL));
@@ -327,13 +328,13 @@
     }
     // Safe area: every copy element must sit inside a 5% inset.
     const inset = { l: bRect.left + bRect.width * 0.05, r: bRect.right - bRect.width * 0.05, t: bRect.top + bRect.height * 0.05, b: bRect.bottom - bRect.height * 0.05 };
-    const inside = $$(".banner-copy > *", banner).every((el) => {
+    const inside = $$(".banner-copy > *", banner).filter((el) => !el.hidden && el.getClientRects().length).every((el) => {
       const r = el.getBoundingClientRect();
       return r.left >= inset.l - 0.5 && r.right <= inset.r + 0.5 && r.top >= inset.t - 0.5 && r.bottom <= inset.b + 0.5;
     });
     setQa("[data-banner-safe]", inside ? t("bnQaPass") : "✕", inside);
     // Type scale: number of distinct font sizes in the copy.
-    const sizes = new Set($$(".banner-copy > *", banner).map((el) => Math.round(parseFloat(getComputedStyle(el).fontSize))));
+    const sizes = new Set($$(".banner-copy > *", banner).filter((el) => !el.hidden && el.getClientRects().length).map((el) => Math.round(parseFloat(getComputedStyle(el).fontSize))));
     setQa("[data-banner-type]", `${sizes.size}`, sizes.size <= 4);
   };
   const setBanner = () => {
@@ -344,8 +345,16 @@
       const el = $(sel, banner);
       if (el) { el.dataset.i18n = keys[i]; el.textContent = t(keys[i]); }
     });
+    const extra = bnExtra[p] ?? {};
+    [["[data-banner-ribbon]", "ribbon"], ["[data-banner-plat]", "plat"]].forEach(([sel, k]) => {
+      const el = $(sel, banner);
+      if (!el) return;
+      el.hidden = !extra[k];
+      if (extra[k]) { el.dataset.i18n = extra[k]; el.textContent = t(extra[k]); }
+    });
     if (bannerImg) {
-      const src = `assets/demo/${p}-${banner.dataset.size}.webp?v=2`;
+      const ver = p === "gm" ? 3 : 2;
+      const src = `assets/demo/${p}-${banner.dataset.size}.webp?v=${ver}`;
       if (!bannerImg.src.endsWith(src)) bannerImg.src = src;
       else requestAnimationFrame(measureBanner);
     }

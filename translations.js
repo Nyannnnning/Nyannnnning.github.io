@@ -324,3 +324,13 @@ Object.assign(window.NING_TRANSLATIONS.en, {
     heroPortraitAria: "Illustration of a figure in silver space armor",
     exp6Desc: "Skeletal animation from a single character illustration: 3D gait projection, secondary motion and bone reduction, plus automatic checks. The goal is fewer fix-up rounds with every new character."
 });
+
+/* ---- v2.4 game banner: game-show lockup ---- */
+Object.assign(window.NING_TRANSLATIONS.zh, {
+    bnGmEyebrow: "STEEL FRONTIER", bnGmHead: "鋼鐵星域", bnGmRibbon: "開放測試 12.05 → 12.19",
+    bnGmSub: "登入七天，送傳說機甲外觀", bnGmCta: "免費下載", bnGmPlat: "PC · 主機 · 行動裝置"
+});
+Object.assign(window.NING_TRANSLATIONS.en, {
+    bnGmEyebrow: "MECH ACTION", bnGmHead: "STEEL FRONTIER", bnGmRibbon: "OPEN BETA 12.05 → 12.19",
+    bnGmSub: "Log in 7 days, unlock a legendary mech skin", bnGmCta: "Play free", bnGmPlat: "PC · Console · Mobile"
+});

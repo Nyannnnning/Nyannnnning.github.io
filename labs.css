@@ -689,3 +689,78 @@ body[data-mode="signal"] .atlas-axes line { stroke: rgba(255,255,255,.18); }
   .signature path { stroke-dashoffset: 0; }
   .band-row { transform: none !important; }
 }
+
+/* ---- game banner: game-show key visual lockup ---- */
+.banner-ribbon, .banner-plat { display: none; }
+.banner[data-product="gm"] .banner-ribbon, .banner[data-product="gm"] .banner-plat { display: inline-block; }
+.banner-ribbon[hidden], .banner-plat[hidden] { display: none !important; }
+.banner[data-product="gm"]::before {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(90deg, rgba(5,8,14,.72) 0%, rgba(5,8,14,.45) 40%, rgba(5,8,14,0) 62%),
+              linear-gradient(0deg, rgba(5,8,14,.55), rgba(5,8,14,0) 30%);
+}
+.banner[data-size="square"][data-product="gm"]::before, .banner[data-size="story"][data-product="gm"]::before {
+  background: linear-gradient(180deg, rgba(5,8,14,.72) 0%, rgba(5,8,14,.45) 36%, rgba(5,8,14,0) 58%),
+              linear-gradient(0deg, rgba(5,8,14,.5), rgba(5,8,14,0) 24%);
+}
+.banner[data-product="gm"] .banner-copy { gap: .9cqw; }
+.banner[data-product="gm"] .banner-copy small {
+  color: #ffcf3d; font: 700 clamp(7px, 1.7cqw, 13px) var(--mono); letter-spacing: .42em;
+  text-shadow: 0 0 12px rgba(255,180,40,.45);
+}
+.banner[data-product="gm"] .banner-copy strong {
+  color: #aab8c6;                       /* darkest stop of the fill: used by the contrast check */
+  background: linear-gradient(180deg, #ffffff 0%, #e9eef4 38%, #9fb2c4 52%, #f4f7fa 64%, #b9c6d3 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  font: 900 clamp(18px, 9.4cqw, 72px)/.95 var(--sans); letter-spacing: .02em; font-style: italic;
+  transform: skewX(-6deg); transform-origin: left;
+  filter: drop-shadow(0 2px 0 #0b1a2c) drop-shadow(0 0 1px #0b1a2c) drop-shadow(0 6px 14px rgba(0,0,0,.6)) drop-shadow(0 0 18px rgba(60,170,255,.35));
+}
+body[data-language="en"] .banner[data-product="gm"] .banner-copy strong { font-size: clamp(16px, 7.6cqw, 60px); letter-spacing: -.01em; }
+.banner[data-size="square"][data-product="gm"] .banner-copy strong { font-size: clamp(18px, 14cqw, 72px); }
+.banner[data-size="story"][data-product="gm"] .banner-copy strong { font-size: clamp(18px, 17cqw, 64px); }
+.banner[data-product="gm"] .banner-ribbon {
+  justify-self: start; padding: .35em 1em .35em .8em; color: #0d1b2a; background: linear-gradient(90deg, #ffd23f, #ffb020);
+  font: 800 clamp(7px, 1.9cqw, 14px) var(--sans); letter-spacing: .06em; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%);
+  box-shadow: 0 0 18px rgba(255,190,40,.35);
+}
+.banner[data-product="gm"] .banner-copy span[data-banner-sub] { color: #e6edf4; font-weight: 600; text-shadow: 0 2px 8px rgba(0,0,0,.6); }
+.banner[data-product="gm"] .banner-copy em {
+  background: linear-gradient(180deg, #ffe27a, #ffc21a); color: #0d1b2a; border-radius: 6px;
+  box-shadow: 0 0 0 2px rgba(255,210,63,.35), 0 8px 20px rgba(0,0,0,.45); text-transform: uppercase; letter-spacing: .04em;
+}
+.banner[data-product="gm"] .banner-plat {
+  justify-self: start; margin-top: .4cqw; padding: .25em .7em; border: 1px solid rgba(230,237,244,.45); border-radius: 4px;
+  color: #e6edf4; font: 600 clamp(6px, 1.5cqw, 11px) var(--mono); letter-spacing: .12em; background: rgba(5,8,14,.35);
+}
+.banner[data-size="story"][data-product="gm"] .banner-ribbon, .banner[data-size="story"][data-product="gm"] .banner-plat { font-size: clamp(7px, 3.4cqw, 12px); }
+.banner[data-size="square"][data-product="gm"] .banner-ribbon { font-size: clamp(7px, 2.6cqw, 13px); }
+/* game banner: QA fixes — 3 type sizes, stronger copy wash */
+.banner[data-product="gm"]::before {
+  background: linear-gradient(90deg, rgba(5,8,14,.86) 0%, rgba(5,8,14,.62) 42%, rgba(5,8,14,0) 64%),
+              linear-gradient(0deg, rgba(5,8,14,.55), rgba(5,8,14,0) 30%);
+}
+.banner[data-size="square"][data-product="gm"]::before, .banner[data-size="story"][data-product="gm"]::before {
+  background: linear-gradient(180deg, rgba(5,8,14,.86) 0%, rgba(5,8,14,.62) 38%, rgba(5,8,14,0) 60%),
+              linear-gradient(0deg, rgba(5,8,14,.5), rgba(5,8,14,0) 24%);
+}
+.banner[data-product="gm"] .banner-copy strong {
+  color: #b9c6d3;
+  background: linear-gradient(180deg, #ffffff 0%, #eef2f6 40%, #b9c6d3 52%, #f6f8fa 64%, #c9d4de 100%);
+  -webkit-background-clip: text; background-clip: text;
+}
+.banner[data-product="gm"] .banner-copy small,
+.banner[data-product="gm"] .banner-ribbon,
+.banner[data-product="gm"] .banner-plat { font-size: clamp(7px, 1.8cqw, 13px); }
+.banner[data-product="gm"] .banner-copy span[data-banner-sub],
+.banner[data-product="gm"] .banner-copy em { font-size: clamp(8px, 2.5cqw, 16px); }
+.banner[data-size="square"][data-product="gm"] .banner-copy small,
+.banner[data-size="square"][data-product="gm"] .banner-ribbon,
+.banner[data-size="square"][data-product="gm"] .banner-plat { font-size: clamp(7px, 2.6cqw, 13px); }
+.banner[data-size="square"][data-product="gm"] .banner-copy span[data-banner-sub],
+.banner[data-size="square"][data-product="gm"] .banner-copy em { font-size: clamp(8px, 3.4cqw, 16px); }
+.banner[data-size="story"][data-product="gm"] .banner-copy small,
+.banner[data-size="story"][data-product="gm"] .banner-ribbon,
+.banner[data-size="story"][data-product="gm"] .banner-plat { font-size: clamp(7px, 3.6cqw, 12px); }
+.banner[data-size="story"][data-product="gm"] .banner-copy span[data-banner-sub],
+.banner[data-size="story"][data-product="gm"] .banner-copy em { font-size: clamp(8px, 4.6cqw, 15px); }
