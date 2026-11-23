@@ -27,7 +27,7 @@ body[data-language="zh"] .manifesto-line { font: 800 clamp(2rem, 4.8vw, 5.2rem)/
 .demo-note { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1rem; max-width: 70ch; margin: 3rem 0 0; color: var(--muted); font-size: .9rem; }
 
 /* ---------- impact console ---------- */
-.impact-console { display: grid; grid-template-columns: 1.1fr .9fr; gap: 0; border: 1px solid var(--frost-line-strong); background: var(--frost-silver); border-radius: 18px 18px 28px 18px; box-shadow: var(--frost-shadow); backdrop-filter: blur(18px) saturate(.58); overflow: hidden; contain: layout paint; }
+.impact-console { display: grid; grid-template-columns: 1.1fr .9fr; gap: 0; border: 1px solid var(--frost-line-strong); background: var(--frost-silver-strong); border-radius: 18px 18px 28px 18px; box-shadow: var(--frost-shadow); overflow: hidden; contain: layout paint; }
 .impact-readouts { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); border-right: 1px solid var(--frost-line-strong); }
 .impact-readout { display: flex; flex-direction: column; gap: .35rem; padding: clamp(1.4rem, 3vw, 2.6rem); border-bottom: 1px solid var(--frost-line-strong); }
 .impact-readout:nth-child(odd) { border-right: 1px solid var(--frost-line-strong); }
@@ -138,8 +138,8 @@ body[data-language="zh"] .manifesto-line { font: 800 clamp(2rem, 4.8vw, 5.2rem)/
 
 /* ---------- embedded: platform ---------- */
 .platform-lab, .boundary-lab, .exploded-lab, .frames-lab, .throughput-lab, .banner-studio {
-  position: relative; margin-bottom: 2rem; border: 1px solid var(--frost-line-strong); background: var(--frost-silver);
-  border-radius: 18px 18px 28px 18px; box-shadow: var(--frost-shadow); backdrop-filter: blur(18px) saturate(.58); overflow: hidden; contain: layout paint;
+  position: relative; margin-bottom: 2rem; border: 1px solid var(--frost-line-strong); background: var(--frost-silver-strong);
+  border-radius: 18px 18px 28px 18px; box-shadow: var(--frost-shadow); overflow: hidden; contain: layout paint;
 }
 .platform-lab, .boundary-lab, .exploded-lab, .frames-lab { display: grid; grid-template-columns: minmax(280px, .9fr) minmax(320px, 1.1fr); }
 .platform-copy, .boundary-copy, .exploded-copy, .frames-copy { display: flex; flex-direction: column; gap: 1.2rem; padding: clamp(1.8rem, 4vw, 3.6rem); border-right: 1px solid var(--frost-line-strong); }
@@ -509,3 +509,6 @@ body[data-mode="signal"] .crawl-run, body[data-mode="signal"] .warroom-replay {
 @media (prefers-reduced-motion: reduce) {
   .mode-button::after, .button-ghost::after, .button-primary::after, .crawl-run::after, .warroom-replay::after { display: none; }
 }
+
+/* ---------- rendering performance ---------- */
+.trajectory-section, .experiments-section, .github-section { content-visibility: auto; contain-intrinsic-size: auto 1100px; }

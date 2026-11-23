@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Noto Sans TC";
+  src: url("assets/fonts/noto-sans-tc-subset.woff2") format("woff2");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --paper: #f6f5f2;
   --paper-deep: #e3e4e3;
