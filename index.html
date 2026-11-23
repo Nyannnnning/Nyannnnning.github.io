@@ -23,15 +23,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="image" href="assets/hero-silver-sentinel.webp" type="image/webp" fetchpriority="high" />
-    <link rel="preload" href="assets/fonts/noto-sans-tc-subset.woff2?v=6" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/noto-sans-tc-subset.woff2?v=7" as="font" type="font/woff2" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&text=Ning&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20261123-12" />
-    <link rel="stylesheet" href="labs.css?v=20261123-12" />
+    <link rel="stylesheet" href="styles.css?v=20261123-14" />
+    <link rel="stylesheet" href="labs.css?v=20261123-14" />
     <script>document.documentElement.classList.remove('no-js');</script>
-    <script src="translations.js?v=20261123-12" defer></script>
-    <script src="script.js?v=20261123-12" defer></script>
-    <script src="labs.js?v=20261123-12" defer></script>
+    <script src="translations.js?v=20261123-14" defer></script>
+    <script src="script.js?v=20261123-14" defer></script>
+    <script src="labs.js?v=20261123-14" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main" data-i18n="skip">跳到主要內容</a>
@@ -275,6 +275,24 @@
               <div><dt data-i18n="wrWhy">目的</dt><dd data-i18n="wrWhyText">平行工作看得見，才管得住</dd></div>
             </dl>
           </div>
+          <div class="wr-arch reveal">
+            <div class="wr-arch-head">
+              <p class="capability-title" data-i18n="wraTitle">戰情室怎麼運作</p>
+              <p data-i18n="wraDesc">這是一個真的在用的工具，跑在我自己的電腦上，不改任何代理程式本身。資料都從代理留下的紀錄讀出來。</p>
+            </div>
+            <ol class="wr-arch-steps">
+              <li><span>01</span><b data-i18n="wra1">讀紀錄</b><small data-i18n="wra1h">每個工作階段的對話紀錄、子代理的紀錄檔、存活登記</small></li>
+              <li><span>02</span><b data-i18n="wra2">掛事件</b><small data-i18n="wra2h">七個事件掛鉤，子代理開始和結束都會自動回報</small></li>
+              <li><span>03</span><b data-i18n="wra3">上面板</b><small data-i18n="wra3h">每個代理的模型、進度、預估完成、用量和顧問呼叫</small></li>
+              <li><span>04</span><b data-i18n="wra4">修復分流</b><small data-i18n="wra4h">失敗先過規則，再查累積的約束，最後才問決策模型要重試、換方法還是交給人</small></li>
+            </ol>
+            <dl class="wr-arch-facts">
+              <div><dt>6 / 9</dt><dd data-i18n="wraf1">影子模式下，決策模型和人的判斷一致</dd></div>
+              <div><dt>239 ms</dt><dd data-i18n="wraf2">決策模型的中位回應時間，零錯誤</dd></div>
+              <div><dt data-i18n="wraf3t">每晚</dt><dd data-i18n="wraf3">從「失敗→成功」的配對裡收新的約束</dd></div>
+            </dl>
+          </div>
+
         </div>
       </section>
 
@@ -317,6 +335,47 @@
             </ol>
             <div class="kb-node"><span>KB</span><b data-i18n="kbNode">設計知識庫</b><small data-i18n="kbNodeHint">玩法 · 美術 · 動效</small></div>
           </div>
+        </article>
+
+
+        <article class="cicd-lab reveal" data-cicd>
+          <div class="cicd-head">
+            <div class="case-labels"><span class="demo-tag" data-i18n="demoTag">去敏改編案例</span><span data-i18n="cicdLabel1">CI/CD</span><span data-i18n="cicdLabel2">多環境</span><span>2026</span></div>
+            <h3 data-i18n-html="cicdTitle">一句話到上線，<br />中間有幾道關</h3>
+            <p data-i18n="cicdDesc">這個平台不是一支腳本，是一整套服務。代理改的每一行程式，都要走同一條管線：先過閘門，再合併、建映像，從開發環境一路晉級到正式環境。設計資料則走另一條路，進知識庫之前要先隔離、拆解、讓人看過。</p>
+            <div class="cicd-controls">
+              <button type="button" class="cicd-play" data-cicd-play data-i18n="cicdPlay">跑一次</button>
+              <div class="seg" role="radiogroup" aria-label="管線" data-i18n-aria="cicdLaneAria">
+                <button type="button" role="radio" aria-checked="true" data-cicd-lane="code"><span data-i18n="cicdLaneCode">程式變更</span></button>
+                <button type="button" role="radio" aria-checked="false" data-cicd-lane="kb"><span data-i18n="cicdLaneKb">設計資料進庫</span></button>
+              </div>
+            </div>
+          </div>
+          <div class="cicd-track">
+            <ol class="cicd-stages" data-cicd-stages="code">
+              <li data-stage="0"><span>01</span><b data-i18n="cs1">監工派工</b><small data-i18n="cs1h">每兩小時一班，同時最多四個代理</small></li>
+              <li data-stage="1"><span>02</span><b data-i18n="cs2">隔離分支施工</b><small data-i18n="cs2h">每個代理一個工作樹，不碰共用目錄</small></li>
+              <li data-stage="2" class="gate"><span>G</span><b data-i18n="cs3">三道閘門</b><small data-i18n="cs3h">驗收測試 · 密鑰掃描 · 跨模型審查</small></li>
+              <li data-stage="3"><span>04</span><b data-i18n="cs4">合併主線、建映像</b><small data-i18n="cs4h">建一次，之後每個環境用同一份</small></li>
+              <li data-stage="4" class="env dev"><span>DEV</span><b data-i18n="cs5">開發環境</b><small data-i18n="cs5h">自動部署，監工可以自己做</small></li>
+              <li data-stage="5" class="env test"><span>TEST</span><b data-i18n="cs6">測試環境</b><small data-i18n="cs6h">要有決策編號才能晉級</small></li>
+              <li data-stage="6" class="env prod"><span>PROD</span><b data-i18n="cs7">正式環境</b><small data-i18n="cs7h">決策編號＋人在早上的報告裡核准</small></li>
+            </ol>
+            <ol class="cicd-stages" data-cicd-stages="kb" hidden>
+              <li data-stage="0"><span>01</span><b data-i18n="ks1">上傳</b><small data-i18n="ks1h">企劃丟進規格、美術、動效檔</small></li>
+              <li data-stage="1" class="gate"><span>G</span><b data-i18n="ks2">隔離區</b><small data-i18n="ks2h">先掃毒、驗格式，不直接進系統</small></li>
+              <li data-stage="2"><span>03</span><b data-i18n="ks3">拆解</b><small data-i18n="ks3h">工作流引擎把檔案拆成玩法、版面、素材</small></li>
+              <li data-stage="3" class="gate"><span>G</span><b data-i18n="ks4">人工審核</b><small data-i18n="ks4h">拆錯的退回，對的才放行</small></li>
+              <li data-stage="4" class="env prod"><span>KB</span><b data-i18n="ks5">發布到知識庫</b><small data-i18n="ks5h">本體論＋向量檢索，代理規劃時查得到</small></li>
+            </ol>
+            <div class="cicd-log" aria-live="polite"><span data-cicd-clock>00:00</span><b data-cicd-msg data-i18n="cicdIdle">按「跑一次」，看一個變更怎麼走完</b></div>
+          </div>
+          <dl class="cicd-facts">
+            <div><dt>106</dt><dd data-i18n="cf1">條編號決策紀錄</dd></div>
+            <div><dt>12</dt><dd data-i18n="cf2">個容器化服務</dd></div>
+            <div><dt>3</dt><dd data-i18n="cf3">條沙盒路線（資料、建置、預覽）</dd></div>
+            <div><dt>1</dt><dd data-i18n="cf4">份映像，從開發晉級到正式</dd></div>
+          </dl>
         </article>
 
         <article class="boundary-lab reveal" data-reflective data-boundary>
@@ -452,6 +511,40 @@
             </div>
           </div>
         </div>
+
+
+        <article class="audio-lab reveal" data-audio>
+          <div class="audio-copy">
+            <div class="case-labels"><span class="demo-tag" data-i18n="demoTag">去敏改編案例</span><span data-i18n="auLabel1">音樂 · 音效 · 配音</span><span data-i18n="auLabel2">量測閘門</span><span>2026</span></div>
+            <h3 data-i18n-html="auTitle">每個聲音<br />都要說得出理由</h3>
+            <p data-i18n="auDesc">聲音代理不是在某個時間點隨便放一個音效。它從遊戲規格推出聲音清單，每個聲音先寫清楚功能、事件和數字目標，再決定用素材庫、合成還是生成，做完量測，不合格就退回重做，最後讓人盲測試聽。</p>
+            <dl class="case-facts">
+              <div><dt data-i18n="auF1">知識庫</dt><dd data-i18n="auF1t">308 張卡：理論、數字、案例、工具</dd></div>
+              <div><dt data-i18n="auF2">素材</dt><dd data-i18n="auF2t">先找公司約 30 萬個音效，找不到才生成</dd></div>
+              <div><dt data-i18n="auF3">驗收</dt><dd data-i18n="auF3t">量測閘門 · 手機喇叭模擬 · 盲測試聽</dd></div>
+            </dl>
+          </div>
+          <div class="audio-viewer">
+            <div class="seg" role="radiogroup" aria-label="選一個遊戲事件" data-i18n-aria="auPickAria">
+              <button type="button" role="radio" aria-checked="true" data-audio-ev="stop"><span data-i18n="auEvStop">停輪</span></button>
+              <button type="button" role="radio" aria-checked="false" data-audio-ev="land"><span data-i18n="auEvLand">Wild 落定</span></button>
+              <button type="button" role="radio" aria-checked="false" data-audio-ev="win"><span data-i18n="auEvWin">大獎</span></button>
+            </div>
+            <div class="audio-meter" aria-hidden="true">
+              <div class="meter-scale"><span>−10</span><span>0</span><span>+10</span><span>+15 LU</span></div>
+              <div class="meter-bar"><i class="meter-bgm"></i><i class="meter-sfx" data-audio-meter></i></div>
+              <small data-i18n="auMeterNote">相對背景音樂的響度（自家實測）</small>
+            </div>
+            <ol class="audio-chain" data-audio-chain>
+              <li><span>L1</span><b data-i18n="auL1">功能</b><em data-audio-f="fn"></em></li>
+              <li><span>L2</span><b data-i18n="auL2">事件與優先權</b><em data-audio-f="pri"></em></li>
+              <li><span>L3</span><b data-i18n="auL3">聲學目標</b><em data-audio-f="target"></em></li>
+              <li><span>L4</span><b data-i18n="auL4">怎麼做</b><em data-audio-f="make"></em></li>
+              <li><span>L5</span><b data-i18n="auL5">混音</b><em data-audio-f="mix"></em></li>
+              <li><span>L6</span><b data-i18n="auL6">驗收</b><em data-audio-f="qa"></em></li>
+            </ol>
+          </div>
+        </article>
 
         <article class="frames-lab reveal" data-reflective data-frames>
           <div class="frames-copy">
@@ -715,7 +808,7 @@
         <div class="section-heading compact reveal"><p class="section-index" data-i18n="experimentsIndex">09 / 實作探索</p><h2 id="experiments-title" data-i18n-html="experimentsTitle"><span class="section-lead">其他</span><strong class="section-focus">做過的東西。</strong></h2></div>
         <div class="experiment-grid">
           <article class="experiment-card reveal" data-reflective><span data-i18n="exp1Label">機器學習 / 可解釋性</span><h3 data-i18n="exp1Title">生存幾何</h3><p data-i18n="exp1Desc">把每個乘客當成一個完整的人來看，用特徵壓力、原型和規則探索去解釋模型為什麼這樣預測。</p><a href="https://github.com/Nyannnnning/Kaggle-Titanic-Playground" data-i18n="viewRepo">查看公開程式庫 ↗</a></article>
-          <article class="experiment-card reveal" data-reflective><span data-i18n="exp2Label">遊戲 / 模擬</span><h3 data-i18n="exp2Title">碧虎老虎機原型</h3><p data-i18n="exp2Desc">以 PixiJS 製作老虎機原型，並透過百萬局模擬驗證遊戲數學。</p></article>
+          <article class="experiment-card reveal" data-reflective><span data-i18n="exp2Label">遊戲 / 模擬</span><h3 data-i18n="exp2Title">翡翠猛虎</h3><p data-i18n="exp2Desc">用 PixiJS 做的老虎機原型，跑了一百萬局模擬來驗證遊戲數學。</p></article>
           <article class="experiment-card reveal" data-reflective><span data-i18n="exp3Label">工作紀錄 / 自動化</span><h3 data-i18n="exp3Title">代理工作紀錄</h3><p data-i18n="exp3Desc">從多個程式代理收集完成事件，去重、摘要、推播並保留可回查的工作證據。</p></article>
           <article class="experiment-card reveal" data-reflective><span data-i18n="exp4Label">網站 / 產品交付</span><h3 data-i18n="exp4Title">企業網站交付</h3><p data-i18n="exp4Desc">使用 Next.js、內容結構與可攜式預覽，把規格文件轉成可交付的品牌網站。</p></article>
           <article class="experiment-card reveal" data-reflective><span data-i18n="exp5Label">LLM 工具 / 治理</span><h3 data-i18n="exp5Title">有額度的美術工作台</h3><p data-i18n="exp5Desc">模型呼叫全部走伺服器代理：帳號需管理員核准、每人與全站每日額度、一鍵停用模型、每位使用者的用量紀錄。</p></article>

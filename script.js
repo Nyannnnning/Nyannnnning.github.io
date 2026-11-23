@@ -24,7 +24,7 @@ const loadHeroShader = () => {
   if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
   if (document.querySelector('script[data-lazy-shader]')) return;
   const script = document.createElement("script");
-  script.src = "hero-shader.js?v=20261123-12";
+  script.src = "hero-shader.js?v=20261123-14";
   script.dataset.lazyShader = "";
   document.head.append(script);
 };

@@ -767,4 +767,75 @@
       if (entries.some((e) => e.isIntersecting)) { signature.classList.add("drawn"); obs.disconnect(); }
     }, { threshold: 0.6 }).observe(signature);
   }
+
+  /* ---------- platform CI/CD runner ---------- */
+  const cicd = $("[data-cicd]");
+  if (cicd) {
+    let lane = "code";
+    let timer = 0;
+    const msgKeys = { code: ["cicdRun0", "cicdRun1", "cicdRun2", "cicdRun3", "cicdRun4", "cicdRun5", "cicdRun6"], kb: ["kbRun0", "kbRun1", "kbRun2", "kbRun3", "kbRun4"] };
+    const msg = $("[data-cicd-msg]", cicd);
+    const clock = $("[data-cicd-clock]", cicd);
+    const list = () => $(`[data-cicd-stages="${lane}"]`, cicd);
+    const reset = () => {
+      clearTimeout(timer);
+      $$("[data-cicd-stages] li", cicd).forEach((li) => li.classList.remove("on", "done"));
+      msg.dataset.i18n = "cicdIdle"; msg.textContent = t("cicdIdle");
+      clock.textContent = "00:00";
+    };
+    const run = () => {
+      reset();
+      const items = $$("li", list());
+      const keys = msgKeys[lane];
+      const step = (i) => {
+        items.forEach((li, j) => { li.classList.toggle("on", j === i); li.classList.toggle("done", j < i); });
+        msg.dataset.i18n = keys[i]; msg.textContent = t(keys[i]);
+        const mins = lane === "code" ? [0, 12, 38, 46, 51, 180, 720][i] : [0, 2, 9, 40, 42][i];
+        clock.textContent = `${String(Math.floor(mins / 60)).padStart(2, "0")}:${String(mins % 60).padStart(2, "0")}`;
+        if (i < items.length - 1) timer = setTimeout(() => step(i + 1), reduced.matches ? 0 : 1100);
+        else items[i].classList.add("done");
+      };
+      step(0);
+    };
+    $("[data-cicd-play]", cicd).addEventListener("click", run);
+    $$("[data-cicd-lane]", cicd).forEach((b) => b.addEventListener("click", () => {
+      $$("[data-cicd-lane]", cicd).forEach((x) => x.setAttribute("aria-checked", String(x === b)));
+      lane = b.dataset.cicdLane;
+      $$("[data-cicd-stages]", cicd).forEach((ol) => { ol.hidden = ol.dataset.cicdStages !== lane; });
+      reset();
+    }));
+    new IntersectionObserver((entries, obs) => { if (entries.some((e) => e.isIntersecting)) { run(); obs.disconnect(); } }, { threshold: 0.4 }).observe(cicd);
+  }
+
+  /* ---------- audio agent: event -> six-layer chain ---------- */
+  const audio = $("[data-audio]");
+  if (audio) {
+    const evs = {
+      stop: { lu: -5, keys: ["auStopFn", "auStopPri", "auStopTarget", "auStopMake", "auStopMix", "auStopQa"] },
+      land: { lu: 6.75, keys: ["auLandFn", "auLandPri", "auLandTarget", "auLandMake", "auLandMix", "auLandQa"] },
+      win: { lu: 11.5, keys: ["auWinFn", "auWinPri", "auWinTarget", "auWinMake", "auWinMix", "auWinQa"] },
+    };
+    const fields = ["fn", "pri", "target", "make", "mix", "qa"];
+    let cur = "stop";
+    const setEv = (k) => {
+      cur = k;
+      $$("[data-audio-ev]", audio).forEach((b) => b.setAttribute("aria-checked", String(b.dataset.audioEv === k)));
+      const e = evs[k];
+      fields.forEach((f, i) => { const el = $(`[data-audio-f="${f}"]`, audio); if (el) { el.dataset.i18n = e.keys[i]; el.textContent = t(e.keys[i]); } });
+      const meter = $("[data-audio-meter]", audio);
+      // scale -10..+15 LU across the bar; 0 LU = music level
+      const pct = ((e.lu + 10) / 25) * 100;
+      meter.style.left = `${Math.min(pct, 40)}%`;
+      meter.style.width = `${Math.abs(pct - 40)}%`;
+      meter.style.left = `${Math.min(pct, 40)}%`;
+      meter.classList.toggle("below", e.lu < 0);
+      $$("li", $("[data-audio-chain]", audio)).forEach((li, i) => {
+        li.classList.remove("pulse");
+        if (!reduced.matches) setTimeout(() => li.classList.add("pulse"), i * 90);
+      });
+    };
+    $$("[data-audio-ev]", audio).forEach((b) => b.addEventListener("click", () => setEv(b.dataset.audioEv)));
+    setEv("stop");
+    onLanguage.push(() => setEv(cur));
+  }
 })();
