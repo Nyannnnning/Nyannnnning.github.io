@@ -303,3 +303,24 @@ Object.assign(window.NING_TRANSLATIONS.en, {
     githubDesc: "This site shows how I work and a few cases. GitHub has the code, experiments and history I can share, including attempts that didn't make it.",
     footerTagline: "FDE team PM.<br />What I ship should be verifiable, and people should actually use it.", footerMeta: "Led by me, built together with AI"
 });
+
+/* ---- v2.3 speak-human-tw pass (10 edits approved) + engineer-PM correction ---- */
+Object.assign(window.NING_TRANSLATIONS.zh, {
+    heroIntro: "我是 Ning，FDE 團隊的 PM。我決定 AI 在部門裡怎麼用，也把模型接進大家每天在用的工具；重複的工作，我做成自己會跑的產線。程式平常也是我自己寫（和 AI 一起），說是 PM，其實比較像工程師兼 PM。",
+    methodIntro: "從把需求問清楚、做決定，到寫程式、交付，我一路自己接著做。",
+    heroPortraitAria: "銀色太空裝甲的人物插畫",
+    case3Evidence2: "正式資料來源只能讀、不能改；影子比對不准蓋掉它，對不上的資料就標成「未知」，不會當成零。",
+    case3Evidence3: "把資料匯入、身分對應和成本快照接起來，再依角色過濾每個人看得到的範圍。",
+    role2Desc: "把爬取、視覺辨識、覆核、儲存和報表接成一條流程，之後每次都能再改。",
+    role4Desc: "讓主管看得到權限、身分、成本，也看得到資料新不新鮮、是不是從正式來源來的。",
+    exp1Desc: "把每個乘客當成一個完整的人來看，用特徵壓力、原型和規則探索去解釋模型為什麼這樣預測。",
+    plat6Text: "用畫面串流把可玩的原型送回企劃的瀏覽器，原始碼不會存到企劃的電腦上。",
+    tpNote: "兩個月一共 1,421 項，實際作業時間大約 22.6 小時。",
+    exp6Desc: "從一張角色插畫做出骨骼動畫：3D 步態投影、次級運動、骨骼減量，加上自動檢查。目標是每做一個新角色，要修的輪數就少一點。"
+});
+Object.assign(window.NING_TRANSLATIONS.en, {
+    heroIntro: "I'm Ning, PM on an FDE team. I decide how AI gets used in the department and wire models into the tools people already use every day; repetitive work, I turn into pipelines that run on their own. I write the code too, day to day, together with AI, so honestly it's closer to engineer plus PM.",
+    methodIntro: "From getting the request clear and making the call to writing the code and shipping it, I carry it through myself.",
+    heroPortraitAria: "Illustration of a figure in silver space armor",
+    exp6Desc: "Skeletal animation from a single character illustration: 3D gait projection, secondary motion and bone reduction, plus automatic checks. The goal is fewer fix-up rounds with every new character."
+});
