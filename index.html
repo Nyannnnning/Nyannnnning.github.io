@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="description" content="Ning — 具備部分工程實作能力的 FDE 團隊 PM，專注於把複雜現場推進成可驗證的交付。" />
+    <meta name="description" content="Ning — FDE 團隊 PM：AI 治理、嵌入式 LLM 與自動化產線，168 張 AI 工單已交付、50+ 內部代理上線。" />
     <meta name="theme-color" content="#f4f6f8" />
     <meta property="og:title" content="Ning — FDE 團隊 PM" />
-    <meta property="og:description" content="從問題定義、跨職能協作到原型與交付驗證，讓複雜專案真正往前走。" />
+    <meta property="og:description" content="AI 治理、嵌入式 LLM 與自動化產線：去敏改編的互動案例與實際量測數字。" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://nyannnnning.github.io/" />
     <meta property="og:image" content="https://nyannnnning.github.io/og-image.png" />
@@ -15,7 +15,7 @@
     <meta property="og:image:alt" content="Ning — FDE 團隊 PM，從現場問題到可驗證交付。" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Ning — FDE 團隊 PM" />
-    <meta name="twitter:description" content="從問題定義、跨職能協作到原型與交付驗證，讓複雜專案真正往前走。" />
+    <meta name="twitter:description" content="AI 治理、嵌入式 LLM 與自動化產線：去敏改編的互動案例與實際量測數字。" />
     <meta name="twitter:image" content="https://nyannnnning.github.io/og-image.png" />
     <title>Ning — FDE 團隊 PM</title>
     <link rel="canonical" href="https://nyannnnning.github.io/" />
@@ -24,10 +24,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="image" href="assets/hero-silver-sentinel.webp" type="image/webp" fetchpriority="high" />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Noto+Sans+TC:wght@400..900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260812-2" />
+    <link rel="stylesheet" href="styles.css?v=20261123-1" />
+    <link rel="stylesheet" href="labs.css?v=20261123-1" />
     <script>document.documentElement.classList.remove('no-js');</script>
-    <script src="translations.js?v=20260812-2" defer></script>
-    <script src="script.js?v=20260812-2" defer></script>
+    <script src="translations.js?v=20261123-1" defer></script>
+    <script src="script.js?v=20261123-1" defer></script>
+    <script src="labs.js?v=20261123-1" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main" data-i18n="skip">跳到主要內容</a>
@@ -39,7 +41,8 @@
       </a>
 
       <nav class="site-nav" id="site-nav" aria-label="主要導覽" data-menu data-i18n-aria="navAria">
-        <a href="#work" data-i18n="navWork">代表專案</a>
+        <a href="#impact" data-i18n="navImpact">成果</a>
+        <a href="#governance" data-i18n="navProjects">專案</a>
         <a href="#system" data-i18n="navMethod">工作方式</a>
         <a href="#trajectory" data-i18n="navTrajectory">成長軌跡</a>
         <a href="#github">GitHub</a>
@@ -68,14 +71,18 @@
           <span data-progress-status data-i18n="progressStatus">讀取中</span>
         </div>
         <nav class="telemetry-progress-nav" aria-label="章節進度" data-i18n-aria="progressNavAria">
-          <a href="#work" data-progress-link="work"><span>01</span><b data-i18n="chapterWork">代表專案</b></a>
-          <a href="#system" data-progress-link="system"><span>02</span><b data-i18n="chapterMethod">工作方式</b></a>
-          <a href="#trajectory" data-progress-link="trajectory"><span>03</span><b data-i18n="chapterTrajectory">成長軌跡</b></a>
-          <a href="#experiments" data-progress-link="experiments"><span>04</span><b data-i18n="chapterExperiments">實作探索</b></a>
-          <a href="#github" data-progress-link="github"><span>05</span><b data-i18n="chapterGithub">進一步了解</b></a>
+          <a href="#impact" data-progress-link="impact"><span>01</span><b data-i18n="chapterImpact">交付儀表</b></a>
+          <a href="#governance" data-progress-link="governance"><span>02</span><b data-i18n="chapterGovernance">AI 治理</b></a>
+          <a href="#embedded" data-progress-link="embedded"><span>03</span><b data-i18n="chapterEmbedded">嵌入式 LLM</b></a>
+          <a href="#automation" data-progress-link="automation"><span>04</span><b data-i18n="chapterAutomation">自動化產線</b></a>
+          <a href="#work" data-progress-link="work"><span>05</span><b data-i18n="chapterWork">現場系統</b></a>
+          <a href="#system" data-progress-link="system"><span>06</span><b data-i18n="chapterMethod">工作方式</b></a>
+          <a href="#trajectory" data-progress-link="trajectory"><span>07</span><b data-i18n="chapterTrajectory">成長軌跡</b></a>
+          <a href="#experiments" data-progress-link="experiments"><span>08</span><b data-i18n="chapterExperiments">實作探索</b></a>
+          <a href="#github" data-progress-link="github"><span>09</span><b data-i18n="chapterGithub">進一步了解</b></a>
         </nav>
         <div class="telemetry-progress-rail" aria-hidden="true"><i data-progress-fill></i></div>
-        <div class="telemetry-progress-readout" aria-hidden="true"><span data-progress-index>00 / 05</span><b data-progress-percent>00%</b></div>
+        <div class="telemetry-progress-readout" aria-hidden="true"><span data-progress-index>00 / 09</span><b data-progress-percent>00%</b></div>
       </aside>
 
       <section class="hero motion-zone" id="top" aria-labelledby="hero-title">
@@ -86,7 +93,7 @@
           <h1 id="hero-title" data-i18n-html="heroTitle"><span class="hero-lead">把</span><strong class="hero-focus">現場阻力</strong><span class="hero-transition">推進成</span><em class="hero-outcome">可驗證的交付。</em></h1>
           <p class="hero-intro" data-i18n="heroIntro">我是 Ning，一名 FDE 團隊 PM，也能在需要時承接部分工程實作。我的核心工作是釐清現場問題、整合產品與工程、推動決策，並把方案送到可驗證的交付狀態。</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#work"><span data-i18n="explore">查看代表專案</span><span aria-hidden="true">↘</span></a>
+            <a class="button button-primary" href="#impact"><span data-i18n="explore">查看代表專案</span><span aria-hidden="true">↘</span></a>
             <a class="button button-ghost" href="https://github.com/Nyannnnning"><span data-i18n="githubProfile">前往 GitHub</span><span aria-hidden="true">↗</span></a>
           </div>
         </div>
@@ -127,10 +134,10 @@
       </section>
 
       <section class="proof-strip" aria-label="成果摘要" data-i18n-aria="proofAria">
-        <div class="proof-item reveal"><strong data-count="96">96</strong><span data-i18n-html="proof1">次協作工作階段<br />完成回顧</span></div>
-        <div class="proof-item reveal"><strong data-count="3">3</strong><span data-i18n-html="proof2">項代表專案<br />持續運作</span></div>
-        <div class="proof-item reveal"><strong data-count="220" data-suffix="+">220+</strong><span data-i18n-html="proof3">筆核心提交紀錄<br />跨越多條產品線</span></div>
-        <div class="proof-item reveal"><strong data-count="4">4</strong><span data-i18n-html="proof4">個市場<br />納入情報流程</span></div>
+        <div class="proof-item reveal"><strong data-countup="168">168</strong><span data-i18n-html="proof1">張 AI 工單<br />已交付上線</span></div>
+        <div class="proof-item reveal"><strong data-countup="50" data-suffix="+">50+</strong><span data-i18n-html="proof2">個內部 AI 代理<br />持續運作</span></div>
+        <div class="proof-item reveal"><strong data-countup="73" data-suffix="%">73%</strong><span data-i18n-html="proof3">近百人部門<br />30 天活躍率</span></div>
+        <div class="proof-item reveal"><strong data-countup="60" data-prefix="~">~60</strong><span data-i18n-html="proof4">項可上線素材<br />每小時產能</span></div>
       </section>
 
       <section class="principles motion-zone" aria-label="工作原則" data-i18n-aria="principlesAria">
@@ -141,32 +148,358 @@
         </div>
       </section>
 
-      <section class="work-section section-shell" id="work" aria-labelledby="work-title" data-chapter-frame data-folio="01 — 2026">
-        <div class="chapter-register" aria-hidden="true"><span>01</span><svg class="telemetry-glyph" viewBox="0 0 64 64"><use href="assets/telemetry.svg#reticle"></use></svg><i></i><b data-i18n="chapterWork">代表專案</b><small>NING / 2026</small></div>
+      <section class="manifesto-section motion-zone" aria-labelledby="manifesto-title" data-manifesto>
+        <p class="section-index" data-i18n="manifestoIndex">00 / 一句話</p>
+        <h2 id="manifesto-title" class="manifesto-line" data-scrub-text data-i18n="manifestoLine">我把模糊的現場需求，變成有閘門、有證據、每天都在運轉的人工智慧系統。</h2>
+        <svg class="manifesto-wire" viewBox="0 0 1200 220" aria-hidden="true">
+          <path d="M0 180 C180 180 240 60 420 60 S700 170 860 120 1080 40 1200 52" pathLength="1" />
+          <path d="M0 200 C220 200 300 110 470 110 S760 200 900 160 1100 90 1200 96" pathLength="1" />
+        </svg>
+        <p class="demo-note"><span class="demo-tag" data-i18n="demoTag">去敏改編案例</span><span data-i18n="demoNote">本頁的示範都改編自真實工作情境：主題、品牌、產品與素材已換成虛構內容，流程、閘門、角色分工與量測數字照實呈現。</span></p>
+      </section>
+
+      <section class="impact-section section-shell" id="impact" aria-labelledby="impact-title" data-chapter-frame data-folio="01 — 2026">
+        <div class="chapter-register" aria-hidden="true"><span>01</span><svg class="telemetry-glyph" viewBox="0 0 64 64"><use href="assets/telemetry.svg#calibration"></use></svg><i></i><b data-i18n="chapterImpact">交付儀表</b><small>NING / 2026</small></div>
+        <div class="section-heading reveal">
+          <p class="section-index" data-i18n="impactIndex">01 / 交付儀表</p>
+          <h2 id="impact-title" data-i18n-html="impactTitle"><span class="section-lead">不是做幾個展示</span><strong class="section-focus">而是讓整個部門用起來。</strong></h2>
+          <p class="editorial-intro" data-i18n="impactIntro">一個近百人的部門，從需求開單到上線都有紀錄。這裡的數字來自專案管理系統與實際產出量測，只呈現彙總，不含個人或客戶資料。</p>
+        </div>
+
+        <div class="impact-console reveal" data-reflective>
+          <div class="impact-readouts">
+            <div class="impact-readout"><small data-i18n="impactTickets">已交付工單</small><strong data-countup="168">168</strong><span data-i18n="impactTicketsNote">已結束或已上線</span></div>
+            <div class="impact-readout"><small data-i18n="impactAgents">內部 AI 代理上線</small><strong data-countup="50" data-suffix="+">50+</strong><span data-i18n="impactAgentsNote">只算新代理，不算二期與修復</span></div>
+            <div class="impact-readout"><small data-i18n="impactActive">30 天活躍率</small><strong data-countup="73" data-suffix="%">73%</strong><span data-i18n="impactActiveNote">近百人部門</span></div>
+            <div class="impact-readout"><small data-i18n="impactInitiatives">追蹤中的 AI 專案</small><strong data-countup="28">28</strong><span data-i18n="impactInitiativesNote">成熟度 · 負責人 · KPI</span></div>
+          </div>
+
+          <figure class="ticket-ring" aria-labelledby="ticket-ring-caption">
+            <svg viewBox="0 0 220 220" role="img" aria-labelledby="ticket-ring-caption">
+              <circle class="ring-track" cx="110" cy="110" r="84" />
+              <circle class="ring-seg seg-done" cx="110" cy="110" r="84" pathLength="183" stroke-dasharray="168 15" stroke-dashoffset="0" data-ring-seg="done" tabindex="0" />
+              <circle class="ring-seg seg-active" cx="110" cy="110" r="84" pathLength="183" stroke-dasharray="9 174" stroke-dashoffset="-168" data-ring-seg="active" tabindex="0" />
+              <circle class="ring-seg seg-hold" cx="110" cy="110" r="84" pathLength="183" stroke-dasharray="2 181" stroke-dashoffset="-177" data-ring-seg="hold" tabindex="0" />
+              <circle class="ring-seg seg-rejected" cx="110" cy="110" r="84" pathLength="183" stroke-dasharray="4 179" stroke-dashoffset="-179" data-ring-seg="rejected" tabindex="0" />
+              <g class="ring-ticks"><path d="M110 14v8M110 198v8M14 110h8M198 110h8" /></g>
+            </svg>
+            <div class="ring-center" aria-live="polite"><b data-ring-value>168</b><small data-ring-label data-i18n="ringDone">已交付</small></div>
+            <figcaption id="ticket-ring-caption">
+              <span data-i18n="ringCaption">工單狀態 · 共 183 張</span>
+              <ul class="ring-legend">
+                <li data-ring-key="done"><i class="key-done"></i><span data-i18n="ringDone">已交付</span><b>168</b></li>
+                <li data-ring-key="active"><i class="key-active"></i><span data-i18n="ringActive">進行中 / 待驗證</span><b>9</b></li>
+                <li data-ring-key="hold"><i class="key-hold"></i><span data-i18n="ringHold">擱置</span><b>2</b></li>
+                <li data-ring-key="rejected"><i class="key-rejected"></i><span data-i18n="ringRejected">評估後不做</span><b>4</b></li>
+              </ul>
+            </figcaption>
+          </figure>
+
+          <div class="agent-registry">
+            <p class="capability-title" data-i18n="registryTitle">代理類型（點選查看）</p>
+            <div class="registry-chips" role="tablist" aria-label="代理類型" data-i18n-aria="registryAria">
+              <button type="button" role="tab" aria-selected="true" data-registry="data"><span data-i18n="regData">數據查找</span></button>
+              <button type="button" role="tab" aria-selected="false" data-registry="report"><span data-i18n="regReport">日報與摘要</span></button>
+              <button type="button" role="tab" aria-selected="false" data-registry="creative"><span data-i18n="regCreative">美術與內容</span></button>
+              <button type="button" role="tab" aria-selected="false" data-registry="pm"><span data-i18n="regPm">需求與專案管理</span></button>
+              <button type="button" role="tab" aria-selected="false" data-registry="ops"><span data-i18n="regOps">營運與監控</span></button>
+            </div>
+            <div class="registry-panel" aria-live="polite">
+              <p data-registry-text data-i18n="regDataText">讓各組用一句話查營收、留存與活動數據，不用再等人工撈資料。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="governance-section chapter-inverse" id="governance" aria-labelledby="governance-title" data-chapter-frame data-folio="02 — 2026">
+        <div class="chapter-register" aria-hidden="true"><span>02</span><svg class="telemetry-glyph" viewBox="0 0 64 64"><use href="assets/telemetry.svg#reticle"></use></svg><i></i><b data-i18n="chapterGovernance">AI 治理</b><small>NING / 2026</small></div>
+        <div class="section-shell">
+          <div class="section-heading light reveal">
+            <p class="section-index" data-i18n="govIndex">02 / AI 治理</p>
+            <h2 id="governance-title" data-i18n-html="govTitle"><span class="section-lead">讓代理全天候工作</span><strong class="section-focus">人只簽最後一步。</strong></h2>
+            <p class="editorial-intro" data-i18n="govIntro">代理可以寫程式、合併、部署，但每一個動作都依「出錯會影響多大」分流：可逆的自動放行，影響正式環境的一定等人核准。</p>
+          </div>
+
+          <div class="gate-lab reveal" data-gate-lab>
+            <div class="gate-actions" role="radiogroup" aria-label="選擇一個代理動作" data-i18n-aria="gateAria">
+              <p class="capability-title" data-i18n="gatePick">選一個代理要做的動作</p>
+              <button type="button" role="radio" aria-checked="true" data-gate-action="draft"><b data-i18n="gateDraft">修改草稿與文件</b><small data-i18n="gateDraftHint">可逆 · 只影響自己</small></button>
+              <button type="button" role="radio" aria-checked="false" data-gate-action="merge"><b data-i18n="gateMerge">合併到主線並部署開發環境</b><small data-i18n="gateMergeHint">可回復 · 影響團隊</small></button>
+              <button type="button" role="radio" aria-checked="false" data-gate-action="prod"><b data-i18n="gateProd">部署到正式環境</b><small data-i18n="gateProdHint">影響使用者</small></button>
+              <button type="button" role="radio" aria-checked="false" data-gate-action="delete"><b data-i18n="gateDelete">刪除資料或對外發送</b><small data-i18n="gateDeleteHint">不可逆</small></button>
+            </div>
+            <div class="gate-track" aria-live="polite">
+              <ol class="gate-lanes">
+                <li data-gate="tests"><span>G1</span><b data-i18n="gTests">驗收測試</b><small data-i18n="gTestsHint">單元 · 端對端 · 驗收腳本</small><i></i></li>
+                <li data-gate="secrets"><span>G2</span><b data-i18n="gSecrets">密鑰掃描</b><small data-i18n="gSecretsHint">金鑰、帳密、內部位址不得進版本庫</small><i></i></li>
+                <li data-gate="review"><span>G3</span><b data-i18n="gReview">跨模型審查</b><small data-i18n="gReviewHint">另一家模型對抗審查，審查者不能是施工者</small><i></i></li>
+                <li data-gate="human"><span>G4</span><b data-i18n="gHuman">人工核准</b><small data-i18n="gHumanHint">每天早上一份建議報告，一次批准</small><i></i></li>
+              </ol>
+              <div class="gate-verdict"><span data-i18n="gateVerdictLabel">結果</span><b data-gate-verdict data-i18n="verdictDraft">自動放行，留下紀錄</b></div>
+            </div>
+          </div>
+
+          <div class="warroom reveal" data-warroom data-reflective>
+            <div class="warroom-head">
+              <span class="status-live"><span data-i18n="warroomTitle">戰情室 · 代理即時面板</span></span>
+              <span class="demo-tag" data-i18n="demoTag">去敏改編案例</span>
+              <button type="button" class="warroom-replay" data-warroom-replay data-i18n="wrPlay">重播</button>
+            </div>
+            <p class="warroom-scenario"><b data-i18n="warroomSim">改編情境：GPU 出口管制研究</b><span data-i18n="wrScenarioText">電子業客戶要在 48 小時內知道：新一輪 GPU 出口管制影響哪些料號、哪些出貨要停。</span></p>
+            <div class="warroom-grid" data-warroom-rows></div>
+            <div class="warroom-log" data-warroom-log aria-live="off"></div>
+            <dl class="warroom-facts">
+              <div><dt data-i18n="wrSource">資料來源</dt><dd data-i18n="wrSourceText">工作階段紀錄 · 子代理事件 · 自報進度</dd></div>
+              <div><dt data-i18n="wrShows">顯示</dt><dd data-i18n="wrShowsText">模型 · 進度 · 預估完成 · 顧問呼叫</dd></div>
+              <div><dt data-i18n="wrWhy">目的</dt><dd data-i18n="wrWhyText">平行工作看得見，才管得住</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="embedded-section section-shell" id="embedded" aria-labelledby="embedded-title" data-chapter-frame data-folio="03 — 2026">
+        <div class="chapter-register" aria-hidden="true"><span>03</span><svg class="telemetry-glyph telemetry-nodes" viewBox="0 0 96 48"><use href="assets/telemetry.svg#nodes"></use></svg><i></i><b data-i18n="chapterEmbedded">嵌入式 LLM</b><small>NING / 2026</small></div>
+        <div class="section-heading reveal">
+          <p class="section-index" data-i18n="embIndex">03 / 嵌入式 LLM</p>
+          <h2 id="embedded-title" data-i18n-html="embTitle"><span class="section-lead">模型不是聊天框</span><strong class="section-focus">是產品裡的一個零件。</strong></h2>
+          <p class="editorial-intro" data-i18n="embIntro">兩個方向：讓企劃用對話做出可玩的遊戲原型；讓機密資料只在公司機房裡被模型讀取。</p>
+        </div>
+
+        <article class="platform-lab reveal" data-reflective data-platform>
+          <div class="platform-copy">
+            <div class="case-labels"><span class="demo-tag" data-i18n="demoTag">去敏改編案例</span><span data-i18n="platLabel1">原型平台</span><span data-i18n="platLabel2">知識庫</span><span>2026</span></div>
+            <h3 data-i18n-html="platTitle">對話即<br />原型</h3>
+            <p data-i18n="platDesc">企劃用對話或拖拉描述一台遊戲，代理依公司模型與設計知識庫產生計畫；每次建置都先驗證、鎖版，再在隔離環境建置與預覽。監督代理全天候派工給多個程式代理。</p>
+            <div class="platform-detail" aria-live="polite">
+              <span data-platform-index>01 / 06</span>
+              <b data-platform-title data-i18n="plat1">描述需求</b>
+              <p data-platform-text data-i18n="plat1Text">對話或拖拉積木，描述玩法、主題與版面。</p>
+            </div>
+            <dl class="case-facts">
+              <div><dt data-i18n="platFact1">決策</dt><dd data-i18n="platFact1Text">106 條編號決策紀錄</dd></div>
+              <div><dt data-i18n="platFact2">隔離</dt><dd data-i18n="platFact2Text">建置容器無網路、無密鑰</dd></div>
+              <div><dt data-i18n="platFact3">晉級</dt><dd data-i18n="platFact3Text">開發 → 測試 → 正式，需決策編號</dd></div>
+            </dl>
+          </div>
+          <div class="platform-flow">
+            <svg class="platform-wires" viewBox="0 0 520 520" aria-hidden="true">
+              <path d="M150 52 V468" pathLength="1" />
+              <path d="M300 138 C390 138 420 200 420 262 S390 386 300 386" pathLength="1" class="kb-wire" />
+            </svg>
+            <ol class="platform-steps">
+              <li><button type="button" data-platform-step="0" aria-pressed="true"><span>01</span><b data-i18n="plat1">描述需求</b></button></li>
+              <li><button type="button" data-platform-step="1" aria-pressed="false"><span>02</span><b data-i18n="plat2">代理規劃</b></button></li>
+              <li><button type="button" data-platform-step="2" aria-pressed="false"><span>03</span><b data-i18n="plat3">工具驗證</b></button></li>
+              <li><button type="button" data-platform-step="3" aria-pressed="false"><span>04</span><b data-i18n="plat4">不可變清單</b></button></li>
+              <li><button type="button" data-platform-step="4" aria-pressed="false"><span>05</span><b data-i18n="plat5">隔離建置測試</b></button></li>
+              <li><button type="button" data-platform-step="5" aria-pressed="false"><span>06</span><b data-i18n="plat6">即時預覽</b></button></li>
+            </ol>
+            <div class="kb-node"><span>KB</span><b data-i18n="kbNode">設計知識庫</b><small data-i18n="kbNodeHint">玩法 · 美術 · 動效</small></div>
+          </div>
+        </article>
+
+        <article class="boundary-lab reveal" data-reflective data-boundary>
+          <div class="boundary-copy">
+            <div class="case-labels"><span class="demo-tag" data-i18n="demoTag">去敏改編案例</span><span data-i18n="bndLabel1">地端模型</span><span data-i18n="bndLabel2">資料邊界</span><span>2026</span></div>
+            <h3 data-i18n-html="bndTitle">機密不出<br />機房</h3>
+            <p data-i18n="bndDesc">商務助手整理合約、提醒與團隊任務，模型跑在公司的 GPU 伺服器上。雲端模型只參與開發，看到的是合成資料；真實合約由使用者自己匯入。</p>
+            <div class="boundary-toggle" role="group" aria-label="切換檢視" data-i18n-aria="bndToggleAria">
+              <button type="button" aria-pressed="true" data-boundary-view="inside" data-i18n="bndInside">機房內</button>
+              <button type="button" aria-pressed="false" data-boundary-view="cross" data-i18n="bndCross">什麼能出去？</button>
+            </div>
+            <dl class="case-facts">
+              <div><dt data-i18n="bndFact1">選型</dt><dd data-i18n="bndFact1Text">合成合約評測：欄位正確率 98.3%</dd></div>
+              <div><dt data-i18n="bndFact2">確認</dt><dd data-i18n="bndFact2Text">每個欄位附原文頁碼，由人確認</dd></div>
+              <div><dt data-i18n="bndFact3">稽核</dt><dd data-i18n="bndFact3Text">雜湊鏈稽核紀錄 · 雙因素登入</dd></div>
+            </dl>
+          </div>
+          <div class="boundary-map" data-boundary-map>
+            <div class="boundary-zone">
+              <span class="zone-label" data-i18n="bndZone">公司內網</span>
+              <span class="b-node n-llm"><b data-i18n="bndLlm">地端模型</b><small>GPU</small></span>
+              <span class="b-node n-docs"><b data-i18n="bndDocs">合約與文件</b><small data-i18n="bndDocsHint">只在內網</small></span>
+              <span class="b-node n-app"><b data-i18n="bndApp">商務助手</b><small data-i18n="bndAppHint">看板 · 提醒 · 任務</small></span>
+              <span class="b-node n-team"><b data-i18n="bndTeam">團隊</b><small data-i18n="bndTeamHint">角色權限</small></span>
+            </div>
+            <div class="boundary-out">
+              <span class="b-node n-cloud"><b data-i18n="bndCloud">雲端開發代理</b><small data-i18n="bndCloudHint">只看合成資料</small></span>
+              <span class="b-node n-push"><b data-i18n="bndPush">推播</b><small data-i18n="bndPushHint">只送提示，不送內容</small></span>
+            </div>
+            <div class="contract-card" aria-label="示範合約（合成資料）" data-i18n-aria="bndSample">
+              <small data-i18n="bndSample">示範合約（合成資料）</small>
+              <b data-i18n="bndSampleTitle">記憶體模組供貨合約</b>
+              <dl>
+                <div><dt data-i18n="bndF1">對方</dt><dd data-i18n="bndF1v">示範電子股份有限公司</dd></div>
+                <div><dt data-i18n="bndF2">到期</dt><dd data-i18n="bndF2v">2027-03-31 · 自動續約</dd></div>
+                <div><dt data-i18n="bndF3">提醒</dt><dd data-i18n="bndF3v">到期前 60 天建立續約任務</dd></div>
+                <div><dt data-i18n="bndF4">出處</dt><dd data-i18n="bndF4v">第 4 頁 · 第 7.2 條</dd></div>
+              </dl>
+            </div>
+            <ul class="boundary-rules">
+              <li class="rule-ok" data-i18n="bndRule1">提醒文字可以出去</li>
+              <li class="rule-ok" data-i18n="bndRule2">彙總評測分數可以出去</li>
+              <li class="rule-block" data-i18n="bndRule3">合約內容不出去</li>
+              <li class="rule-block" data-i18n="bndRule4">原始檔案不出去</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <section class="automation-section section-shell" id="automation" aria-labelledby="automation-title" data-chapter-frame data-folio="04 — 2026">
+        <div class="chapter-register" aria-hidden="true"><span>04</span><svg class="telemetry-glyph telemetry-waveform" viewBox="0 0 96 32"><use href="assets/telemetry.svg#waveform"></use></svg><i></i><b data-i18n="chapterAutomation">自動化產線</b><small>NING / 2026</small></div>
+        <div class="section-heading reveal">
+          <p class="section-index" data-i18n="autoIndex">04 / 自動化產線</p>
+          <h2 id="automation-title" data-i18n-html="autoTitle"><span class="section-lead">把外包的工作</span><strong class="section-focus">變成每天會跑的產線。</strong></h2>
+          <p class="editorial-intro" data-i18n="autoIntro">行銷素材原本外包。現在從開單到交件由同一條產線處理，四個品牌、兩個月份、一千四百多項交付，營運依編號提修改。</p>
+        </div>
+
+        <article class="exploded-lab reveal" data-exploded>
+          <div class="exploded-copy">
+            <div class="case-labels"><span data-i18n="expLabel1">素材產線</span><span data-i18n="expLabel2">多代理 QA</span><span>2026</span></div>
+            <h3 data-i18n-html="expTitle">一條產線<br />拆開來看</h3>
+            <p data-i18n="expDesc">往下捲動，產線會一層一層拆開。每一層都有自己的檢查，失敗的單位只退回那一層，不重跑整批。</p>
+          </div>
+          <div class="exploded-stack" data-exploded-stack>
+            <div class="plate" style="--i:0"><span>L1</span><b data-i18n="pl1">工單匯入</b><small data-i18n="pl1Hint">表格 → 編號 → 每個尺寸一項</small></div>
+            <div class="plate" style="--i:1"><span>L2</span><b data-i18n="pl2">參照檢索</b><small data-i18n="pl2Hint">7,500+ 份歷史設計檔建立索引與標籤</small></div>
+            <div class="plate" style="--i:2"><span>L3</span><b data-i18n="pl3">場景生成</b><small data-i18n="pl3Hint">主體與場景一起生成，不貼去背圖</small></div>
+            <div class="plate" style="--i:3"><span>L4</span><b data-i18n="pl4">版型組裝</b><small data-i18n="pl4Hint">影像軟體自動化 · 品牌字型 · 多尺寸</small></div>
+            <div class="plate" style="--i:4"><span>L5</span><b data-i18n="pl5">多代理 QA</b><small data-i18n="pl5Hint">對比、裁切、字距，三個代理看圖複查</small></div>
+            <div class="plate" style="--i:5"><span>L6</span><b data-i18n="pl6">審查與交件</b><small data-i18n="pl6Hint">審查頁 · 依編號回饋 · 修改版留存</small></div>
+          </div>
+        </article>
+
+        <div class="banner-studio reveal" data-banner-studio>
+          <div class="banner-studio-head">
+            <div>
+              <span class="demo-tag" data-i18n="demoTag">去敏改編案例</span>
+              <h3 data-i18n="bnTitle">同一條產線，換一個產品</h3>
+              <p data-i18n="bnDesc">真實工單換成虛構產品：同一套版型規則輸出三種產品、三種尺寸。字和背景不同色系，主體在每個尺寸都不被裁到。</p>
+            </div>
+            <div class="banner-controls">
+              <div class="seg" role="radiogroup" aria-label="選擇產品" data-i18n-aria="bnProductAria">
+                <button type="button" role="radio" aria-checked="true" data-banner-product="tp"><span data-i18n="bnToothpaste">牙膏</span></button>
+                <button type="button" role="radio" aria-checked="false" data-banner-product="al"><span data-i18n="bnAlbum">音樂專輯</span></button>
+                <button type="button" role="radio" aria-checked="false" data-banner-product="gm"><span data-i18n="bnGame">電玩</span></button>
+              </div>
+              <div class="seg" role="radiogroup" aria-label="選擇尺寸" data-i18n-aria="bnSizeAria">
+                <button type="button" role="radio" aria-checked="true" data-banner-size="wide">1200×628</button>
+                <button type="button" role="radio" aria-checked="false" data-banner-size="square">1080×1080</button>
+                <button type="button" role="radio" aria-checked="false" data-banner-size="story">1080×1920</button>
+              </div>
+            </div>
+          </div>
+          <div class="banner-stage">
+            <div class="banner" data-banner data-product="tp" data-size="wide">
+              <img class="banner-img" data-banner-img src="assets/demo/tp-wide.webp" width="1280" height="720" alt="" loading="lazy" decoding="async" />
+              <div class="banner-copy">
+                <small data-banner-eyebrow data-i18n="bnTpEyebrow">新品上市</small>
+                <strong data-banner-head data-i18n="bnTpHead">一刷，冰透一整天</strong>
+                <span data-banner-sub data-i18n="bnTpSub">薄荷冰晶配方 · 72 小時清新</span>
+                <em data-banner-cta data-i18n="bnTpCta">立即試用</em>
+              </div>
+              <i class="safe-frame" aria-hidden="true"></i>
+            </div>
+            <ul class="banner-qa" aria-label="QA">
+              <li><span data-i18n="bnQa1">對比</span><b data-banner-contrast>—</b></li>
+              <li><span data-i18n="bnQa2">安全區</span><b data-banner-safe>—</b></li>
+              <li><span data-i18n="bnQa3">字級</span><b data-banner-type>—</b></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="throughput-lab reveal" data-reflective data-throughput>
+          <div class="throughput-copy">
+            <p class="capability-title" data-i18n="tpTitle">產能試算</p>
+            <h3><span data-tp-rate>60</span><small data-i18n="tpUnit">項 / 小時</small></h3>
+            <p data-i18n="tpDesc">以實際工作時間量測：第一個月約 47 項／小時，工具成熟後第二個月約 84 項／小時，平均約 60。這裡的時間包含生成、組裝、QA 與修改。</p>
+          </div>
+          <div class="throughput-controls">
+            <label for="tp-volume"><span data-i18n="tpVolume">一個月的交付項目</span><b data-tp-volume-out>800</b></label>
+            <input id="tp-volume" type="range" min="100" max="1500" step="50" value="800" data-tp-volume />
+            <div class="tp-modes" role="radiogroup" aria-label="產能情境" data-i18n-aria="tpModesAria">
+              <button type="button" role="radio" aria-checked="false" data-tp-mode="47"><span data-i18n="tpFirst">第一個月</span><b>47/h</b></button>
+              <button type="button" role="radio" aria-checked="true" data-tp-mode="60"><span data-i18n="tpAvg">平均</span><b>60/h</b></button>
+              <button type="button" role="radio" aria-checked="false" data-tp-mode="84"><span data-i18n="tpMature">成熟後</span><b>84/h</b></button>
+            </div>
+            <div class="tp-result">
+              <div><small data-i18n="tpHours">需要的工作時間</small><strong><span data-tp-hours>13.3</span><em data-i18n="tpHoursUnit">小時</em></strong></div>
+              <div class="tp-bar" aria-hidden="true"><i data-tp-bar></i></div>
+              <p data-i18n="tpNote">兩個月合計 1,421 項，於約 22.6 小時的實際作業時間內完成。</p>
+            </div>
+          </div>
+        </div>
+
+        <article class="frames-lab reveal" data-reflective data-frames>
+          <div class="frames-copy">
+            <div class="case-labels"><span class="demo-tag" data-i18n="demoTag">去敏改編案例</span><span data-i18n="frLabel1">影片廣告</span><span data-i18n="frLabel2">逐格拆解</span><span>2026</span></div>
+            <h3 data-i18n-html="frTitle">580 支廣告<br />逐格拆開</h3>
+            <p data-i18n="frDesc">把已上線的廣告逐格拆成事件：鉤子、轉輪、差一點、大獎、結尾卡，再配對人物反應。新片開工前先查「大獎前人物在做什麼」。</p>
+            <dl class="case-facts">
+              <div><dt data-i18n="frFact1">規模</dt><dd data-i18n="frFact1Text">580+ 支母版 · 46,000+ 個標記物件</dd></div>
+              <div><dt data-i18n="frFact2">抽查</dt><dd data-i18n="frFact2Text">事件起點 86% · 配對 92%</dd></div>
+              <div><dt data-i18n="frFact3">邊界</dt><dd data-i18n="frFact3Text">表情只用大類，不進細部統計</dd></div>
+            </dl>
+          </div>
+          <div class="frames-viewer">
+            <div class="frames-stage"><img data-frames-main src="assets/demo/frame-1.webp" width="540" height="960" alt="" loading="lazy" decoding="async" /><span class="frames-rec" aria-hidden="true">REC</span></div>
+            <div class="frames-strip" data-frames-strip aria-hidden="true"></div>
+            <div class="frames-scrubber">
+              <input type="range" min="0" max="300" value="0" step="1" aria-label="影片時間軸" data-i18n-aria="frScrubAria" data-frames-scrub />
+              <div class="frames-events" data-frames-events></div>
+            </div>
+            <div class="frames-readout" aria-live="polite"><span data-frames-time>00.0s</span><b data-frames-event data-i18n="evHook">鉤子</b><small data-frames-react data-i18n="reHook">人物：直視鏡頭</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="work-section section-shell" id="work" aria-labelledby="work-title" data-chapter-frame data-folio="05 — 2026">
+        <div class="chapter-register" aria-hidden="true"><span>05</span><svg class="telemetry-glyph" viewBox="0 0 64 64"><use href="assets/telemetry.svg#reticle"></use></svg><i></i><b data-i18n="chapterWork">代表專案</b><small>NING / 2026</small></div>
         <div class="section-heading reveal">
           <p class="section-index" data-i18n="workIndex">01 / 代表專案</p>
           <h2 id="work-title" data-i18n-html="workTitle"><span class="section-lead">不只提出方向</span><strong class="section-focus">把交付往前推。</strong></h2>
-          <p class="editorial-intro" data-i18n="workIntro">三個不同場景，共用同一種工作方式：先釐清問題，再串起工程、營運與決策者，直到成果可以被驗證。</p>
+          <p class="editorial-intro" data-i18n="workIntro">兩個更早的現場系統，共用同一種工作方式：先釐清問題，再串起工程、營運與決策者，直到成果可以被驗證。</p>
         </div>
 
-        <article class="case-study case-visual reveal motion-zone" data-reflective data-case-flow>
+        <article class="case-study case-intel reveal motion-zone" data-reflective data-case-flow>
           <div class="case-number">01</div>
           <div class="case-copy">
-            <div class="case-labels"><span data-i18n="case1Label1">視覺情報</span><span data-i18n="case1Label2">營運分析</span><span>2026</span></div>
-            <h3 data-i18n-html="case1Title">競品情報<br />代理系統</h3>
-            <p data-i18n="case1Desc">把圖片、橫幅、識別標誌與遊戲格位中的市場訊號，轉成可回查的競品情報。我的角色涵蓋需求拆解、流程整合、例外處理與交付驗證。</p>
+            <div class="case-labels"><span data-i18n="intelLabel1">市場情報</span><span data-i18n="intelLabel2">平行採集</span><span data-i18n="intelLabel3">曝光稽核</span><span>2026</span></div>
+            <h3 data-i18n-html="intelTitle">競品情報與<br />曝光稽核</h3>
+            <p data-i18n="intelDesc">一套系統同時做兩件事：每天平行巡 200 多個網站與手機應用程式，把橫幅、識別標誌與遊戲格位轉成可回查的情報；再把每個遊戲的曝光位置排名，產出可稽核的報表。我負責需求拆解、規則與例外處理，也直接補上自動化與復原流程。</p>
             <dl class="case-facts">
-              <div><dt data-i18n="scope">範圍</dt><dd data-i18n="case1Fact1">超過 200 個監測站點</dd></div>
-              <div><dt data-i18n="workflow">流程</dt><dd data-i18n="case1Fact2">瀏覽器 → 視覺辨識 → 覆核 → 報表</dd></div>
-              <div><dt data-i18n="myRole">我的角色</dt><dd data-i18n="case1Fact3">需求、例外與交付整合</dd></div>
+              <div><dt data-i18n="scope">範圍</dt><dd data-i18n="intelFact1">200+ 站台與應用程式 · 每日排程</dd></div>
+              <div><dt data-i18n="workflow">流程</dt><dd data-i18n="intelFact2">採集 → 視覺辨識 → 去重排名 → 閘門 → 覆核 → 報表</dd></div>
+              <div><dt data-i18n="reliability">可靠性</dt><dd data-i18n="intelFact3">374 項離線測試 · 失敗即阻斷 · 自動重試與復原</dd></div>
             </dl>
           </div>
-          <div class="case-visualization" aria-label="競品情報處理流程" data-i18n-aria="case1Aria">
-            <div class="pipeline-line flow-line"></div>
-            <div class="pipeline-step flow-sequence" style="--flow-delay: .18s"><span>01</span><b data-i18n="capture">採集</b><small>Playwright</small></div>
-            <div class="pipeline-step flow-sequence" style="--flow-delay: .36s"><span>02</span><b data-i18n="interpret">辨識</b><small data-i18n="visionTools">文字 · 圖像 · 視覺模型</small></div>
-            <div class="pipeline-step flow-sequence" style="--flow-delay: .54s"><span>03</span><b data-i18n="review">覆核</b><small data-i18n="humanReview">人工檢核</small></div>
-            <div class="pipeline-step flow-sequence" style="--flow-delay: .72s"><span>04</span><b data-i18n="deliver">交付</b><small data-i18n="evidenceReport">報表 · 證據</small></div>
+          <div class="crawl-board" data-crawl aria-label="平行採集示意" data-i18n-aria="crawlAria">
+            <div class="crawl-head">
+              <span class="demo-tag" data-i18n="crawlDemo">示意：模擬節奏</span>
+              <div class="crawl-workers" role="radiogroup" aria-label="平行工作數" data-i18n-aria="crawlWorkersAria">
+                <span data-i18n="crawlWorkers">平行工作數</span>
+                <button type="button" role="radio" aria-checked="false" data-crawl-workers="1">1</button>
+                <button type="button" role="radio" aria-checked="false" data-crawl-workers="4">4</button>
+                <button type="button" role="radio" aria-checked="true" data-crawl-workers="12">12</button>
+                <button type="button" role="radio" aria-checked="false" data-crawl-workers="24">24</button>
+              </div>
+              <button type="button" class="crawl-run" data-crawl-run data-i18n="crawlRun">重新執行</button>
+            </div>
+            <div class="crawl-lanes" data-crawl-lanes aria-hidden="true"></div>
+            <div class="crawl-grid" data-crawl-grid aria-hidden="true"></div>
+            <div class="crawl-stats">
+              <div><small data-i18n="crawlDone">完成</small><b data-crawl-done>0 / 200</b></div>
+              <div><small data-i18n="crawlRetry">自動重試</small><b data-crawl-retry>0</b></div>
+              <div><small data-i18n="crawlReview">待人工覆核</small><b data-crawl-review>0</b></div>
+              <div><small data-i18n="crawlClock">模擬時鐘</small><b data-crawl-clock>00:00</b></div>
+            </div>
+            <ul class="crawl-legend" aria-hidden="true">
+              <li><i class="s-queue"></i><span data-i18n="crawlQueued">排隊</span></li>
+              <li><i class="s-capture"></i><span data-i18n="crawlCapture">採集</span></li>
+              <li><i class="s-read"></i><span data-i18n="crawlRead">辨識</span></li>
+              <li><i class="s-review"></i><span data-i18n="crawlReviewKey">待覆核</span></li>
+              <li><i class="s-done"></i><span data-i18n="crawlDoneKey">完成</span></li>
+            </ul>
           </div>
           <details class="evidence-drawer" data-evidence-drawer>
             <summary>
@@ -177,53 +510,10 @@
             </summary>
             <div class="evidence-drawer-body">
               <div class="evidence-grid">
-                <article><span>01</span><small data-i18n="evidenceFriction">現場阻力</small><p data-i18n="case1Evidence1">跨站點訊號藏在圖片、彈窗與動態格位；採集失敗也不能被誤讀成「沒有曝光」。</p></article>
-                <article><span>02</span><small data-i18n="evidenceDecision">關鍵決策</small><p data-i18n="case1Evidence2">把採集、辨識、人工覆核與情報輸出分層；不確定結果先進待覆核，不直接成為正式結論。</p></article>
-                <article><span>03</span><small data-i18n="evidenceStepIn">技術補位</small><p data-i18n="case1Evidence3">串起瀏覽器採集、視覺辨識、來源清單與報表，並依市場網路條件隔離採集路徑。</p></article>
-                <article><span>04</span><small data-i18n="evidenceVerify">如何驗證</small><p data-i18n="case1Evidence4">保留截圖與版本軌跡，再以完整性門檻、失敗分類及真實瀏覽器回讀確認交付。</p></article>
-              </div>
-              <p class="evidence-boundary" data-i18n="evidenceBoundary">公開版已移除站名、內部路徑、帳密與營運敏感數據。</p>
-            </div>
-          </details>
-        </article>
-
-        <article class="case-study case-exposure reveal motion-zone" data-reflective data-case-flow>
-          <div class="case-number">02</div>
-          <div class="case-copy">
-            <div class="case-labels"><span data-i18n="case2Label1">應用程式自動化</span><span data-i18n="case2Label2">交付可靠性</span><span>2026</span></div>
-            <h3 data-i18n-html="case2Title">曝光排名<br />稽核引擎</h3>
-            <p data-i18n="case2Desc">讓手機應用程式與網站的遊戲曝光排名可以每日重複稽查。我協調採集、辨識與歸戶規則，也在需要時直接補上自動化與復原流程。</p>
-            <dl class="case-facts">
-              <div><dt data-i18n="runtime">執行環境</dt><dd>BlueStacks · ADB · Playwright</dd></div>
-              <div><dt data-i18n="reliability">可靠性</dt><dd data-i18n="case2Fact2">重試 · 復原 · 告警</dd></div>
-              <div><dt data-i18n="output">輸出</dt><dd data-i18n="case2Fact3">排名 · 證據 · 趨勢</dd></div>
-            </dl>
-          </div>
-          <div class="audit-console" aria-label="稽查系統狀態示意" data-i18n-aria="case2Aria">
-            <div class="console-top"><span data-i18n="auditTime">稽核 / 03:00</span><span class="status-live" data-i18n="healthy">● 正常</span></div>
-            <div class="console-row flow-sequence" style="--flow-delay: .18s"><span data-i18n="appSession">應用程式工作階段</span><b data-i18n="recovered">已復原</b><i>00:42</i></div>
-            <div class="console-row flow-sequence" style="--flow-delay: .34s"><span data-i18n="visualRead">視覺辨識</span><b data-i18n="verified">已驗證</b><i>01:18</i></div>
-            <div class="console-row flow-sequence" style="--flow-delay: .5s"><span data-i18n="rankMerge">排名合併</span><b data-i18n="complete">已完成</b><i>01:44</i></div>
-            <div class="console-row flow-sequence" style="--flow-delay: .66s"><span data-i18n="report">報告</span><b data-i18n="delivered">已送達</b><i>01:52</i></div>
-            <div class="console-chart flow-sequence" style="--flow-delay: .82s" aria-hidden="true">
-              <span style="--h: 36%; --d: .15s"></span><span style="--h: 53%; --d: .75s"></span><span style="--h: 47%; --d: 1.4s"></span>
-              <span style="--h: 72%; --d: .4s"></span><span style="--h: 63%; --d: 1.05s"></span><span style="--h: 86%; --d: 1.75s"></span>
-              <span style="--h: 78%; --d: .62s"></span><span style="--h: 94%; --d: 1.25s"></span><span style="--h: 88%; --d: 1.95s"></span>
-            </div>
-          </div>
-          <details class="evidence-drawer" data-evidence-drawer>
-            <summary>
-              <span class="evidence-summary-index">E / 02</span>
-              <span class="evidence-summary-copy"><b class="evidence-label-open" data-i18n="evidenceOpen">展開案例證據</b><b class="evidence-label-close" data-i18n="evidenceClose">收合案例證據</b><small data-i18n="evidenceHint">決策 · 補位 · 驗證</small></span>
-              <span class="evidence-summary-source" data-i18n="evidenceSource">HERMES 知識庫 / 公開摘要</span>
-              <i class="evidence-toggle" aria-hidden="true"></i>
-            </summary>
-            <div class="evidence-drawer-body">
-              <div class="evidence-grid">
-                <article><span>01</span><small data-i18n="evidenceFriction">現場阻力</small><p data-i18n="case2Evidence1">同一份視覺證據重跑後可能出現辨識漂移；密集寫入與讀取也曾讓資料服務互相阻塞。</p></article>
-                <article><span>02</span><small data-i18n="evidenceDecision">關鍵決策</small><p data-i18n="case2Evidence2">執行成功不等於資料可用。品質狀態獨立判定，重跑採追加版本，疑似漂移預設阻斷。</p></article>
-                <article><span>03</span><small data-i18n="evidenceStepIn">技術補位</small><p data-i18n="case2Evidence3">加入影像指紋、版本選定、人工核准／退回，以及資料庫並行讀寫與復原機制。</p></article>
-                <article><span>04</span><small data-i18n="evidenceVerify">如何驗證</small><p data-i18n="case2Evidence4">用故障注入、重複修復循環、並行壓力測試與真實瀏覽器狀態回讀驗收。</p></article>
+                <article><span>01</span><small data-i18n="evidenceFriction">現場阻力</small><p data-i18n="intelEvidence1">訊號藏在圖片、彈窗與動態格位裡；同一份畫面重跑可能辨識漂移，採集失敗也不能被誤讀成「沒有曝光」。</p></article>
+                <article><span>02</span><small data-i18n="evidenceDecision">關鍵決策</small><p data-i18n="intelEvidence2">採集、辨識、排名、覆核分層；本地模型先讀，不確定才交給較強模型；模糊比對只提候選，人核准的別名才算數。</p></article>
+                <article><span>03</span><small data-i18n="evidenceStepIn">技術補位</small><p data-i18n="intelEvidence3">平行瀏覽器與模擬器工作、依市場隔離網路路徑、影像指紋與版本選定、每天最多兩輪離線修復，之後交給人。</p></article>
+                <article><span>04</span><small data-i18n="evidenceVerify">如何驗證</small><p data-i18n="intelEvidence4">品質閘門沒過就不發報表；用故障注入、並行壓力測試與真實瀏覽器回讀驗收。</p></article>
               </div>
               <p class="evidence-boundary" data-i18n="evidenceBoundary">公開版已移除站名、內部路徑、帳密與營運敏感數據。</p>
             </div>
@@ -231,7 +521,7 @@
         </article>
 
         <article class="case-study case-governance reveal motion-zone" data-reflective data-case-flow>
-          <div class="case-number">03</div>
+          <div class="case-number">02</div>
           <div class="case-copy">
             <div class="case-labels"><span data-i18n="case3Label1">使用治理</span><span data-i18n="case3Label2">權限與成本</span><span>2026</span></div>
             <h3 data-i18n-html="case3Title">部門人工智慧<br />治理平台</h3>
@@ -286,7 +576,7 @@
           </div>
           <details class="evidence-drawer" data-evidence-drawer>
             <summary>
-              <span class="evidence-summary-index">E / 03</span>
+              <span class="evidence-summary-index">E / 02</span>
               <span class="evidence-summary-copy"><b class="evidence-label-open" data-i18n="evidenceOpen">展開案例證據</b><b class="evidence-label-close" data-i18n="evidenceClose">收合案例證據</b><small data-i18n="evidenceHint">決策 · 補位 · 驗證</small></span>
               <span class="evidence-summary-source" data-i18n="evidenceSource">HERMES 知識庫 / 公開摘要</span>
               <i class="evidence-toggle" aria-hidden="true"></i>
@@ -304,8 +594,8 @@
         </article>
       </section>
 
-      <section class="system-section chapter-inverse" id="system" aria-labelledby="system-title" data-chapter-frame data-folio="02 — 2026">
-        <div class="chapter-register" aria-hidden="true"><span>02</span><svg class="telemetry-glyph telemetry-waveform" viewBox="0 0 96 32"><use href="assets/telemetry.svg#waveform"></use></svg><i></i><b data-i18n="chapterMethod">工作方式</b><small>NING / 2026</small></div>
+      <section class="system-section chapter-inverse" id="system" aria-labelledby="system-title" data-chapter-frame data-folio="06 — 2026">
+        <div class="chapter-register" aria-hidden="true"><span>06</span><svg class="telemetry-glyph telemetry-waveform" viewBox="0 0 96 32"><use href="assets/telemetry.svg#waveform"></use></svg><i></i><b data-i18n="chapterMethod">工作方式</b><small>NING / 2026</small></div>
         <div class="section-shell system-inner">
           <div class="section-heading light reveal">
             <p class="section-index" data-i18n="methodIndex">02 / 工作方式</p>
@@ -333,8 +623,8 @@
         </div>
       </section>
 
-      <section class="trajectory-section section-shell" id="trajectory" aria-labelledby="trajectory-title" data-chapter-frame data-folio="03 — 2026">
-        <div class="chapter-register" aria-hidden="true"><span>03</span><svg class="telemetry-glyph" viewBox="0 0 64 64"><use href="assets/telemetry.svg#bearing"></use></svg><i></i><b data-i18n="chapterTrajectory">成長軌跡</b><small>NING / 2026</small></div>
+      <section class="trajectory-section section-shell" id="trajectory" aria-labelledby="trajectory-title" data-chapter-frame data-folio="07 — 2026">
+        <div class="chapter-register" aria-hidden="true"><span>07</span><svg class="telemetry-glyph" viewBox="0 0 64 64"><use href="assets/telemetry.svg#bearing"></use></svg><i></i><b data-i18n="chapterTrajectory">成長軌跡</b><small>NING / 2026</small></div>
         <div class="section-heading reveal">
           <p class="section-index" data-i18n="trajectoryIndex">03 / 成長軌跡</p>
           <h2 id="trajectory-title" data-i18n-html="trajectoryTitle"><span class="section-lead">從協調交付</span><strong class="section-focus">到能親手補位。</strong></h2>
@@ -344,23 +634,28 @@
           <li class="reveal"><time datetime="2026-04" data-code="04·26"><span data-i18n="monthApr">四月</span><svg class="timeline-glyph" viewBox="0 0 96 48" aria-hidden="true"><use href="assets/telemetry.svg#nodes"></use></svg></time><div><span>02</span><h3 data-i18n="role2">方案整合</h3><p data-i18n="role2Desc">把爬取、視覺辨識、覆核、儲存與報表串成可迭代的交付流程。</p></div></li>
           <li class="reveal"><time datetime="2026-07" data-code="07·26"><span data-i18n="monthJul">七月</span><svg class="timeline-glyph" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/telemetry.svg#reticle"></use></svg></time><div><span>03</span><h3 data-i18n="role3">交付可靠性</h3><p data-i18n="role3Desc">導入復原、告警、排程驗證、網路隔離與預設阻斷行為。</p></div></li>
           <li class="reveal"><time datetime="2026-08" data-code="08·26"><span data-i18n="monthAug">八月</span><svg class="timeline-glyph" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/telemetry.svg#bearing"></use></svg></time><div><span>04</span><h3 data-i18n="role4">治理與落地</h3><p data-i18n="role4Desc">把權限、身分、成本、資料新鮮度與正式來源納入管理視角。</p></div></li>
+          <li class="reveal"><time datetime="2026-09" data-code="09·26"><span data-i18n="monthSep">九月</span><svg class="timeline-glyph" viewBox="0 0 96 48" aria-hidden="true"><use href="assets/telemetry.svg#nodes"></use></svg></time><div><span>05</span><h3 data-i18n="role5">設計知識庫</h3><p data-i18n="role5Desc">把散落的設計資產整理成本體論知識庫，讓後續的代理有可以查的設計依據。</p></div></li>
+          <li class="reveal"><time datetime="2026-10" data-code="10·26"><span data-i18n="monthOct">十月</span><svg class="timeline-glyph" viewBox="0 0 96 32" aria-hidden="true"><use href="assets/telemetry.svg#waveform"></use></svg></time><div><span>06</span><h3 data-i18n="role6">取代外包的產線</h3><p data-i18n="role6Desc">行銷素材從外包轉為自動化產線量產；開始建置對話產生原型的平台，監督代理全天候派工，一天只批准一次。</p></div></li>
+          <li class="reveal"><time datetime="2026-11" data-code="11·26"><span data-i18n="monthNov">十一月</span><svg class="timeline-glyph" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/telemetry.svg#calibration"></use></svg></time><div><span>07</span><h3 data-i18n="role7">地端模型與代理維運</h3><p data-i18n="role7Desc">商務助手跑在公司 GPU 伺服器上；廣告逐格拆解進知識庫；戰情室看得到每個代理。</p></div></li>
         </ol>
       </section>
 
-      <section class="experiments-section section-shell" id="experiments" aria-labelledby="experiments-title" data-chapter-frame data-folio="04 — 2026">
-        <div class="chapter-register" aria-hidden="true"><span>04</span><svg class="telemetry-glyph telemetry-nodes" viewBox="0 0 96 48"><use href="assets/telemetry.svg#nodes"></use></svg><i></i><b data-i18n="chapterExperiments">實作探索</b><small>NING / 2026</small></div>
+      <section class="experiments-section section-shell" id="experiments" aria-labelledby="experiments-title" data-chapter-frame data-folio="08 — 2026">
+        <div class="chapter-register" aria-hidden="true"><span>08</span><svg class="telemetry-glyph telemetry-nodes" viewBox="0 0 96 48"><use href="assets/telemetry.svg#nodes"></use></svg><i></i><b data-i18n="chapterExperiments">實作探索</b><small>NING / 2026</small></div>
         <div class="section-heading compact reveal"><p class="section-index" data-i18n="experimentsIndex">04 / 實作探索</p><h2 id="experiments-title" data-i18n-html="experimentsTitle"><span class="section-lead">跨越不同領域</span><strong class="section-focus">維持同一種判斷。</strong></h2></div>
         <div class="experiment-grid">
           <article class="experiment-card reveal" data-reflective><span data-i18n="exp1Label">機器學習 / 可解釋性</span><h3 data-i18n="exp1Title">生存幾何</h3><p data-i18n="exp1Desc">把乘客視為完整實體，而不是試算表中的單列資料；透過特徵壓力、原型與規則探索解釋預測。</p><a href="https://github.com/Nyannnnning/Kaggle-Titanic-Playground" data-i18n="viewRepo">查看公開程式庫 ↗</a></article>
           <article class="experiment-card reveal" data-reflective><span data-i18n="exp2Label">遊戲 / 模擬</span><h3 data-i18n="exp2Title">碧虎老虎機原型</h3><p data-i18n="exp2Desc">以 PixiJS 製作老虎機原型，並透過百萬局模擬驗證遊戲數學。</p></article>
           <article class="experiment-card reveal" data-reflective><span data-i18n="exp3Label">工作紀錄 / 自動化</span><h3 data-i18n="exp3Title">代理工作紀錄</h3><p data-i18n="exp3Desc">從多個程式代理收集完成事件，去重、摘要、推播並保留可回查的工作證據。</p></article>
           <article class="experiment-card reveal" data-reflective><span data-i18n="exp4Label">網站 / 產品交付</span><h3 data-i18n="exp4Title">企業網站交付</h3><p data-i18n="exp4Desc">使用 Next.js、內容結構與可攜式預覽，把規格文件轉成可交付的品牌網站。</p></article>
+          <article class="experiment-card reveal" data-reflective><span data-i18n="exp5Label">LLM 工具 / 治理</span><h3 data-i18n="exp5Title">有額度的美術工作台</h3><p data-i18n="exp5Desc">模型呼叫全部走伺服器代理：帳號需管理員核准、每人與全站每日額度、一鍵停用模型、每位使用者的用量紀錄。</p></article>
+          <article class="experiment-card reveal" data-reflective><span data-i18n="exp6Label">動畫 / 管線</span><h3 data-i18n="exp6Title">單張插畫變動畫</h3><p data-i18n="exp6Desc">從一張角色插畫做出骨骼動畫：3D 步態投影、次級運動、骨骼減量與自動檢查閘門，讓每次迭代次數越來越少。</p></article>
         </div>
       </section>
 
-      <section class="github-section" id="github" aria-labelledby="github-title" data-chapter-frame data-folio="05 — 2026">
+      <section class="github-section" id="github" aria-labelledby="github-title" data-chapter-frame data-folio="09 — 2026">
         <div class="github-noise" aria-hidden="true"></div>
-        <div class="chapter-register" aria-hidden="true"><span>05</span><svg class="telemetry-glyph" viewBox="0 0 64 64"><use href="assets/telemetry.svg#calibration"></use></svg><i></i><b data-i18n="chapterGithub">進一步了解</b><small>NING / 2026</small></div>
+        <div class="chapter-register" aria-hidden="true"><span>09</span><svg class="telemetry-glyph" viewBox="0 0 64 64"><use href="assets/telemetry.svg#calibration"></use></svg><i></i><b data-i18n="chapterGithub">進一步了解</b><small>NING / 2026</small></div>
         <div class="section-shell github-inner reveal">
           <p class="section-index" data-i18n="githubIndex">05 / 進一步了解</p>
           <h2 id="github-title" data-i18n-html="githubTitle"><span class="section-lead">想看我怎麼做</span><strong class="section-focus">到 GitHub 看公開實作。</strong></h2>

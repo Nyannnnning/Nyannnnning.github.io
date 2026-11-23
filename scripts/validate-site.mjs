@@ -10,7 +10,7 @@ const telemetry = await readFile(new URL("assets/telemetry.svg", root), "utf8");
 const translationsSource = await readFile(new URL("translations.js", root), "utf8");
 
 const failures = [];
-const requiredIds = ["main", "top", "work", "system", "trajectory", "github"];
+const requiredIds = ["main", "top", "impact", "governance", "embedded", "automation", "work", "system", "trajectory", "github"];
 
 for (const id of requiredIds) {
   if (!index.includes(`id="${id}"`)) failures.push(`Missing required id: ${id}`);
@@ -22,7 +22,7 @@ for (const reference of index.matchAll(/(?:href|src)="([^"]+)"/g)) {
   if (target.startsWith("#") && !index.includes(`id="${target.slice(1)}"`)) {
     failures.push(`Broken internal link: ${target}`);
   }
-  if ((/^(styles\.css|script\.js|hero-shader\.js|translations\.js|favicon\.svg)$/.test(localTarget) || localTarget.startsWith("assets/")) && !existsSync(new URL(localTarget, root))) {
+  if ((/^(styles\.css|labs\.css|script\.js|labs\.js|hero-shader\.js|translations\.js|favicon\.svg)$/.test(localTarget) || localTarget.startsWith("assets/")) && !existsSync(new URL(localTarget, root))) {
     failures.push(`Missing local asset: ${target}`);
   }
 }
@@ -55,9 +55,9 @@ if (!index.includes("viewport-fit=cover")) failures.push("Missing iOS safe-area 
 if (!styles.includes("-webkit-text-size-adjust: 100%")) failures.push("Missing iOS text autosizing guard");
 if (!styles.includes("safe-area-inset-top")) failures.push("Missing iOS safe-area layout tokens");
 if (!styles.includes(".js-ready .radar-rig.reveal")) failures.push("Missing immediate mobile radar rendering");
-if ((index.match(/class="timeline-glyph"/g) ?? []).length !== 4) failures.push("Missing trajectory telemetry rails");
+if ((index.match(/class="timeline-glyph"/g) ?? []).length !== 7) failures.push("Missing trajectory telemetry rails");
 if (!index.includes("data-telemetry-progress")) failures.push("Missing scroll-linked telemetry navigation");
-if ((index.match(/data-progress-link=/g) ?? []).length !== 5) failures.push("Missing telemetry chapter links");
+if ((index.match(/data-progress-link=/g) ?? []).length !== 9) failures.push("Missing telemetry chapter links");
 if (!index.includes('id="experiments"')) failures.push("Missing experiments chapter anchor");
 if (!script.includes("renderTelemetryProgress")) failures.push("Missing scroll-linked telemetry controller");
 if (!script.includes("requestAnimationFrame(renderTelemetryProgress)")) failures.push("Missing frame-synced telemetry progress");
@@ -75,8 +75,8 @@ if (!heroShader.includes("webglcontextlost")) failures.push("Missing WebGL fallb
 if (!heroShader.includes("prefers-reduced-motion")) failures.push("Missing shader reduced-motion fallback");
 if (!styles.includes("--frost-silver")) failures.push("Missing translucent silver surface system");
 if (!styles.includes("--frost-shadow")) failures.push("Missing frosted surface depth system");
-if ((index.match(/data-case-flow/g) ?? []).length !== 3) failures.push("Missing case narrative hooks");
-if ((index.match(/data-evidence-drawer/g) ?? []).length !== 3) failures.push("Missing case evidence drawers");
+if ((index.match(/data-case-flow/g) ?? []).length !== 2) failures.push("Missing case narrative hooks");
+if ((index.match(/data-evidence-drawer/g) ?? []).length !== 2) failures.push("Missing case evidence drawers");
 if (!styles.includes(".evidence-grid")) failures.push("Missing case evidence visual system");
 if (!script.includes("evidenceDrawers")) failures.push("Missing evidence drawer telemetry sync");
 if (!script.includes("caseFlowObserver")) failures.push("Missing case flow observer");
@@ -85,14 +85,14 @@ if (!styles.includes("governance-route")) failures.push("Missing governance rout
 if (!index.includes("data-hero-portrait")) failures.push("Missing hero portrait layer");
 if (!styles.includes("portrait-sheen")) failures.push("Missing masked portrait material pass");
 if ((styles.match(/hero-silver-sentinel\.webp/g) ?? []).length > 0) failures.push("Hero image should not be decoded again as a CSS mask");
-if ((index.match(/data-chapter-frame/g) ?? []).length !== 5) failures.push("Missing editorial chapter frames");
+if ((index.match(/data-chapter-frame/g) ?? []).length !== 9) failures.push("Missing editorial chapter frames");
 if (!script.includes("chapterObserver")) failures.push("Missing chapter transition observer");
 if (!styles.includes("chapter-register")) failures.push("Missing editorial chapter register system");
 if (!styles.includes("@keyframes radar-sweep")) failures.push("Missing cockpit radar sweep treatment");
 if (`${index}\n${translationsSource}`.includes("NING.FDE")) failures.push("Overstated FDE wordmark found");
 if (!translationsSource.includes('class="hero-focus">field friction</strong>')) failures.push("Missing deliberate English hero hierarchy");
-if ((index.match(/class="section-lead"/g) ?? []).length !== 5) failures.push("Missing section title lead hierarchy");
-if ((index.match(/class="section-focus"/g) ?? []).length !== 5) failures.push("Missing section title focus hierarchy");
+if ((index.match(/class="section-lead"/g) ?? []).length !== 9) failures.push("Missing section title lead hierarchy");
+if ((index.match(/class="section-focus"/g) ?? []).length !== 9) failures.push("Missing section title focus hierarchy");
 if (!script.includes("requestIdleCallback")) failures.push("Missing deferred hero shader loading");
 if (!script.includes("motionZoneObserver")) failures.push("Missing offscreen animation lifecycle");
 if (!styles.includes("contain: layout paint")) failures.push("Missing component rendering containment");
@@ -101,9 +101,25 @@ if (!index.includes('class="radar-rig reveal"')) failures.push("Missing integrat
 for (const symbol of ["reticle", "waveform", "bearing", "nodes", "calibration", "radar-frame", "umbilical"]) {
   if (!telemetry.includes(`id="${symbol}"`)) failures.push(`Missing telemetry symbol: ${symbol}`);
 }
-if ((index.match(/class="telemetry-glyph/g) ?? []).length !== 5) failures.push("Missing chapter telemetry glyph system");
+if ((index.match(/class="telemetry-glyph/g) ?? []).length !== 9) failures.push("Missing chapter telemetry glyph system");
 if (!styles.includes("border-radius: 18px 18px 28px 18px")) failures.push("Missing rounded case module treatment");
 if (`${index}\n${translationsSource}`.includes("追蹤 GitHub 整理進度")) failures.push("Stale GitHub CTA copy found");
+
+const labs = await readFile(new URL("labs.js", root), "utf8");
+const labsCss = await readFile(new URL("labs.css", root), "utf8");
+for (const hook of ["data-gate-lab", "data-warroom", "data-platform", "data-boundary-map", "data-exploded", "data-banner-studio", "data-throughput", "data-frames", "data-manifesto"]) {
+  if (!index.includes(hook)) failures.push(`Missing v2 lab hook: ${hook}`);
+  if (!index.includes("data-crawl")) failures.push("Missing parallel crawl board");
+}
+if ((index.match(/class="demo-tag"/g) ?? []).length < 6) failures.push("Every adapted demo needs a de-identified case tag");
+if (!labs.includes("onLanguage")) failures.push("Labs must re-render on language change");
+if (!labsCss.includes("prefers-reduced-motion")) failures.push("Labs missing reduced-motion support");
+const privateTermsFile = new URL("scripts/.private-terms.txt", root);
+if (existsSync(privateTermsFile)) {
+  const terms = (await readFile(privateTermsFile, "utf8")).split(/\r?\n/).map((x) => x.trim()).filter(Boolean);
+  const haystack = [index, translationsSource, labs].join("\n").toLowerCase();
+  for (const term of terms) if (haystack.includes(term.toLowerCase())) failures.push("Private term found (see local scripts/.private-terms.txt)");
+}
 
 if (failures.length) {
   console.error(failures.join("\n"));
