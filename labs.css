@@ -764,3 +764,19 @@ body[data-language="en"] .banner[data-product="gm"] .banner-copy strong { font-s
 .banner[data-size="story"][data-product="gm"] .banner-plat { font-size: clamp(7px, 3.6cqw, 12px); }
 .banner[data-size="story"][data-product="gm"] .banner-copy span[data-banner-sub],
 .banner[data-size="story"][data-product="gm"] .banner-copy em { font-size: clamp(8px, 4.6cqw, 15px); }
+
+/* signature v2: calligraphic script revealed like handwriting */
+.signature { display: inline-grid; width: auto; height: auto; margin: .2rem 0 1rem; position: relative; }
+.signature .sig-text {
+  font: 400 clamp(4.2rem, 8vw, 6.2rem)/1 "Mrs Saint Delafield", cursive; color: var(--amber-bright, #f08a3c);
+  letter-spacing: .01em; padding: 0 .3em 0 .05em; transform: rotate(-4deg); transform-origin: left bottom;
+  clip-path: inset(-20% 100% -20% 0); text-shadow: 0 0 18px rgba(240,138,60,.18);
+}
+.signature .sig-swash { width: 180px; height: auto; margin: -1.4rem 0 0 1.6rem; overflow: visible; }
+.signature .sig-swash path { fill: none; stroke: var(--amber-bright, #f08a3c); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; opacity: .85; }
+.signature.drawn .sig-text { transition: clip-path 1.6s cubic-bezier(.55,.1,.35,1); clip-path: inset(-20% -10% -20% 0); }
+.signature.drawn .sig-swash path { transition: stroke-dashoffset .9s ease 1.4s; stroke-dashoffset: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .signature .sig-text { clip-path: none; }
+  .signature .sig-swash path { stroke-dashoffset: 0; }
+}
