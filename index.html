@@ -23,15 +23,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="image" href="assets/hero-silver-sentinel.webp" type="image/webp" fetchpriority="high" />
-    <link rel="preload" href="assets/fonts/noto-sans-tc-subset.woff2?v=7" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/noto-sans-tc-subset.woff2?v=8" as="font" type="font/woff2" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&text=Ning&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20261123-14" />
-    <link rel="stylesheet" href="labs.css?v=20261123-14" />
+    <link rel="stylesheet" href="styles.css?v=20261123-15" />
+    <link rel="stylesheet" href="labs.css?v=20261123-15" />
     <script>document.documentElement.classList.remove('no-js');</script>
-    <script src="translations.js?v=20261123-14" defer></script>
-    <script src="script.js?v=20261123-14" defer></script>
-    <script src="labs.js?v=20261123-14" defer></script>
+    <script src="translations.js?v=20261123-15" defer></script>
+    <script src="script.js?v=20261123-15" defer></script>
+    <script src="labs.js?v=20261123-15" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main" data-i18n="skip">跳到主要內容</a>
@@ -306,9 +306,9 @@
 
         <article class="platform-lab reveal" data-reflective data-platform>
           <div class="platform-copy">
-            <div class="case-labels"><span class="demo-tag" data-i18n="demoTag">去敏改編案例</span><span data-i18n="platLabel1">原型平台</span><span data-i18n="platLabel2">知識庫</span><span>2026</span></div>
+            <div class="case-labels"><span class="demo-tag" data-i18n="demoTag">去敏改編案例</span><span data-i18n="platLabel1">雲端串流共編平台</span><span data-i18n="platLabel2">公司資安規範</span><span>2026</span></div>
             <h3 data-i18n-html="platTitle">對話即<br />原型</h3>
-            <p data-i18n="platDesc">企劃用打字或拖拉描述一台遊戲，代理拿公司的模型和設計知識庫排出計畫。每次建置前先檢查、鎖版，再放進隔離環境建置和預覽。背後有一個監工代理整天派工給程式代理。</p>
+            <p data-i18n="platDesc">一個雲端串流共編平台。企劃用打字或拖拉描述一台遊戲，代理拿公司的模型和設計知識庫排出計畫，每次建置前先檢查、鎖版，再放進隔離環境建置和預覽。整個工作區只用畫面串流給使用者，照公司資安規範，程式碼和資料庫都不能私自匯出，也不能拿去蒸餾模型。</p>
             <div class="platform-detail" aria-live="polite">
               <span data-platform-index>01 / 06</span>
               <b data-platform-title data-i18n="plat1">描述需求</b>
@@ -316,7 +316,7 @@
             </div>
             <dl class="case-facts">
               <div><dt data-i18n="platFact1">決策</dt><dd data-i18n="platFact1Text">106 條編號決策紀錄</dd></div>
-              <div><dt data-i18n="platFact2">隔離</dt><dd data-i18n="platFact2Text">建置容器無網路、無密鑰</dd></div>
+              <div><dt data-i18n="platFact2">資安</dt><dd data-i18n="platFact2Text">只串流畫面；程式碼和資料庫不能匯出、不能蒸餾</dd></div>
               <div><dt data-i18n="platFact3">晉級</dt><dd data-i18n="platFact3Text">開發 → 測試 → 正式，需決策編號</dd></div>
             </dl>
           </div>
@@ -342,7 +342,7 @@
           <div class="cicd-head">
             <div class="case-labels"><span class="demo-tag" data-i18n="demoTag">去敏改編案例</span><span data-i18n="cicdLabel1">CI/CD</span><span data-i18n="cicdLabel2">多環境</span><span>2026</span></div>
             <h3 data-i18n-html="cicdTitle">一句話到上線，<br />中間有幾道關</h3>
-            <p data-i18n="cicdDesc">這個平台不是一支腳本，是一整套服務。代理改的每一行程式，都要走同一條管線：先過閘門，再合併、建映像，從開發環境一路晉級到正式環境。設計資料則走另一條路，進知識庫之前要先隔離、拆解、讓人看過。</p>
+            <p data-i18n="cicdDesc">這個雲端串流共編平台是一整套服務，不是一支腳本。代理改的每一行程式都走同一條管線：先過閘門，再合併、建映像，從開發環境一路晉級到正式環境。設計資料走另一條路，進知識庫前先隔離、拆解、讓人看過；進去之後也只能在平台裡用，不能整包帶走。</p>
             <div class="cicd-controls">
               <button type="button" class="cicd-play" data-cicd-play data-i18n="cicdPlay">跑一次</button>
               <div class="seg" role="radiogroup" aria-label="管線" data-i18n-aria="cicdLaneAria">
@@ -366,7 +366,7 @@
               <li data-stage="1" class="gate"><span>G</span><b data-i18n="ks2">隔離區</b><small data-i18n="ks2h">先掃毒、驗格式，不直接進系統</small></li>
               <li data-stage="2"><span>03</span><b data-i18n="ks3">拆解</b><small data-i18n="ks3h">工作流引擎把檔案拆成玩法、版面、素材</small></li>
               <li data-stage="3" class="gate"><span>G</span><b data-i18n="ks4">人工審核</b><small data-i18n="ks4h">拆錯的退回，對的才放行</small></li>
-              <li data-stage="4" class="env prod"><span>KB</span><b data-i18n="ks5">發布到知識庫</b><small data-i18n="ks5h">本體論＋向量檢索，代理規劃時查得到</small></li>
+              <li data-stage="4" class="env prod"><span>KB</span><b data-i18n="ks5">發布到知識庫</b><small data-i18n="ks5h">本體論＋向量檢索，只在平台內查得到，不開放匯出</small></li>
             </ol>
             <div class="cicd-log" aria-live="polite"><span data-cicd-clock>00:00</span><b data-cicd-msg data-i18n="cicdIdle">按「跑一次」，看一個變更怎麼走完</b></div>
           </div>

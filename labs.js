@@ -607,7 +607,7 @@
       N("p_govplat", "project", 270, 445, "AI 治理平台", "AI governance platform", "用量、成本、身分放在同一個管理畫面，依角色決定能看到什麼。", "Usage, cost and identity in one view, scoped by role."),
       N("p_bench", "project", 420, 405, "有額度的 LLM 工作台", "LLM workbench with quotas", "模型呼叫走伺服器代理：帳號核准、每日額度、一鍵停用。", "Model calls via a server proxy: approved accounts, daily quotas, one-click kill switch."),
       N("p_foreman", "project", 520, 310, "代理監工與戰情室", "Agent foreman & war room", "代理全天候施工，閘門把關，一天只批准一次，面板看得到每個代理。", "Agents build around the clock behind gates, one approval a day, every agent visible on a panel."),
-      N("p_proto", "project", 650, 150, "對話原型平台", "Prompt-to-prototype platform", "企劃打一段話，就能在隔離環境玩到遊戲原型。", "A designer types a few lines and plays a prototype built in isolation."),
+      N("p_proto", "project", 650, 150, "雲端串流共編平台", "Cloud streaming co-editing platform", "企劃打一段話就能玩到遊戲原型；只串流畫面，程式碼和資料庫不能匯出或蒸餾。", "A designer types a few lines and plays a prototype; screen streaming only, and code and databases can't be exported or distilled."),
       N("p_creative", "project", 790, 280, "素材產線", "Creative pipeline", "四個品牌、1,400+ 項交付，平均每小時約 60 項。", "Four brands, 1,400+ deliverables, about 60 an hour."),
       N("p_intel", "project", 760, 405, "競品情報與曝光稽核", "Competitor intel & exposure audit", "每天平行巡 200+ 個站台和 App，失敗就阻斷，不發錯的報表。", "Sweeps 200+ sites and apps in parallel daily; fails closed instead of shipping a wrong report."),
       N("p_assist", "project", 610, 495, "地端商務助手", "On-prem business assistant", "合約、提醒、任務都在公司機房裡處理，雲端只碰合成資料。", "Contracts, reminders and tasks handled on company servers; the cloud only sees synthetic data."),

@@ -398,3 +398,21 @@ Object.assign(window.NING_TRANSLATIONS.en, {
     auWinFn: "Reward: celebrate, make the win feel big", auWinPri: "Highest; over everything else", auWinTarget: "11–12 LU over the music, tiered (Big → Mega → Epic)",
     auWinMake: "Generate a music cue, then rebalance the stems", auWinMix: "Music steps out, fades back after", auWinQa: "Full mix simulation plus blind listening; no win fanfare when the payout isn't above the bet"
 });
+
+/* ---- v2.6 platform name + data security ---- */
+Object.assign(window.NING_TRANSLATIONS.zh, {
+    platLabel1: "雲端串流共編平台", platLabel2: "公司資安規範",
+    platTitle: "對話即<br />原型",
+    platDesc: "一個雲端串流共編平台。企劃用打字或拖拉描述一台遊戲，代理拿公司的模型和設計知識庫排出計畫，每次建置前先檢查、鎖版，再放進隔離環境建置和預覽。整個工作區只用畫面串流給使用者，照公司資安規範，程式碼和資料庫都不能私自匯出，也不能拿去蒸餾模型。",
+    platFact2: "資安", platFact2Text: "只串流畫面；程式碼和資料庫不能匯出、不能蒸餾",
+    cicdDesc: "這個雲端串流共編平台是一整套服務，不是一支腳本。代理改的每一行程式都走同一條管線：先過閘門，再合併、建映像，從開發環境一路晉級到正式環境。設計資料走另一條路，進知識庫前先隔離、拆解、讓人看過；進去之後也只能在平台裡用，不能整包帶走。",
+    cs7h: "決策編號＋人在早上的報告裡核准",
+    ks5h: "本體論＋向量檢索，只在平台內查得到，不開放匯出"
+});
+Object.assign(window.NING_TRANSLATIONS.en, {
+    platLabel1: "Cloud streaming co-editing platform", platLabel2: "Company security policy",
+    platDesc: "A cloud streaming co-editing platform. A designer describes a game by typing or dragging blocks, and an agent plans it with the company model and a design knowledge base; every build is checked and locked first, then built and previewed in isolation. The workspace reaches users only as a video stream, and under company security policy the code and databases can't be exported or used to distill models.",
+    platFact2: "Security", platFact2Text: "Screen streaming only; code and databases can't be exported or distilled",
+    cicdDesc: "This cloud streaming co-editing platform is a full set of services, not one script. Every line an agent changes goes through the same pipeline: pass the gates, merge, build an image, then promote from dev all the way to production. Design files take a separate path, quarantined, broken down and reviewed by a person before they reach the knowledge base, and once there they can only be used inside the platform, never taken out in bulk.",
+    ks5h: "Ontology plus vector search, queryable only inside the platform, no export"
+});
