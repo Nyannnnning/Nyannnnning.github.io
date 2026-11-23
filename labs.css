@@ -378,3 +378,134 @@ body[data-mode="signal"] .platform-detail, body[data-mode="signal"] .tp-result, 
   .plate, .wr-bar i, .tp-bar i, .ring-seg { transition: none; }
   .gate-lanes li.hold i { animation: none; }
 }
+
+/* =========================================================
+   Metal material system — real brushed / anodized surfaces
+   ========================================================= */
+:root {
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9 .02' numOctaves='2' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --alu:
+    var(--grain),
+    linear-gradient(180deg, rgba(255,255,255,.55) 0%, rgba(255,255,255,0) 38%, rgba(0,0,0,.06) 62%, rgba(255,255,255,.18) 100%),
+    linear-gradient(100deg, #8b9297 0%, #e9eae7 18%, #b3b8bb 34%, #f7f6f2 50%, #bfc3c5 66%, #eceeec 82%, #868d92 100%);
+  --alu-bevel:
+    inset 0 1px 0 rgba(255,255,255,.95),
+    inset 0 -1px 0 rgba(40,45,50,.35),
+    inset 1px 0 0 rgba(255,255,255,.45),
+    inset -1px 0 0 rgba(40,45,50,.18),
+    0 1px 0 rgba(255,255,255,.7),
+    0 4px 10px rgba(30,35,40,.18),
+    0 12px 26px rgba(30,35,40,.12);
+  --anodized:
+    var(--grain),
+    linear-gradient(180deg, rgba(255,255,255,.16) 0%, rgba(255,255,255,0) 45%, rgba(0,0,0,.25) 100%),
+    linear-gradient(100deg, #1d2125 0%, #3b4248 30%, #23282c 55%, #4a5258 78%, #1a1d20 100%);
+  --anodized-bevel:
+    inset 0 1px 0 rgba(255,255,255,.22),
+    inset 0 -1px 0 rgba(0,0,0,.6),
+    0 1px 0 rgba(255,255,255,.35),
+    0 6px 14px rgba(10,12,14,.35);
+}
+body[data-mode="signal"] {
+  --alu:
+    var(--grain),
+    linear-gradient(180deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 40%, rgba(0,0,0,.3) 100%),
+    linear-gradient(100deg, #2b3136 0%, #59626a 20%, #353c42 40%, #6c757c 55%, #3a4147 72%, #5a636a 86%, #262b2f 100%);
+  --alu-bevel:
+    inset 0 1px 0 rgba(255,255,255,.28),
+    inset 0 -1px 0 rgba(0,0,0,.65),
+    inset 1px 0 0 rgba(255,255,255,.08),
+    0 1px 0 rgba(255,255,255,.08),
+    0 6px 16px rgba(0,0,0,.45);
+}
+
+/* shared metal surface */
+.wordmark-mark,
+.mode-button,
+.language-switch,
+.button-ghost,
+.registry-chips button,
+.seg button,
+.tp-modes button,
+.boundary-toggle button,
+.crawl-workers button,
+.crawl-run,
+.warroom-replay,
+.platform-steps button,
+.b-node,
+.plate,
+.banner-qa li,
+.crawl-stats div,
+.impact-readout,
+.kb-node {
+  background: var(--alu);
+  background-size: 180px 180px, 100% 100%, 100% 100%;
+  box-shadow: var(--alu-bevel);
+  border-color: rgba(60,66,72,.45);
+  backdrop-filter: none;
+}
+.impact-readout { box-shadow: inset 0 1px 0 rgba(255,255,255,.8), inset 0 -1px 0 rgba(40,45,50,.18); background-size: 180px 180px, 100% 100%, 100% 100%; }
+.kb-node { border-style: solid; border-color: rgba(184,79,28,.55); }
+
+/* engraved type on metal */
+.wordmark-mark, .mode-button, .button-ghost, .platform-steps button b, .plate b, .b-node b, .crawl-run, .warroom-replay {
+  color: #1d2124;
+  text-shadow: 0 1px 0 rgba(255,255,255,.75), 0 -1px 0 rgba(0,0,0,.12);
+}
+body[data-mode="signal"] .wordmark-mark, body[data-mode="signal"] .mode-button, body[data-mode="signal"] .button-ghost,
+body[data-mode="signal"] .platform-steps button b, body[data-mode="signal"] .plate b, body[data-mode="signal"] .b-node b,
+body[data-mode="signal"] .crawl-run, body[data-mode="signal"] .warroom-replay {
+  color: #eef1f3;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.6), 0 1px 0 rgba(255,255,255,.08);
+}
+
+/* the wordmark plate: machined bezel + screws */
+.wordmark-mark { border-radius: 4px; font-weight: 600; }
+.wordmark-mark::after {
+  inset: 3px;
+  border: 1px solid rgba(40,45,50,.28);
+  border-radius: 2px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.6);
+  background: radial-gradient(circle at 4px 4px, rgba(40,45,50,.55) 0 1px, transparent 1.6px) top left / 100% 100% no-repeat,
+              radial-gradient(circle at calc(100% - 4px) calc(100% - 4px), rgba(40,45,50,.55) 0 1px, transparent 1.6px) top left / 100% 100% no-repeat;
+}
+
+/* selected / pressed state = dark anodized metal */
+.language-switch button[aria-pressed="true"],
+.registry-chips button[aria-selected="true"],
+.seg button[aria-checked="true"],
+.tp-modes button[aria-checked="true"],
+.boundary-toggle button[aria-pressed="true"],
+.crawl-workers button[aria-checked="true"],
+.button-primary {
+  background: var(--anodized);
+  background-size: 180px 180px, 100% 100%, 100% 100%;
+  box-shadow: var(--anodized-bevel);
+  color: #f3f4f2;
+  border-color: #0c0e10;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.6);
+}
+.platform-steps button[aria-pressed="true"] { box-shadow: var(--alu-bevel), 0 0 0 2px rgba(184,79,28,.55); }
+
+/* specular sweep on hover (pointer devices only) */
+@media (hover: hover) and (pointer: fine) {
+  .wordmark-mark, .mode-button, .button-ghost, .button-primary, .crawl-run, .warroom-replay { position: relative; overflow: hidden; }
+  .mode-button::after, .button-ghost::after, .button-primary::after, .crawl-run::after, .warroom-replay::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,.65) 48%, rgba(255,255,255,.1) 54%, transparent 62%);
+    translate: -120% 0; transition: translate .7s cubic-bezier(.2,.7,.2,1);
+  }
+  .button-primary::after { background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,.22) 48%, transparent 60%); }
+  .mode-button:hover::after, .button-ghost:hover::after, .button-primary:hover::after, .crawl-run:hover::after, .warroom-replay:hover::after { translate: 120% 0; }
+}
+
+/* footer wordmark: polished chrome letterforms */
+.footer-mark {
+  background: linear-gradient(180deg, #ffffff 0%, #c9cdcf 22%, #6f777c 48%, #f1f2f0 52%, #a9afb3 74%, #5d6469 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,.5)) drop-shadow(0 6px 10px rgba(20,24,28,.18));
+}
+@media (prefers-reduced-motion: reduce) {
+  .mode-button::after, .button-ghost::after, .button-primary::after, .crawl-run::after, .warroom-replay::after { display: none; }
+}
