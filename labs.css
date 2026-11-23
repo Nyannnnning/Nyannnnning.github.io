@@ -512,3 +512,72 @@ body[data-mode="signal"] .crawl-run, body[data-mode="signal"] .warroom-replay {
 
 /* ---------- rendering performance ---------- */
 .trajectory-section, .experiments-section, .github-section { content-visibility: auto; contain-intrinsic-size: auto 1100px; }
+
+/* =========================================================
+   Satin grey override — quiet, low-sheen metal with white type
+   ========================================================= */
+:root, body[data-mode="signal"] {
+  --grain-soft: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85 .015' numOctaves='2' seed='9'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --alu:
+    var(--grain-soft),
+    linear-gradient(180deg, rgba(255,255,255,.07) 0%, rgba(255,255,255,0) 42%, rgba(0,0,0,.08) 100%),
+    linear-gradient(100deg, #5a6065 0%, #686e73 28%, #61676c 52%, #6b7176 74%, #5c6267 100%);
+  --alu-bevel:
+    inset 0 1px 0 rgba(255,255,255,.14),
+    inset 0 -1px 0 rgba(0,0,0,.28),
+    0 1px 2px rgba(20,24,28,.18),
+    0 8px 20px rgba(20,24,28,.12);
+  --anodized:
+    var(--grain-soft),
+    linear-gradient(180deg, rgba(255,255,255,.05) 0%, rgba(0,0,0,.14) 100%),
+    linear-gradient(100deg, #2c3034 0%, #363b3f 50%, #2e3236 100%);
+  --anodized-bevel:
+    inset 0 1px 0 rgba(255,255,255,.1),
+    inset 0 -1px 0 rgba(0,0,0,.45),
+    0 2px 6px rgba(10,12,14,.25);
+}
+body[data-mode="signal"] {
+  --alu:
+    var(--grain-soft),
+    linear-gradient(180deg, rgba(255,255,255,.05) 0%, rgba(0,0,0,.1) 100%),
+    linear-gradient(100deg, #3e4448 0%, #4a5055 40%, #43494d 70%, #3c4246 100%);
+}
+.wordmark-mark, .mode-button, .language-switch, .button-ghost, .registry-chips button, .seg button, .tp-modes button,
+.boundary-toggle button, .crawl-workers button, .crawl-run, .warroom-replay, .platform-steps button, .b-node, .plate,
+.banner-qa li, .crawl-stats div, .impact-readout, .kb-node {
+  background-size: 220px 220px, 100% 100%, 100% 100%;
+  border-color: rgba(30,34,38,.55);
+  color: #f4f5f3;
+}
+/* white type, softly embossed */
+.wordmark-mark, .mode-button, .button-ghost, .platform-steps button b, .plate b, .b-node b, .crawl-run, .warroom-replay,
+.registry-chips button, .seg button, .tp-modes button, .boundary-toggle button, .crawl-workers button,
+.impact-readout strong, .crawl-stats b, .kb-node b {
+  color: #f4f5f3;
+  text-shadow: 0 1px 1px rgba(0,0,0,.28);
+}
+.language-switch button { color: rgba(244,245,243,.62); }
+.language-switch button[aria-pressed="true"] { color: #fff; }
+.impact-readout small, .impact-readout span, .crawl-stats small, .banner-qa span, .b-node small, .plate small, .kb-node small,
+.platform-steps button span, .kb-node span, .crawl-workers > span {
+  color: rgba(236,238,236,.66);
+}
+.crawl-workers > span { color: var(--muted); }
+.platform-steps button[aria-pressed="true"] span, .kb-node span, .plate span { color: #f2a774; }
+.banner-qa b, .banner-qa b.ok { color: #a6dcb6; text-shadow: none; }
+.banner-qa b.bad { color: #ff9a85; }
+.mode-dot { background: #9aa1a6; box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 0 0 3px rgba(255,255,255,.06); }
+.wordmark-mark::after { border-color: rgba(0,0,0,.25); box-shadow: inset 0 1px 0 rgba(255,255,255,.08); background:
+  radial-gradient(circle at 4px 4px, rgba(0,0,0,.45) 0 1px, transparent 1.6px) top left / 100% 100% no-repeat,
+  radial-gradient(circle at calc(100% - 4px) calc(100% - 4px), rgba(0,0,0,.45) 0 1px, transparent 1.6px) top left / 100% 100% no-repeat; }
+/* gentler hover sheen */
+@media (hover: hover) and (pointer: fine) {
+  .mode-button::after, .button-ghost::after, .crawl-run::after, .warroom-replay::after {
+    background: linear-gradient(105deg, transparent 38%, rgba(255,255,255,.12) 50%, transparent 62%);
+  }
+}
+.footer-mark {
+  background: linear-gradient(180deg, #8d9398 0%, #6a7075 45%, #5a6065 55%, #757b80 100%);
+  background-clip: text; -webkit-background-clip: text;
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,.25));
+}
