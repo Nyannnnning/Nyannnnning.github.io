@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="description" content="Ning — FDE 團隊 PM：AI 治理、嵌入式 LLM 與自動化產線，168 張 AI 工單已交付、50+ 內部代理上線。" />
+    <meta name="description" content="Ning，FDE 團隊 PM。管 AI 怎麼用、把模型接進工具、把重複工作做成每天自己跑的產線。168 張 AI 工單已交付。" />
     <meta name="theme-color" content="#f4f6f8" />
     <meta property="og:title" content="Ning — FDE 團隊 PM" />
-    <meta property="og:description" content="AI 治理、嵌入式 LLM 與自動化產線：去敏改編的互動案例與實際量測數字。" />
+    <meta property="og:description" content="AI 治理、嵌入式 LLM、自動化產線。案例都去敏改編過，數字是真的。" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://nyannnnning.github.io/" />
     <meta property="og:image" content="https://nyannnnning.github.io/og-image.png" />
@@ -15,7 +15,7 @@
     <meta property="og:image:alt" content="Ning — FDE 團隊 PM，從現場問題到可驗證交付。" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Ning — FDE 團隊 PM" />
-    <meta name="twitter:description" content="AI 治理、嵌入式 LLM 與自動化產線：去敏改編的互動案例與實際量測數字。" />
+    <meta name="twitter:description" content="AI 治理、嵌入式 LLM、自動化產線。案例都去敏改編過，數字是真的。" />
     <meta name="twitter:image" content="https://nyannnnning.github.io/og-image.png" />
     <title>Ning — FDE 團隊 PM</title>
     <link rel="canonical" href="https://nyannnnning.github.io/" />
@@ -23,14 +23,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="image" href="assets/hero-silver-sentinel.webp" type="image/webp" fetchpriority="high" />
-    <link rel="preload" href="assets/fonts/noto-sans-tc-subset.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/noto-sans-tc-subset.woff2?v=4" as="font" type="font/woff2" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20261123-3" />
-    <link rel="stylesheet" href="labs.css?v=20261123-3" />
+    <link rel="stylesheet" href="styles.css?v=20261123-4" />
+    <link rel="stylesheet" href="labs.css?v=20261123-4" />
     <script>document.documentElement.classList.remove('no-js');</script>
-    <script src="translations.js?v=20261123-3" defer></script>
-    <script src="script.js?v=20261123-3" defer></script>
-    <script src="labs.js?v=20261123-3" defer></script>
+    <script src="translations.js?v=20261123-4" defer></script>
+    <script src="script.js?v=20261123-4" defer></script>
+    <script src="labs.js?v=20261123-4" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main" data-i18n="skip">跳到主要內容</a>
@@ -77,25 +77,38 @@
           <a href="#embedded" data-progress-link="embedded"><span>03</span><b data-i18n="chapterEmbedded">嵌入式 LLM</b></a>
           <a href="#automation" data-progress-link="automation"><span>04</span><b data-i18n="chapterAutomation">自動化產線</b></a>
           <a href="#work" data-progress-link="work"><span>05</span><b data-i18n="chapterWork">現場系統</b></a>
-          <a href="#system" data-progress-link="system"><span>06</span><b data-i18n="chapterMethod">工作方式</b></a>
-          <a href="#trajectory" data-progress-link="trajectory"><span>07</span><b data-i18n="chapterTrajectory">成長軌跡</b></a>
-          <a href="#experiments" data-progress-link="experiments"><span>08</span><b data-i18n="chapterExperiments">實作探索</b></a>
-          <a href="#github" data-progress-link="github"><span>09</span><b data-i18n="chapterGithub">進一步了解</b></a>
+          <a href="#atlas" data-progress-link="atlas"><span>06</span><b data-i18n="chapterAtlas">能力地圖</b></a>
+          <a href="#system" data-progress-link="system"><span>07</span><b data-i18n="chapterMethod">工作方式</b></a>
+          <a href="#trajectory" data-progress-link="trajectory"><span>08</span><b data-i18n="chapterTrajectory">成長軌跡</b></a>
+          <a href="#experiments" data-progress-link="experiments"><span>09</span><b data-i18n="chapterExperiments">實作探索</b></a>
+          <a href="#github" data-progress-link="github"><span>10</span><b data-i18n="chapterGithub">進一步了解</b></a>
         </nav>
         <div class="telemetry-progress-rail" aria-hidden="true"><i data-progress-fill></i></div>
-        <div class="telemetry-progress-readout" aria-hidden="true"><span data-progress-index>00 / 09</span><b data-progress-percent>00%</b></div>
+        <div class="telemetry-progress-readout" aria-hidden="true"><span data-progress-index>00 / 10</span><b data-progress-percent>00%</b></div>
       </aside>
 
       <section class="hero motion-zone" id="top" aria-labelledby="hero-title">
         <div class="hero-grid" aria-hidden="true"></div>
         <canvas class="hero-shader" data-hero-shader aria-hidden="true"></canvas>
         <div class="hero-copy reveal">
-          <p class="eyebrow"><span data-i18n="eyebrow">專案筆記 / 2026</span><span data-i18n="location">台北 · UTC+8</span></p>
-          <h1 id="hero-title" data-i18n-html="heroTitle"><span class="hero-lead">把</span><strong class="hero-focus">現場阻力</strong><span class="hero-transition">推進成</span><em class="hero-outcome">可驗證的交付。</em></h1>
-          <p class="hero-intro" data-i18n="heroIntro">我是 Ning，一名 FDE 團隊 PM，也能在需要時承接部分工程實作。我的核心工作是釐清現場問題、整合產品與工程、推動決策，並把方案送到可驗證的交付狀態。</p>
+          <nav class="section-tags" aria-label="網站區段" data-i18n-aria="sectionTagsAria">
+            <a href="#impact"><span>01</span><b data-i18n="chapterImpact">交付儀表</b></a>
+            <a href="#governance"><span>02</span><b data-i18n="chapterGovernance">AI 治理</b></a>
+            <a href="#embedded"><span>03</span><b data-i18n="chapterEmbedded">嵌入式 LLM</b></a>
+            <a href="#automation"><span>04</span><b data-i18n="chapterAutomation">自動化產線</b></a>
+            <a href="#work"><span>05</span><b data-i18n="chapterWork">現場系統</b></a>
+            <a href="#atlas"><span>06</span><b data-i18n="chapterAtlas">能力地圖</b></a>
+            <a href="#system"><span>07</span><b data-i18n="chapterMethod">工作方式</b></a>
+            <a href="#trajectory"><span>08</span><b data-i18n="chapterTrajectory">成長軌跡</b></a>
+            <a href="#experiments"><span>09</span><b data-i18n="chapterExperiments">實作探索</b></a>
+            <a href="#github"><span>10</span><b data-i18n="chapterGithub">進一步了解</b></a>
+          </nav>
+          <p class="eyebrow"><span data-i18n="eyebrow">作品集 / 2026</span><span data-i18n="location">台北 · UTC+8</span></p>
+          <h1 id="hero-title" data-i18n-html="heroTitle"><span class="hero-lead">把</span><strong class="hero-focus">模糊的需求</strong><span class="hero-transition">做成</span><em class="hero-outcome">每天在跑的系統。</em></h1>
+          <p class="hero-intro" data-i18n="heroIntro">我是 Ning，FDE 團隊的 PM。平常在忙三件事：決定 AI 在部門裡怎麼用、把模型接進大家本來就在用的工具、把重複的工作變成自己會跑的產線。人手不夠的時候，程式我也自己寫。</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#impact"><span data-i18n="explore">查看代表專案</span><span aria-hidden="true">↘</span></a>
-            <a class="button button-ghost" href="https://github.com/Nyannnnning"><span data-i18n="githubProfile">前往 GitHub</span><span aria-hidden="true">↗</span></a>
+            <a class="button button-primary" href="#impact"><span data-i18n="explore">看做了什麼</span><span aria-hidden="true">↘</span></a>
+            <a class="button button-ghost" href="https://github.com/Nyannnnning"><span data-i18n="githubProfile">去 GitHub</span><span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
@@ -151,20 +164,20 @@
 
       <section class="manifesto-section motion-zone" aria-labelledby="manifesto-title" data-manifesto>
         <p class="section-index" data-i18n="manifestoIndex">00 / 一句話</p>
-        <h2 id="manifesto-title" class="manifesto-line" data-scrub-text data-i18n="manifestoLine">我把模糊的現場需求，變成有閘門、有證據、每天都在運轉的人工智慧系統。</h2>
+        <h2 id="manifesto-title" class="manifesto-line" data-scrub-text data-i18n="manifestoLine">需求一開始通常都很亂。我的工作是把它理清楚、加上檢查點，然後讓它每天自己跑。</h2>
         <svg class="manifesto-wire" viewBox="0 0 1200 220" aria-hidden="true">
           <path d="M0 180 C180 180 240 60 420 60 S700 170 860 120 1080 40 1200 52" pathLength="1" />
           <path d="M0 200 C220 200 300 110 470 110 S760 200 900 160 1100 90 1200 96" pathLength="1" />
         </svg>
-        <p class="demo-note"><span class="demo-tag" data-i18n="demoTag">去敏改編案例</span><span data-i18n="demoNote">本頁的示範都改編自真實工作情境：主題、品牌、產品與素材已換成虛構內容，流程、閘門、角色分工與量測數字照實呈現。</span></p>
+        <p class="demo-note"><span class="demo-tag" data-i18n="demoTag">去敏改編案例</span><span data-i18n="demoNote">這頁的示範都改編自真實工作：主題、品牌、產品和素材換成虛構的，流程、檢查點、分工和量到的數字照實。</span></p>
       </section>
 
       <section class="impact-section section-shell" id="impact" aria-labelledby="impact-title" data-chapter-frame data-folio="01 — 2026">
         <div class="chapter-register" aria-hidden="true"><span>01</span><svg class="telemetry-glyph" viewBox="0 0 64 64"><use href="assets/telemetry.svg#calibration"></use></svg><i></i><b data-i18n="chapterImpact">交付儀表</b><small>NING / 2026</small></div>
         <div class="section-heading reveal">
           <p class="section-index" data-i18n="impactIndex">01 / 交付儀表</p>
-          <h2 id="impact-title" data-i18n-html="impactTitle"><span class="section-lead">不是做幾個展示</span><strong class="section-focus">而是讓整個部門用起來。</strong></h2>
-          <p class="editorial-intro" data-i18n="impactIntro">一個近百人的部門，從需求開單到上線都有紀錄。這裡的數字來自專案管理系統與實際產出量測，只呈現彙總，不含個人或客戶資料。</p>
+          <h2 id="impact-title" data-i18n-html="impactTitle"><span class="section-lead">做出來不算數</span><strong class="section-focus">有人每天在用才算。</strong></h2>
+          <p class="editorial-intro" data-i18n="impactIntro">這個部門快一百人。下面的數字都是從工單系統和實際產出算出來的，只放總數，沒有個人或客戶資料。</p>
         </div>
 
         <div class="impact-console reveal" data-reflective>
@@ -197,7 +210,7 @@
           </figure>
 
           <div class="agent-registry">
-            <p class="capability-title" data-i18n="registryTitle">代理類型（點選查看）</p>
+            <p class="capability-title" data-i18n="registryTitle">代理類型（點選查看範例）</p>
             <div class="registry-chips" role="tablist" aria-label="代理類型" data-i18n-aria="registryAria">
               <button type="button" role="tab" aria-selected="true" data-registry="data"><span data-i18n="regData">數據查找</span></button>
               <button type="button" role="tab" aria-selected="false" data-registry="report"><span data-i18n="regReport">日報與摘要</span></button>
@@ -213,12 +226,18 @@
       </section>
 
       <section class="governance-section chapter-inverse" id="governance" aria-labelledby="governance-title" data-chapter-frame data-folio="02 — 2026">
+        <svg class="topo" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none">
+          <path d="M-40 140 C160 60 320 220 520 150 S860 40 1240 170" /><path d="M-40 190 C170 110 330 270 530 200 S870 90 1240 220" />
+          <path d="M-40 250 C180 170 340 330 540 260 S880 150 1240 280" /><path d="M120 520 C220 420 420 440 460 540 S300 700 180 640 S60 600 120 520Z" />
+          <path d="M160 540 C230 470 380 480 410 550 S290 660 200 620 S120 590 160 540Z" /><path d="M200 555 C250 515 340 520 360 560 S280 620 225 600 S175 585 200 555Z" />
+          <path d="M760 520 C880 440 1080 470 1110 580 S940 760 820 700 S690 610 760 520Z" /><path d="M800 545 C890 490 1040 510 1060 590 S930 710 840 670 S750 610 800 545Z" />
+          <path d="M-40 720 C200 650 420 780 640 720 S1000 640 1240 730" /></g></svg>
         <div class="chapter-register" aria-hidden="true"><span>02</span><svg class="telemetry-glyph" viewBox="0 0 64 64"><use href="assets/telemetry.svg#reticle"></use></svg><i></i><b data-i18n="chapterGovernance">AI 治理</b><small>NING / 2026</small></div>
         <div class="section-shell">
           <div class="section-heading light reveal">
             <p class="section-index" data-i18n="govIndex">02 / AI 治理</p>
-            <h2 id="governance-title" data-i18n-html="govTitle"><span class="section-lead">讓代理全天候工作</span><strong class="section-focus">人只簽最後一步。</strong></h2>
-            <p class="editorial-intro" data-i18n="govIntro">代理可以寫程式、合併、部署，但每一個動作都依「出錯會影響多大」分流：可逆的自動放行，影響正式環境的一定等人核准。</p>
+            <h2 id="governance-title" data-i18n-html="govTitle"><span class="section-lead">代理可以整晚工作</span><strong class="section-focus">最後一步還是要人簽。</strong></h2>
+            <p class="editorial-intro" data-i18n="govIntro">代理會寫程式、合併、部署。每個動作照「出錯會有多大影響」分流：改壞了能還原的，自動放行；碰到正式環境的，一定等人看過。</p>
           </div>
 
           <div class="gate-lab reveal" data-gate-lab>
@@ -246,7 +265,7 @@
               <span class="demo-tag" data-i18n="demoTag">去敏改編案例</span>
               <button type="button" class="warroom-replay" data-warroom-replay data-i18n="wrPlay">重播</button>
             </div>
-            <p class="warroom-scenario"><b data-i18n="warroomSim">改編情境：GPU 出口管制研究</b><span data-i18n="wrScenarioText">電子業客戶要在 48 小時內知道：新一輪 GPU 出口管制影響哪些料號、哪些出貨要停。</span></p>
+            <p class="warroom-scenario"><b data-i18n="warroomSim">改編情境：GPU 出口管制研究</b><span data-i18n="wrScenarioText">電子業客戶要在 48 小時內知道：新一輪 GPU 出口管制影響哪些料號、哪些出貨要停。（真實專案換成虛構主題，面板欄位與代理分工照實。）</span></p>
             <div class="warroom-grid" data-warroom-rows></div>
             <div class="warroom-log" data-warroom-log aria-live="off"></div>
             <dl class="warroom-facts">
@@ -262,19 +281,19 @@
         <div class="chapter-register" aria-hidden="true"><span>03</span><svg class="telemetry-glyph telemetry-nodes" viewBox="0 0 96 48"><use href="assets/telemetry.svg#nodes"></use></svg><i></i><b data-i18n="chapterEmbedded">嵌入式 LLM</b><small>NING / 2026</small></div>
         <div class="section-heading reveal">
           <p class="section-index" data-i18n="embIndex">03 / 嵌入式 LLM</p>
-          <h2 id="embedded-title" data-i18n-html="embTitle"><span class="section-lead">模型不是聊天框</span><strong class="section-focus">是產品裡的一個零件。</strong></h2>
-          <p class="editorial-intro" data-i18n="embIntro">兩個方向：讓企劃用對話做出可玩的遊戲原型；讓機密資料只在公司機房裡被模型讀取。</p>
+          <h2 id="embedded-title" data-i18n-html="embTitle"><span class="section-lead">把模型</span><strong class="section-focus">裝進真的在用的工具。</strong></h2>
+          <p class="editorial-intro" data-i18n="embIntro">兩個例子。企劃打一段話，就能玩到遊戲原型；機密合約只在公司機房裡給模型讀。</p>
         </div>
 
         <article class="platform-lab reveal" data-reflective data-platform>
           <div class="platform-copy">
             <div class="case-labels"><span class="demo-tag" data-i18n="demoTag">去敏改編案例</span><span data-i18n="platLabel1">原型平台</span><span data-i18n="platLabel2">知識庫</span><span>2026</span></div>
             <h3 data-i18n-html="platTitle">對話即<br />原型</h3>
-            <p data-i18n="platDesc">企劃用對話或拖拉描述一台遊戲，代理依公司模型與設計知識庫產生計畫；每次建置都先驗證、鎖版，再在隔離環境建置與預覽。監督代理全天候派工給多個程式代理。</p>
+            <p data-i18n="platDesc">企劃用打字或拖拉描述一台遊戲，代理拿公司的模型和設計知識庫排出計畫。每次建置前先檢查、鎖版，再放進隔離環境建置和預覽。背後有一個監工代理整天派工給程式代理。</p>
             <div class="platform-detail" aria-live="polite">
               <span data-platform-index>01 / 06</span>
               <b data-platform-title data-i18n="plat1">描述需求</b>
-              <p data-platform-text data-i18n="plat1Text">對話或拖拉積木，描述玩法、主題與版面。</p>
+              <p data-platform-text data-i18n="plat1Text">企劃輸入：「做一台茶飲店主題的消除遊戲，三種特色道具，直式手機版面。」</p>
             </div>
             <dl class="case-facts">
               <div><dt data-i18n="platFact1">決策</dt><dd data-i18n="platFact1Text">106 條編號決策紀錄</dd></div>
@@ -303,7 +322,7 @@
           <div class="boundary-copy">
             <div class="case-labels"><span class="demo-tag" data-i18n="demoTag">去敏改編案例</span><span data-i18n="bndLabel1">地端模型</span><span data-i18n="bndLabel2">資料邊界</span><span>2026</span></div>
             <h3 data-i18n-html="bndTitle">機密不出<br />機房</h3>
-            <p data-i18n="bndDesc">商務助手整理合約、提醒與團隊任務，模型跑在公司的 GPU 伺服器上。雲端模型只參與開發，看到的是合成資料；真實合約由使用者自己匯入。</p>
+            <p data-i18n="bndDesc">商務助手幫忙整理合約、提醒和團隊任務，模型跑在公司自己的 GPU 伺服器上。雲端模型只在開發時幫忙，而且只看合成資料；真的合約由使用者自己匯入。</p>
             <div class="boundary-toggle" role="group" aria-label="切換檢視" data-i18n-aria="bndToggleAria">
               <button type="button" aria-pressed="true" data-boundary-view="inside" data-i18n="bndInside">機房內</button>
               <button type="button" aria-pressed="false" data-boundary-view="cross" data-i18n="bndCross">什麼能出去？</button>
@@ -350,15 +369,15 @@
         <div class="chapter-register" aria-hidden="true"><span>04</span><svg class="telemetry-glyph telemetry-waveform" viewBox="0 0 96 32"><use href="assets/telemetry.svg#waveform"></use></svg><i></i><b data-i18n="chapterAutomation">自動化產線</b><small>NING / 2026</small></div>
         <div class="section-heading reveal">
           <p class="section-index" data-i18n="autoIndex">04 / 自動化產線</p>
-          <h2 id="automation-title" data-i18n-html="autoTitle"><span class="section-lead">把外包的工作</span><strong class="section-focus">變成每天會跑的產線。</strong></h2>
-          <p class="editorial-intro" data-i18n="autoIntro">行銷素材原本外包。現在從開單到交件由同一條產線處理，四個品牌、兩個月份、一千四百多項交付，營運依編號提修改。</p>
+          <h2 id="automation-title" data-i18n-html="autoTitle"><span class="section-lead">以前發外包的</span><strong class="section-focus">現在每天自己跑。</strong></h2>
+          <p class="editorial-intro" data-i18n="autoIntro">行銷素材以前都發外包。現在從開單到交件走同一條產線：四個品牌、兩個月、一千四百多項，營運照編號直接提修改。</p>
         </div>
 
         <article class="exploded-lab reveal" data-exploded>
           <div class="exploded-copy">
             <div class="case-labels"><span data-i18n="expLabel1">素材產線</span><span data-i18n="expLabel2">多代理 QA</span><span>2026</span></div>
             <h3 data-i18n-html="expTitle">一條產線<br />拆開來看</h3>
-            <p data-i18n="expDesc">往下捲動，產線會一層一層拆開。每一層都有自己的檢查，失敗的單位只退回那一層，不重跑整批。</p>
+            <p data-i18n="expDesc">往下捲，產線會一層層拆開。每層有自己的檢查，哪一項失敗就只退回那一層，不用整批重跑。</p>
           </div>
           <div class="exploded-stack" data-exploded-stack>
             <div class="plate" style="--i:0"><span>L1</span><b data-i18n="pl1">工單匯入</b><small data-i18n="pl1Hint">表格 → 編號 → 每個尺寸一項</small></div>
@@ -375,7 +394,7 @@
             <div>
               <span class="demo-tag" data-i18n="demoTag">去敏改編案例</span>
               <h3 data-i18n="bnTitle">同一條產線，換一個產品</h3>
-              <p data-i18n="bnDesc">真實工單換成虛構產品：同一套版型規則輸出三種產品、三種尺寸。字和背景不同色系，主體在每個尺寸都不被裁到。</p>
+              <p data-i18n="bnDesc">真實工單換成虛構產品：同一套版型規則，做三種產品、三種尺寸。字和背景不撞色，主體在哪個尺寸都不會被切到。</p>
             </div>
             <div class="banner-controls">
               <div class="seg" role="radiogroup" aria-label="選擇產品" data-i18n-aria="bnProductAria">
@@ -413,7 +432,7 @@
           <div class="throughput-copy">
             <p class="capability-title" data-i18n="tpTitle">產能試算</p>
             <h3><span data-tp-rate>60</span><small data-i18n="tpUnit">項 / 小時</small></h3>
-            <p data-i18n="tpDesc">以實際工作時間量測：第一個月約 47 項／小時，工具成熟後第二個月約 84 項／小時，平均約 60。這裡的時間包含生成、組裝、QA 與修改。</p>
+            <p data-i18n="tpDesc">用實際工作時間算的：第一個月一小時大約 47 項，工具順了之後第二個月大約 84 項，平均約 60。時間裡包含生成、組裝、檢查和修改。</p>
           </div>
           <div class="throughput-controls">
             <label for="tp-volume"><span data-i18n="tpVolume">一個月的交付項目</span><b data-tp-volume-out>800</b></label>
@@ -435,7 +454,7 @@
           <div class="frames-copy">
             <div class="case-labels"><span class="demo-tag" data-i18n="demoTag">去敏改編案例</span><span data-i18n="frLabel1">影片廣告</span><span data-i18n="frLabel2">逐格拆解</span><span>2026</span></div>
             <h3 data-i18n-html="frTitle">580 支廣告<br />逐格拆開</h3>
-            <p data-i18n="frDesc">把已上線的廣告逐格拆成事件：鉤子、轉輪、差一點、大獎、結尾卡，再配對人物反應。新片開工前先查「大獎前人物在做什麼」。</p>
+            <p data-i18n="frDesc">把已經上線的廣告一格一格拆成事件：開場鉤子、轉輪、差一點、大獎、結尾卡，再對上人物的反應。開新片前，可以先查「大獎前人物通常在幹嘛」。</p>
             <dl class="case-facts">
               <div><dt data-i18n="frFact1">規模</dt><dd data-i18n="frFact1Text">580+ 支母版 · 46,000+ 個標記物件</dd></div>
               <div><dt data-i18n="frFact2">抽查</dt><dd data-i18n="frFact2Text">事件起點 86% · 配對 92%</dd></div>
@@ -449,17 +468,17 @@
               <input type="range" min="0" max="300" value="0" step="1" aria-label="影片時間軸" data-i18n-aria="frScrubAria" data-frames-scrub />
               <div class="frames-events" data-frames-events></div>
             </div>
-            <div class="frames-readout" aria-live="polite"><span data-frames-time>00.0s</span><b data-frames-event data-i18n="evHook">鉤子</b><small data-frames-react data-i18n="reHook">人物：直視鏡頭</small></div>
+            <div class="frames-readout" aria-live="polite"><span data-frames-time>00.0s</span><b data-frames-event data-i18n="evHook">鉤子</b><small data-frames-react data-i18n="reHook">人物：直視鏡頭、拋出問題</small></div>
           </div>
         </article>
       </section>
 
       <section class="work-section section-shell" id="work" aria-labelledby="work-title" data-chapter-frame data-folio="05 — 2026">
-        <div class="chapter-register" aria-hidden="true"><span>05</span><svg class="telemetry-glyph" viewBox="0 0 64 64"><use href="assets/telemetry.svg#reticle"></use></svg><i></i><b data-i18n="chapterWork">代表專案</b><small>NING / 2026</small></div>
+        <div class="chapter-register" aria-hidden="true"><span>05</span><svg class="telemetry-glyph" viewBox="0 0 64 64"><use href="assets/telemetry.svg#reticle"></use></svg><i></i><b data-i18n="chapterWork">現場系統</b><small>NING / 2026</small></div>
         <div class="section-heading reveal">
-          <p class="section-index" data-i18n="workIndex">01 / 代表專案</p>
-          <h2 id="work-title" data-i18n-html="workTitle"><span class="section-lead">不只提出方向</span><strong class="section-focus">把交付往前推。</strong></h2>
-          <p class="editorial-intro" data-i18n="workIntro">兩個更早的現場系統，共用同一種工作方式：先釐清問題，再串起工程、營運與決策者，直到成果可以被驗證。</p>
+          <p class="section-index" data-i18n="workIndex">05 / 現場系統</p>
+          <h2 id="work-title" data-i18n-html="workTitle"><span class="section-lead">比較早期的</span><strong class="section-focus">兩套現場系統。</strong></h2>
+          <p class="editorial-intro" data-i18n="workIntro">這兩套比較早做，做法一樣：先把問題講清楚，再把工程、營運和做決定的人串起來，一直做到結果能被驗證。</p>
         </div>
 
         <article class="case-study case-intel reveal motion-zone" data-reflective data-case-flow>
@@ -467,7 +486,7 @@
           <div class="case-copy">
             <div class="case-labels"><span data-i18n="intelLabel1">市場情報</span><span data-i18n="intelLabel2">平行採集</span><span data-i18n="intelLabel3">曝光稽核</span><span>2026</span></div>
             <h3 data-i18n-html="intelTitle">競品情報與<br />曝光稽核</h3>
-            <p data-i18n="intelDesc">一套系統同時做兩件事：每天平行巡 200 多個網站與手機應用程式，把橫幅、識別標誌與遊戲格位轉成可回查的情報；再把每個遊戲的曝光位置排名，產出可稽核的報表。我負責需求拆解、規則與例外處理，也直接補上自動化與復原流程。</p>
+            <p data-i18n="intelDesc">一套系統做兩件事。每天平行巡 200 多個網站和 App，把橫幅、標誌和遊戲版位整理成查得回去的情報；再把每個遊戲的曝光位置排出來，產出可以稽核的報表。需求拆解、規則和例外是我負責，自動化和復原流程我也直接下去補。</p>
             <dl class="case-facts">
               <div><dt data-i18n="scope">範圍</dt><dd data-i18n="intelFact1">200+ 站台與應用程式 · 每日排程</dd></div>
               <div><dt data-i18n="workflow">流程</dt><dd data-i18n="intelFact2">採集 → 視覺辨識 → 去重排名 → 閘門 → 覆核 → 報表</dd></div>
@@ -526,7 +545,7 @@
           <div class="case-copy">
             <div class="case-labels"><span data-i18n="case3Label1">使用治理</span><span data-i18n="case3Label2">權限與成本</span><span>2026</span></div>
             <h3 data-i18n-html="case3Title">部門人工智慧<br />治理平台</h3>
-            <p data-i18n="case3Desc">把個人工具、自建代理、組織名冊與成本放進同一個管理視野。我負責把管理需求轉成可執行規則，協調正式資料源、權限邊界與資料新鮮度。</p>
+            <p data-i18n="case3Desc">把個人用的工具、自建的代理、組織名單和成本放在同一個畫面。我把主管要的管理需求變成能執行的規則，處理正式資料來源、權限範圍和資料新不新鮮的問題。</p>
             <dl class="case-facts">
               <div><dt data-i18n="sources">來源</dt><dd data-i18n="case3Fact1">單一登入 · 代理分析資料</dd></div>
               <div><dt data-i18n="control">控制</dt><dd data-i18n="case3Fact2">權限 · 身分 · 新鮮度</dd></div>
@@ -595,13 +614,60 @@
         </article>
       </section>
 
-      <section class="system-section chapter-inverse" id="system" aria-labelledby="system-title" data-chapter-frame data-folio="06 — 2026">
-        <div class="chapter-register" aria-hidden="true"><span>06</span><svg class="telemetry-glyph telemetry-waveform" viewBox="0 0 96 32"><use href="assets/telemetry.svg#waveform"></use></svg><i></i><b data-i18n="chapterMethod">工作方式</b><small>NING / 2026</small></div>
+      <div class="speed-band" data-speed-band aria-hidden="true">
+        <div class="band-row band-serif" data-band-dir="1"><span>Skills ✦ Projects ✦ Connections ✦ Skills ✦ Projects ✦ Connections ✦ Skills ✦ Projects ✦ Connections ✦</span></div>
+        <div class="band-row band-sans" data-band-dir="-1"><span>ONE MAP ✦ EVERYTHING LINKED ✦ ONE MAP ✦ EVERYTHING LINKED ✦ ONE MAP ✦ EVERYTHING LINKED ✦</span></div>
+      </div>
+
+      <section class="atlas-section section-shell" id="atlas" aria-labelledby="atlas-title" data-chapter-frame data-folio="06 — 2026">
+        <div class="chapter-register" aria-hidden="true"><span>06</span><svg class="telemetry-glyph" viewBox="0 0 64 64"><use href="assets/telemetry.svg#bearing"></use></svg><i></i><b data-i18n="chapterAtlas">能力地圖</b><small>NING / 2026</small></div>
+        <div class="section-heading reveal">
+          <p class="section-index" data-i18n="atlasIndex">06 / 能力地圖</p>
+          <h2 id="atlas-title" data-i18n-html="atlasTitle"><span class="section-lead">技能和專案</span><strong class="section-focus">其實都連在一起。</strong></h2>
+          <p class="editorial-intro" data-i18n="atlasIntro">左邊偏管理和治理，右邊偏動手做；上面是面對人和組織，下面是面對系統和資料。點一個節點，看它跟哪些專案、技能接在一起。</p>
+        </div>
+        <div class="atlas reveal" data-atlas>
+          <div class="atlas-filters" role="radiogroup" aria-label="篩選" data-i18n-aria="atlasFilterAria">
+            <button type="button" role="radio" aria-checked="true" data-atlas-filter="all"><span data-i18n="atlasAll">全部</span></button>
+            <button type="button" role="radio" aria-checked="false" data-atlas-filter="skill"><span data-i18n="atlasSkills">技能</span></button>
+            <button type="button" role="radio" aria-checked="false" data-atlas-filter="project"><span data-i18n="atlasProjects">專案</span></button>
+          </div>
+          <div class="atlas-stage">
+            <svg class="atlas-map" viewBox="0 0 1000 640" role="img" aria-labelledby="atlas-title" data-atlas-svg>
+              <g class="atlas-axes" aria-hidden="true">
+                <line x1="40" y1="320" x2="960" y2="320" />
+                <line x1="500" y1="30" x2="500" y2="610" />
+              </g>
+              <g data-atlas-edges></g>
+              <g data-atlas-nodes></g>
+            </svg>
+            <span class="atlas-axis ax-left" data-i18n="axLeft">管理 · 治理</span>
+            <span class="atlas-axis ax-right" data-i18n="axRight">動手實作</span>
+            <span class="atlas-axis ax-top" data-i18n="axTop">面對人與組織</span>
+            <span class="atlas-axis ax-bottom" data-i18n="axBottom">面對系統與資料</span>
+          </div>
+          <aside class="atlas-detail" aria-live="polite">
+            <small data-atlas-kind data-i18n="atlasHint">點一個節點</small>
+            <b data-atlas-name>—</b>
+            <p data-atlas-desc data-i18n="atlasHintText">圓點是技能，方塊是做過的專案類型。線代表這個專案有用到這個技能。</p>
+            <ul data-atlas-links></ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="system-section chapter-inverse" id="system" aria-labelledby="system-title" data-chapter-frame data-folio="07 — 2026">
+        <svg class="topo" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none">
+          <path d="M-40 140 C160 60 320 220 520 150 S860 40 1240 170" /><path d="M-40 190 C170 110 330 270 530 200 S870 90 1240 220" />
+          <path d="M-40 250 C180 170 340 330 540 260 S880 150 1240 280" /><path d="M120 520 C220 420 420 440 460 540 S300 700 180 640 S60 600 120 520Z" />
+          <path d="M160 540 C230 470 380 480 410 550 S290 660 200 620 S120 590 160 540Z" /><path d="M200 555 C250 515 340 520 360 560 S280 620 225 600 S175 585 200 555Z" />
+          <path d="M760 520 C880 440 1080 470 1110 580 S940 760 820 700 S690 610 760 520Z" /><path d="M800 545 C890 490 1040 510 1060 590 S930 710 840 670 S750 610 800 545Z" />
+          <path d="M-40 720 C200 650 420 780 640 720 S1000 640 1240 730" /></g></svg>
+        <div class="chapter-register" aria-hidden="true"><span>07</span><svg class="telemetry-glyph telemetry-waveform" viewBox="0 0 96 32"><use href="assets/telemetry.svg#waveform"></use></svg><i></i><b data-i18n="chapterMethod">工作方式</b><small>NING / 2026</small></div>
         <div class="section-shell system-inner">
           <div class="section-heading light reveal">
-            <p class="section-index" data-i18n="methodIndex">02 / 工作方式</p>
-            <h2 id="system-title" data-i18n-html="methodTitle"><span class="section-lead">從模糊需求</span><strong class="section-focus">走到可驗證交付。</strong></h2>
-            <p class="editorial-intro" data-i18n="methodIntro">我的定位不是包辦所有工程，而是讓問題、決策、實作與交付保持連續；在團隊缺口出現時，我也能直接完成部分技術補位。</p>
+            <p class="section-index" data-i18n="methodIndex">07 / 工作方式</p>
+            <h2 id="system-title" data-i18n-html="methodTitle"><span class="section-lead">需求很模糊的時候</span><strong class="section-focus">我怎麼往下做。</strong></h2>
+            <p class="editorial-intro" data-i18n="methodIntro">工程我不會全包，但會讓問題、決定、實作和交付一路接得起來。團隊缺人的時候，我就直接補上。</p>
           </div>
           <div class="decision-stack reveal">
             <div class="stack-row stack-input"><span>01</span><b data-i18n="step1">現場問題</b><p data-i18n="step1Desc">使用情境 · 資料限制 · 人工作業 · 真實風險</p></div>
@@ -624,11 +690,11 @@
         </div>
       </section>
 
-      <section class="trajectory-section section-shell" id="trajectory" aria-labelledby="trajectory-title" data-chapter-frame data-folio="07 — 2026">
-        <div class="chapter-register" aria-hidden="true"><span>07</span><svg class="telemetry-glyph" viewBox="0 0 64 64"><use href="assets/telemetry.svg#bearing"></use></svg><i></i><b data-i18n="chapterTrajectory">成長軌跡</b><small>NING / 2026</small></div>
+      <section class="trajectory-section section-shell" id="trajectory" aria-labelledby="trajectory-title" data-chapter-frame data-folio="08 — 2026">
+        <div class="chapter-register" aria-hidden="true"><span>08</span><svg class="telemetry-glyph" viewBox="0 0 64 64"><use href="assets/telemetry.svg#bearing"></use></svg><i></i><b data-i18n="chapterTrajectory">成長軌跡</b><small>NING / 2026</small></div>
         <div class="section-heading reveal">
-          <p class="section-index" data-i18n="trajectoryIndex">03 / 成長軌跡</p>
-          <h2 id="trajectory-title" data-i18n-html="trajectoryTitle"><span class="section-lead">從協調交付</span><strong class="section-focus">到能親手補位。</strong></h2>
+          <p class="section-index" data-i18n="trajectoryIndex">08 / 成長軌跡</p>
+          <h2 id="trajectory-title" data-i18n-html="trajectoryTitle"><span class="section-lead">從協調別人做</span><strong class="section-focus">到自己下場做。</strong></h2>
         </div>
         <ol class="timeline">
           <li class="reveal"><time datetime="2026-03" data-code="03·26"><span data-i18n="monthMar">三月</span><svg class="timeline-glyph" viewBox="0 0 96 32" aria-hidden="true"><use href="assets/telemetry.svg#waveform"></use></svg></time><div><span>01</span><h3 data-i18n="role1">環境排障</h3><p data-i18n="role1Desc">處理執行環境、閘道、登入、WSL 與訊息整合，先讓團隊工具穩定連線。</p></div></li>
@@ -641,9 +707,9 @@
         </ol>
       </section>
 
-      <section class="experiments-section section-shell" id="experiments" aria-labelledby="experiments-title" data-chapter-frame data-folio="08 — 2026">
-        <div class="chapter-register" aria-hidden="true"><span>08</span><svg class="telemetry-glyph telemetry-nodes" viewBox="0 0 96 48"><use href="assets/telemetry.svg#nodes"></use></svg><i></i><b data-i18n="chapterExperiments">實作探索</b><small>NING / 2026</small></div>
-        <div class="section-heading compact reveal"><p class="section-index" data-i18n="experimentsIndex">04 / 實作探索</p><h2 id="experiments-title" data-i18n-html="experimentsTitle"><span class="section-lead">跨越不同領域</span><strong class="section-focus">維持同一種判斷。</strong></h2></div>
+      <section class="experiments-section section-shell" id="experiments" aria-labelledby="experiments-title" data-chapter-frame data-folio="09 — 2026">
+        <div class="chapter-register" aria-hidden="true"><span>09</span><svg class="telemetry-glyph telemetry-nodes" viewBox="0 0 96 48"><use href="assets/telemetry.svg#nodes"></use></svg><i></i><b data-i18n="chapterExperiments">實作探索</b><small>NING / 2026</small></div>
+        <div class="section-heading compact reveal"><p class="section-index" data-i18n="experimentsIndex">09 / 實作探索</p><h2 id="experiments-title" data-i18n-html="experimentsTitle"><span class="section-lead">其他</span><strong class="section-focus">做過的東西。</strong></h2></div>
         <div class="experiment-grid">
           <article class="experiment-card reveal" data-reflective><span data-i18n="exp1Label">機器學習 / 可解釋性</span><h3 data-i18n="exp1Title">生存幾何</h3><p data-i18n="exp1Desc">把乘客視為完整實體，而不是試算表中的單列資料；透過特徵壓力、原型與規則探索解釋預測。</p><a href="https://github.com/Nyannnnning/Kaggle-Titanic-Playground" data-i18n="viewRepo">查看公開程式庫 ↗</a></article>
           <article class="experiment-card reveal" data-reflective><span data-i18n="exp2Label">遊戲 / 模擬</span><h3 data-i18n="exp2Title">碧虎老虎機原型</h3><p data-i18n="exp2Desc">以 PixiJS 製作老虎機原型，並透過百萬局模擬驗證遊戲數學。</p></article>
@@ -654,14 +720,14 @@
         </div>
       </section>
 
-      <section class="github-section" id="github" aria-labelledby="github-title" data-chapter-frame data-folio="09 — 2026">
+      <section class="github-section" id="github" aria-labelledby="github-title" data-chapter-frame data-folio="10 — 2026">
         <div class="github-noise" aria-hidden="true"></div>
-        <div class="chapter-register" aria-hidden="true"><span>09</span><svg class="telemetry-glyph" viewBox="0 0 64 64"><use href="assets/telemetry.svg#calibration"></use></svg><i></i><b data-i18n="chapterGithub">進一步了解</b><small>NING / 2026</small></div>
+        <div class="chapter-register" aria-hidden="true"><span>10</span><svg class="telemetry-glyph" viewBox="0 0 64 64"><use href="assets/telemetry.svg#calibration"></use></svg><i></i><b data-i18n="chapterGithub">進一步了解</b><small>NING / 2026</small></div>
         <div class="section-shell github-inner reveal">
-          <p class="section-index" data-i18n="githubIndex">05 / 進一步了解</p>
-          <h2 id="github-title" data-i18n-html="githubTitle"><span class="section-lead">想看我怎麼做</span><strong class="section-focus">到 GitHub 看公開實作。</strong></h2>
+          <p class="section-index" data-i18n="githubIndex">10 / 進一步了解</p>
+          <h2 id="github-title" data-i18n-html="githubTitle"><span class="section-lead">想看實際的東西</span><strong class="section-focus">去 GitHub。</strong></h2>
           <div class="github-copy">
-            <p class="editorial-intro" data-i18n="githubDesc">網站整理的是我的工作方式與代表案例；GitHub 則放目前能公開的程式庫、實驗與版本紀錄。你可以直接查看我如何拆解問題、驗證假設，以及哪些嘗試最後沒有被採用。</p>
+            <p class="editorial-intro" data-i18n="githubDesc">網站放的是做法和案例。GitHub 放能公開的程式、實驗和版本紀錄，連後來沒採用的嘗試也在裡面。</p>
             <a class="button button-light" href="https://github.com/Nyannnnning"><span data-i18n="followGithub">前往 GitHub</span><span aria-hidden="true">↗</span></a>
           </div>
           <div class="github-ledger" data-reflective aria-label="GitHub 公開實作摘要" data-i18n-aria="githubAria">
@@ -671,12 +737,18 @@
           </div>
         </div>
       </section>
+      <div class="speed-band band-closing" data-speed-band aria-hidden="true">
+        <div class="band-row band-serif" data-band-dir="-1"><span>Define it ✦ Build it ✦ Gate it ✦ Run it daily ✦ Define it ✦ Build it ✦ Gate it ✦ Run it daily ✦</span></div>
+        <div class="band-row band-sans" data-band-dir="1"><span>THANKS FOR SCROLLING ✦ THANKS FOR SCROLLING ✦ THANKS FOR SCROLLING ✦</span></div>
+      </div>
     </main>
 
     <footer class="site-footer">
-      <div><span class="footer-mark">N/</span><p data-i18n-html="footerTagline">FDE 團隊產品協作，<br />建立在現場證據與可驗證交付之上。</p></div>
+      <div><span class="footer-mark">N/</span><svg class="signature" viewBox="0 0 320 120" aria-hidden="true" data-signature>
+          <path pathLength="1" d="M18 92 C24 60 30 34 34 22 C40 52 52 80 64 94 C70 70 74 44 76 28 M96 58 C94 72 94 84 98 92 M98 40 C98 39 99 38 100 38 M120 92 C122 76 124 64 130 58 C140 50 146 62 146 74 C146 82 148 90 152 92 M172 76 C164 64 178 52 188 60 C196 68 190 84 180 86 C172 88 168 80 176 74 C184 70 194 74 196 84 C198 100 188 112 176 110 C166 108 170 98 180 96 C210 92 250 84 300 60" />
+        </svg><p data-i18n-html="footerTagline">FDE 團隊 PM。<br />做出來的東西要能驗證，也要真的有人在用。</p></div>
       <div class="footer-links"><a href="#top" data-i18n="backTop">回到頂端 ↑</a><a href="https://github.com/Nyannnnning">GitHub ↗</a></div>
-      <p class="footer-meta"><span data-i18n="footerMeta">由人主導、與人工智慧協作完成</span> · <span data-year>2026</span></p>
+      <p class="footer-meta"><span data-i18n="footerMeta">我主導，和 AI 一起做完</span> · <span data-year>2026</span></p>
     </footer>
   </body>
 </html>

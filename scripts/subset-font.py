@@ -5,7 +5,8 @@ from fontTools.ttLib import TTFont
 from fontTools.varLib import instancer
 from fontTools import subset
 root = pathlib.Path(__file__).resolve().parent.parent
-src = sys.argv[1]  # path to NotoSansTC-VF.ttf (SIL Open Font License); out = root / "assets/fonts/noto-sans-tc-subset.woff2"
+src = sys.argv[1]  # path to NotoSansTC-VF.ttf (SIL Open Font License)
+out = root / "assets/fonts/noto-sans-tc-subset.woff2"; out = root / "assets/fonts/noto-sans-tc-subset.woff2"
 text = ""
 for f in ["index.html", "translations.js", "labs.js", "script.js"]:
     text += (root / f).read_text(encoding="utf-8")

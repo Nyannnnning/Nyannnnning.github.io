@@ -567,4 +567,192 @@
       if (entries.some((e) => e.isIntersecting)) { run(); obs.disconnect(); }
     }, { threshold: 0.35 }).observe(crawl);
   }
+
+  /* ---------- atlas: skills x projects on two axes ---------- */
+  const atlas = $("[data-atlas]");
+  if (atlas) {
+    const N = (id, kind, x, y, zh, en, dz = "", de = "") => ({ id, kind, x, y, zh, en, dz, de });
+    const nodes = [
+      N("stake", "skill", 190, 95, "跨部門協調", "Stakeholder alignment"),
+      N("adopt", "skill", 300, 62, "導入與教育", "Adoption & enablement"),
+      N("comms", "skill", 70, 150, "內容與溝通", "Content & communication"),
+      N("req", "skill", 370, 150, "需求拆解", "Problem framing"),
+      N("budget", "skill", 110, 250, "採購與成本", "Procurement & cost"),
+      N("accept", "skill", 400, 260, "驗收標準", "Acceptance criteria"),
+      N("gov", "skill", 150, 390, "權限與治理規則", "Access & governance rules"),
+      N("osint", "skill", 70, 500, "市場研究", "Market research"),
+      N("kb", "skill", 330, 565, "知識庫與本體論", "Knowledge base & ontology"),
+      N("gates", "skill", 455, 505, "品質閘門與測試", "Quality gates & testing"),
+      N("orch", "skill", 590, 395, "多代理編排", "Multi-agent orchestration"),
+      N("agent", "skill", 640, 245, "代理設計", "Agent design"),
+      N("front", "skill", 800, 95, "互動前端", "Interactive front end"),
+      N("imgauto", "skill", 900, 190, "影像軟體自動化", "Image-software automation"),
+      N("vision", "skill", 905, 320, "視覺辨識", "Computer vision"),
+      N("browser", "skill", 880, 455, "瀏覽器與 App 自動化", "Browser & app automation"),
+      N("onprem", "skill", 745, 545, "地端模型部署", "On-prem model deployment"),
+      N("data", "skill", 640, 600, "資料管線", "Data pipelines"),
+      N("p_adopt", "project", 225, 190, "部門 AI 導入", "Department AI rollout", "168 張工單交付、50+ 個內部代理上線、30 天活躍率 73%。", "168 tickets delivered, 50+ internal agents, 73% 30-day active rate."),
+      N("p_govplat", "project", 270, 445, "AI 治理平台", "AI governance platform", "用量、成本、身分放在同一個管理畫面，依角色決定能看到什麼。", "Usage, cost and identity in one view, scoped by role."),
+      N("p_bench", "project", 420, 405, "有額度的 LLM 工作台", "LLM workbench with quotas", "模型呼叫走伺服器代理：帳號核准、每日額度、一鍵停用。", "Model calls via a server proxy: approved accounts, daily quotas, one-click kill switch."),
+      N("p_foreman", "project", 520, 310, "代理監工與戰情室", "Agent foreman & war room", "代理全天候施工，閘門把關，一天只批准一次，面板看得到每個代理。", "Agents build around the clock behind gates, one approval a day, every agent visible on a panel."),
+      N("p_proto", "project", 650, 150, "對話原型平台", "Prompt-to-prototype platform", "企劃打一段話，就能在隔離環境玩到遊戲原型。", "A designer types a few lines and plays a prototype built in isolation."),
+      N("p_creative", "project", 790, 280, "素材產線", "Creative pipeline", "四個品牌、1,400+ 項交付，平均每小時約 60 項。", "Four brands, 1,400+ deliverables, about 60 an hour."),
+      N("p_intel", "project", 760, 405, "競品情報與曝光稽核", "Competitor intel & exposure audit", "每天平行巡 200+ 個站台和 App，失敗就阻斷，不發錯的報表。", "Sweeps 200+ sites and apps in parallel daily; fails closed instead of shipping a wrong report."),
+      N("p_assist", "project", 610, 495, "地端商務助手", "On-prem business assistant", "合約、提醒、任務都在公司機房裡處理，雲端只碰合成資料。", "Contracts, reminders and tasks handled on company servers; the cloud only sees synthetic data."),
+      N("p_video", "project", 500, 590, "影片拆解知識庫", "Video breakdown knowledge base", "580+ 支廣告逐格拆成事件，新片開工前先查。", "580+ ads broken into events frame by frame, looked up before a new ad starts."),
+      N("p_anim", "project", 905, 575, "動畫管線", "Animation pipeline", "一張插畫做成骨骼動畫，自動檢查讓迭代越來越少。", "One illustration to skeletal animation, with checks that cut down iterations."),
+    ];
+    const edges = {
+      p_adopt: ["req", "stake", "adopt", "budget", "accept", "comms"],
+      p_govplat: ["gov", "data", "budget", "accept", "browser"],
+      p_bench: ["gov", "agent", "front", "budget"],
+      p_foreman: ["orch", "gates", "agent", "gov", "front"],
+      p_proto: ["agent", "kb", "front", "gates", "req", "orch"],
+      p_creative: ["imgauto", "vision", "orch", "gates", "kb", "req"],
+      p_intel: ["browser", "vision", "data", "gates", "osint", "req"],
+      p_assist: ["onprem", "gov", "data", "agent", "accept"],
+      p_video: ["kb", "vision", "data", "orch"],
+      p_anim: ["imgauto", "gates", "front"],
+    };
+    const byId = Object.fromEntries(nodes.map((n) => [n.id, n]));
+    const links = [];
+    Object.entries(edges).forEach(([p, ss]) => ss.forEach((s) => links.push([p, s])));
+    const neighbors = (id) => links.filter(([a, b]) => a === id || b === id).map(([a, b]) => (a === id ? b : a));
+    const svgNS = "http://www.w3.org/2000/svg";
+    const gE = $("[data-atlas-edges]", atlas);
+    const gN = $("[data-atlas-nodes]", atlas);
+    let selected = "";
+    let filter = "all";
+    const draw = () => {
+      const L = lang();
+      gE.innerHTML = "";
+      gN.innerHTML = "";
+      links.forEach(([a, b]) => {
+        const A = byId[a];
+        const B = byId[b];
+        const p = document.createElementNS(svgNS, "path");
+        const mx = (A.x + B.x) / 2;
+        const my = (A.y + B.y) / 2 - 18;
+        p.setAttribute("d", `M${A.x} ${A.y} Q${mx} ${my} ${B.x} ${B.y}`);
+        p.dataset.a = a;
+        p.dataset.b = b;
+        gE.append(p);
+      });
+      nodes.forEach((n) => {
+        const g = document.createElementNS(svgNS, "g");
+        g.setAttribute("class", `atlas-node ${n.kind}`);
+        g.setAttribute("tabindex", "0");
+        g.setAttribute("role", "button");
+        g.dataset.id = n.id;
+        const label = L === "en" ? n.en : n.zh;
+        g.setAttribute("aria-label", label);
+        const shape = n.kind === "project" ? document.createElementNS(svgNS, "rect") : document.createElementNS(svgNS, "circle");
+        if (n.kind === "project") {
+          shape.setAttribute("x", n.x - 9); shape.setAttribute("y", n.y - 9); shape.setAttribute("width", 18); shape.setAttribute("height", 18); shape.setAttribute("rx", 3);
+        } else {
+          shape.setAttribute("cx", n.x); shape.setAttribute("cy", n.y); shape.setAttribute("r", 7);
+        }
+        const t = document.createElementNS(svgNS, "text");
+        const right = n.x < 860;
+        t.setAttribute("x", right ? n.x + 15 : n.x - 15);
+        t.setAttribute("y", n.y + 5);
+        t.setAttribute("text-anchor", right ? "start" : "end");
+        t.textContent = label;
+        g.append(shape, t);
+        const pick = () => select(n.id);
+        g.addEventListener("click", pick);
+        g.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(); } });
+        g.addEventListener("pointerenter", () => hover(n.id));
+        g.addEventListener("pointerleave", () => hover(""));
+        gN.append(g);
+      });
+      paint();
+      detail();
+    };
+    let hovered = "";
+    const hover = (id) => { hovered = id; paint(); };
+    const paint = () => {
+      const focus = hovered || selected;
+      const near = focus ? new Set([focus, ...neighbors(focus)]) : null;
+      $$(".atlas-node", gN).forEach((g) => {
+        const n = byId[g.dataset.id];
+        const filtered = filter !== "all" && n.kind !== filter;
+        g.classList.toggle("dim", Boolean((near && !near.has(n.id)) || filtered));
+        g.classList.toggle("on", n.id === focus);
+      });
+      $$("path", gE).forEach((p) => {
+        const hot = focus && (p.dataset.a === focus || p.dataset.b === focus);
+        p.classList.toggle("hot", Boolean(hot));
+        p.classList.toggle("dim", Boolean(focus && !hot) || filter !== "all");
+      });
+    };
+    const detail = () => {
+      const L = lang();
+      const kindEl = $("[data-atlas-kind]", atlas);
+      const nameEl = $("[data-atlas-name]", atlas);
+      const descEl = $("[data-atlas-desc]", atlas);
+      const list = $("[data-atlas-links]", atlas);
+      if (!selected) {
+        kindEl.dataset.i18n = "atlasHint"; kindEl.textContent = t("atlasHint");
+        nameEl.textContent = "—";
+        descEl.dataset.i18n = "atlasHintText"; descEl.textContent = t("atlasHintText");
+        list.innerHTML = "";
+        return;
+      }
+      const n = byId[selected];
+      delete kindEl.dataset.i18n;
+      delete descEl.dataset.i18n;
+      kindEl.textContent = t(n.kind === "project" ? "atlasKindProject" : "atlasKindSkill");
+      nameEl.textContent = L === "en" ? n.en : n.zh;
+      const nb = neighbors(n.id);
+      descEl.textContent = n.kind === "project" ? (L === "en" ? n.de : n.dz) : t("atlasSkillUsed").replace("{n}", String(nb.length));
+      list.innerHTML = "";
+      nb.forEach((id) => {
+        const li = document.createElement("li");
+        const b = document.createElement("button");
+        b.type = "button";
+        b.textContent = L === "en" ? byId[id].en : byId[id].zh;
+        b.className = byId[id].kind;
+        b.addEventListener("click", () => select(id));
+        li.append(b);
+        list.append(li);
+      });
+    };
+    const select = (id) => { selected = selected === id ? "" : id; paint(); detail(); };
+    $$("[data-atlas-filter]", atlas).forEach((b) => b.addEventListener("click", () => {
+      $$("[data-atlas-filter]", atlas).forEach((x) => x.setAttribute("aria-checked", String(x === b)));
+      filter = b.dataset.atlasFilter;
+      paint();
+    }));
+    draw();
+    onLanguage.push(draw);
+  }
+
+  /* ---------- speed bands (scroll-linked, opposite directions) ---------- */
+  const bands = $$("[data-speed-band]");
+  let bandFrame = 0;
+  const moveBands = () => {
+    bandFrame = 0;
+    bands.forEach((band) => {
+      const r = band.getBoundingClientRect();
+      if (r.bottom < -200 || r.top > innerHeight + 200) return;
+      const k = (innerHeight - r.top) / (innerHeight + r.height);
+      $$(".band-row", band).forEach((row) => {
+        const dir = Number(row.dataset.bandDir);
+        row.style.transform = `translate3d(${(dir * (k * 30 - 15)).toFixed(2)}%,0,0)`;
+      });
+    });
+  };
+  if (bands.length && !reduced.matches) {
+    moveBands();
+    window.addEventListener("scroll", () => { if (!bandFrame) bandFrame = requestAnimationFrame(moveBands); }, { passive: true });
+  }
+
+  /* ---------- signature draws itself when the footer appears ---------- */
+  const signature = $("[data-signature]");
+  if (signature) {
+    new IntersectionObserver((entries, obs) => {
+      if (entries.some((e) => e.isIntersecting)) { signature.classList.add("drawn"); obs.disconnect(); }
+    }, { threshold: 0.6 }).observe(signature);
+  }
 })();

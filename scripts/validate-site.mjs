@@ -10,7 +10,7 @@ const telemetry = await readFile(new URL("assets/telemetry.svg", root), "utf8");
 const translationsSource = await readFile(new URL("translations.js", root), "utf8");
 
 const failures = [];
-const requiredIds = ["main", "top", "impact", "governance", "embedded", "automation", "work", "system", "trajectory", "github"];
+const requiredIds = ["main", "top", "impact", "governance", "embedded", "automation", "work", "atlas", "system", "trajectory", "github"];
 
 for (const id of requiredIds) {
   if (!index.includes(`id="${id}"`)) failures.push(`Missing required id: ${id}`);
@@ -57,7 +57,7 @@ if (!styles.includes("safe-area-inset-top")) failures.push("Missing iOS safe-are
 if (!styles.includes(".js-ready .radar-rig.reveal")) failures.push("Missing immediate mobile radar rendering");
 if ((index.match(/class="timeline-glyph"/g) ?? []).length !== 7) failures.push("Missing trajectory telemetry rails");
 if (!index.includes("data-telemetry-progress")) failures.push("Missing scroll-linked telemetry navigation");
-if ((index.match(/data-progress-link=/g) ?? []).length !== 9) failures.push("Missing telemetry chapter links");
+if ((index.match(/data-progress-link=/g) ?? []).length !== 10) failures.push("Missing telemetry chapter links");
 if (!index.includes('id="experiments"')) failures.push("Missing experiments chapter anchor");
 if (!script.includes("renderTelemetryProgress")) failures.push("Missing scroll-linked telemetry controller");
 if (!script.includes("requestAnimationFrame(renderTelemetryProgress)")) failures.push("Missing frame-synced telemetry progress");
@@ -85,14 +85,14 @@ if (!styles.includes("governance-route")) failures.push("Missing governance rout
 if (!index.includes("data-hero-portrait")) failures.push("Missing hero portrait layer");
 if (!styles.includes("portrait-sheen")) failures.push("Missing masked portrait material pass");
 if ((styles.match(/hero-silver-sentinel\.webp/g) ?? []).length > 0) failures.push("Hero image should not be decoded again as a CSS mask");
-if ((index.match(/data-chapter-frame/g) ?? []).length !== 9) failures.push("Missing editorial chapter frames");
+if ((index.match(/data-chapter-frame/g) ?? []).length !== 10) failures.push("Missing editorial chapter frames");
 if (!script.includes("chapterObserver")) failures.push("Missing chapter transition observer");
 if (!styles.includes("chapter-register")) failures.push("Missing editorial chapter register system");
 if (!styles.includes("@keyframes radar-sweep")) failures.push("Missing cockpit radar sweep treatment");
 if (`${index}\n${translationsSource}`.includes("NING.FDE")) failures.push("Overstated FDE wordmark found");
-if (!translationsSource.includes('class="hero-focus">field friction</strong>')) failures.push("Missing deliberate English hero hierarchy");
-if ((index.match(/class="section-lead"/g) ?? []).length !== 9) failures.push("Missing section title lead hierarchy");
-if ((index.match(/class="section-focus"/g) ?? []).length !== 9) failures.push("Missing section title focus hierarchy");
+if (!translationsSource.includes('class="hero-focus">messy requests</strong>')) failures.push("Missing deliberate English hero hierarchy");
+if ((index.match(/class="section-lead"/g) ?? []).length !== 10) failures.push("Missing section title lead hierarchy");
+if ((index.match(/class="section-focus"/g) ?? []).length !== 10) failures.push("Missing section title focus hierarchy");
 if (!script.includes("requestIdleCallback")) failures.push("Missing deferred hero shader loading");
 if (!script.includes("motionZoneObserver")) failures.push("Missing offscreen animation lifecycle");
 if (!styles.includes("contain: layout paint")) failures.push("Missing component rendering containment");
@@ -101,7 +101,7 @@ if (!index.includes('class="radar-rig reveal"')) failures.push("Missing integrat
 for (const symbol of ["reticle", "waveform", "bearing", "nodes", "calibration", "radar-frame", "umbilical"]) {
   if (!telemetry.includes(`id="${symbol}"`)) failures.push(`Missing telemetry symbol: ${symbol}`);
 }
-if ((index.match(/class="telemetry-glyph/g) ?? []).length !== 9) failures.push("Missing chapter telemetry glyph system");
+if ((index.match(/class="telemetry-glyph/g) ?? []).length !== 10) failures.push("Missing chapter telemetry glyph system");
 if (!styles.includes("border-radius: 18px 18px 28px 18px")) failures.push("Missing rounded case module treatment");
 if (`${index}\n${translationsSource}`.includes("追蹤 GitHub 整理進度")) failures.push("Stale GitHub CTA copy found");
 
