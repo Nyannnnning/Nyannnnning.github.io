@@ -314,7 +314,10 @@
       const data = ctx.getImageData(x, y, w, hh).data;
       const textL = lum(...parseRgb(getComputedStyle(head).color));
       const lums = [];
-      for (let i = 0; i < data.length; i += 4) lums.push(lum(data[i], data[i + 1], data[i + 2]));
+      // Include the copy scrim (if any) so the number reflects what readers actually see.
+      const scrim = { tp: [3, 36, 66, 0.5] }[banner.dataset.product];
+      const mix = (v, k) => (scrim ? v * (1 - scrim[3]) + scrim[k] * scrim[3] : v);
+      for (let i = 0; i < data.length; i += 4) lums.push(lum(mix(data[i], 0), mix(data[i + 1], 1), mix(data[i + 2], 2)));
       lums.sort((p, q) => Math.abs(p - textL) - Math.abs(q - textL));
       const worst = lums[Math.floor(lums.length * 0.05)] ?? lums[0];
       const r = ratio(textL, worst);
@@ -342,7 +345,7 @@
       if (el) { el.dataset.i18n = keys[i]; el.textContent = t(keys[i]); }
     });
     if (bannerImg) {
-      const src = `assets/demo/${p}-${banner.dataset.size}.webp`;
+      const src = `assets/demo/${p}-${banner.dataset.size}.webp?v=2`;
       if (!bannerImg.src.endsWith(src)) bannerImg.src = src;
       else requestAnimationFrame(measureBanner);
     }

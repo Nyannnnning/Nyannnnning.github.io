@@ -239,8 +239,26 @@ body[data-language="zh"] .manifesto-line { font: 800 clamp(2rem, 4.8vw, 5.2rem)/
 .safe-frame { position: absolute; inset: 5%; border: 1px dashed rgba(255,255,255,.0); pointer-events: none; z-index: 3; transition: border-color .3s ease; }
 .banner-stage:hover .safe-frame { border-color: rgba(255,80,40,.55); }
 .banner-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.banner[data-product="tp"] { background: #bfeee6; color: #0c2a3a; }
-.banner[data-product="tp"] .banner-copy em { background: #0c2a3a; color: #e9fbf7; }
+.banner[data-product="tp"] { background: #1b8ea0; color: #ffffff; }
+.banner[data-product="tp"] .banner-copy strong { font-weight: 900; letter-spacing: -.03em; text-shadow: 0 2px 18px rgba(4,40,60,.35); }
+.banner[data-product="tp"] .banner-copy small { color: #d9fbff; }
+.banner[data-product="tp"] .banner-copy em { background: #ffffff; color: #0a3d8f; box-shadow: 0 6px 18px rgba(4,40,60,.25); }
+.banner[data-product="tp"]::before {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(90deg, rgba(3,36,66,.62) 0%, rgba(3,36,66,.5) 42%, rgba(3,36,66,0) 64%);
+}
+.banner[data-size="square"][data-product="tp"]::before, .banner[data-size="story"][data-product="tp"]::before {
+  background: linear-gradient(180deg, rgba(3,36,66,.62) 0%, rgba(3,36,66,.5) 34%, rgba(3,36,66,0) 54%);
+}
+.banner[data-product="tp"]::after {
+  content: "NEW"; position: absolute; z-index: 3; display: grid; place-items: center;
+  width: 12cqw; aspect-ratio: 1; border-radius: 50%; right: 4%; top: 6%;
+  background: radial-gradient(circle at 35% 30%, #ffffff, #e8f6ff 60%, #c4e2f5);
+  color: #0a3d8f; font: 900 clamp(8px, 2.6cqw, 18px) var(--sans); letter-spacing: .04em;
+  box-shadow: 0 6px 16px rgba(4,40,60,.25), inset 0 0 0 2px rgba(10,61,143,.15);
+}
+.banner[data-size="square"][data-product="tp"]::after { top: auto; bottom: 7%; right: auto; left: 6%; width: 14cqw; }
+.banner[data-size="story"][data-product="tp"]::after { top: auto; bottom: 6%; right: auto; left: 7%; width: 20cqw; font-size: clamp(8px, 4cqw, 16px); }
 .banner[data-product="al"] { background: #120c22; color: #f6efe4; }
 .banner[data-product="al"] .banner-copy strong { font-family: var(--serif); font-weight: 400; letter-spacing: .02em; }
 .banner[data-product="al"] .banner-copy em { background: #f2b36b; color: #1a1233; }
